@@ -74,10 +74,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-webpack-deploy-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Nginx-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/10/15/webpack-deploy-1/" class="article-date">
-  <time class="dt-published" datetime="2021-10-15T13:50:15.000Z" itemprop="datePublished">2021-10-15</time>
+    <a href="/2021/10/25/Nginx-linux/" class="article-date">
+  <time class="dt-published" datetime="2021-10-25T14:35:16.000Z" itemprop="datePublished">2021-10-25</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/10/15/webpack-deploy-1/">webpack-deploy-1</a>
+      <a class="p-name article-title" href="/2021/10/25/Nginx-linux/">Nginx-linux</a>
     </h1>
   
 
@@ -96,128 +96,99 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="从0搭建自己的webpack开发环境"><a href="#从0搭建自己的webpack开发环境" class="headerlink" title="从0搭建自己的webpack开发环境"></a>从0搭建自己的webpack开发环境</h1><h2 id="1-什么是Webpack？"><a href="#1-什么是Webpack？" class="headerlink" title="1.什么是Webpack？"></a>1.什么是Webpack？</h2><p>webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler),当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle<br><img src="/lixingyang-lxy.github.io/../images/webpack-deploy-1/webpack.jpeg"></p>
-<p>使用Webpack作为前端构建工具：</p>
+        <h2 id="Linux系统上安装JDK："><a href="#Linux系统上安装JDK：" class="headerlink" title="Linux系统上安装JDK："></a><em>Linux系统上安装JDK：</em></h2><h3 id="1-1-安装步骤："><a href="#1-1-安装步骤：" class="headerlink" title="1.1  安装步骤："></a><strong>1.1</strong>  <em>安装步骤：</em></h3><h4 id="1-1-1-卸载OpenJDK"><a href="#1-1-1-卸载OpenJDK" class="headerlink" title="1.1.1 卸载OpenJDK"></a><strong>1.1.1</strong> <em>卸载OpenJDK</em></h4><p>执行命令查看:</p>
 <ul>
-<li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等。</li>
-<li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等。</li>
-<li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载。</li>
-<li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要构建功能把模块分类合并成一个文件。</li>
-<li>自动刷新：监听本地源代码的变化，自动重新构建、刷新浏览器。</li>
-<li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
-<li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
+<li>rpm –qa | grep java  查看和java相关的包</li>
 </ul>
-<p><strong>在<code>webpack</code>应用中有两个核心</strong>:</p>
+<p><img src="/../images/Nginx-linux/wpsE1BE.tmp.jpg" alt="img"> </p>
 <ul>
-<li><ol>
-<li>模块转换器，用于把模块原内容按照需求转换成新内容，可以加载非 JS 模块</li>
-</ol>
+<li>卸载OPENJDK</li>
+</ul>
+<p><img src="/../images/Nginx-linux/wpsE1BF.tmp.jpg" alt="img"> </p>
+<h4 id="1-1-2-创建JDK的安装路径："><a href="#1-1-2-创建JDK的安装路径：" class="headerlink" title="1.1.2 创建JDK的安装路径："></a><strong>1.1.2</strong> <em>创建JDK的安装路径：</em></h4><p>在/usr/local/  创建文件夹java</p>
+<p>mkdir java</p>
+<p><strong>1.1.3</strong>  <em>传安装文件到linux:</em></p>
+<p><img src="/../images/Nginx-linux/wpsE1C0.tmp.jpg" alt="img"> </p>
+<ul>
+<li><p>cd ~</p>
 </li>
-<li><ol start="2">
-<li>扩展插件，在 Webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想要的事情。</li>
-</ol>
+<li><p>ll</p>
 </li>
 </ul>
-<h2 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2.初始化项目"></a>2.初始化项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">├── src   <span class="comment"># 源码目录</span></span><br><span class="line">│   ├── a-module.js</span><br><span class="line">│   └── index.js</span><br></pre></td></tr></table></figure>
-
-<p>编写 <em>a-module.js</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="string">&#x27;hello&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>编写 <em>index.js</em> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a-module&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里我们使用<code>CommonJS</code>模块的方式引入，这种方式默认在浏览器上是无法运行的，我们希望通过 <code>webpack</code> 来进行打包！</p>
-</blockquote>
-<h2 id="3-webpack快速上手"><a href="#3-webpack快速上手" class="headerlink" title="3.webpack快速上手"></a>3.webpack快速上手</h2><h3 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line">npm install webpack webpack-cli --save-dev </span><br></pre></td></tr></table></figure>
-
-<p><code>webpack</code>默认支持0配置,配置<code>scripts</code>脚本</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>npm run build</code>,默认会调用 <code>node_modules/.bin</code>下的<code>webpack</code>命令，内部会调用<code>webpack-cli</code>解析用户参数进行打包。默认会以 <code>src/index.js</code> 作为入口文件。</p>
-<blockquote>
-<p>这里也可以使用<code>npx webpack</code>,<code>npx</code> 是 5.2版本之后<code>npm</code>提供的命令可以执行<code>.bin</code>下的可执行文件</p>
-</blockquote>
-<p><img src="http://img.fullstackjavascript.cn/webpack1.png"></p>
-<p>我们可以发现已经产生了<code>dist</code>目录，此目录为最终打包出的结果。<code>main.js</code>可以在html中直接引用,这里还提示我们默认<code>mode</code> 为<code>production</code></p>
-<h3 id="3-2-webpack-config-js"><a href="#3-2-webpack-config-js" class="headerlink" title="3.2 webpack.config.js"></a>3.2 webpack.config.js</h3><p>我们打包时一般不会采用0配置，<code>webpack</code>在打包时默认会查找当前目录下的 <code>webpack.config.js or webpackfile.js</code> 文件。</p>
-<p>通过配置文件进行打包</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">entry</span>:<span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;bundle.js&#x27;</span>, <span class="comment">// 打包出的结果文件</span></span><br><span class="line">        <span class="attr">path</span>:path.resolve(__dirname,<span class="string">&#x27;dist&#x27;</span>) <span class="comment">// 打包到dist目录下</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-配置打包的mode"><a href="#3-3-配置打包的mode" class="headerlink" title="3.3 配置打包的mode"></a>3.3 配置打包的mode</h3><p>我们需要在打包时提供<code>mode</code>属性来区分是开发环境还是生产环境,来实现配置文件的拆分</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├── build</span><br><span class="line">│   ├── webpack.base.js</span><br><span class="line">│   ├── webpack.dev.js</span><br><span class="line">│   └── webpack.prod.js</span><br></pre></td></tr></table></figure>
-
-<p><strong>我们可以通过指定不同的文件来进行打包</strong></p>
-<p>配置<code>scripts</code>脚本</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.prod&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dev&quot;</span>: <span class="string">&quot;webpack --config ./build/webpack.dev&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以通过 <code>config</code> 参数指定,使用哪个配置文件来进行打包 </p>
-<p><strong>通过env参数区分</strong></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack --env.production --config ./build/webpack.base&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dev&quot;</span>: <span class="string">&quot;webpack --env.development --config ./build/webpack.base&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>改造<code>webpack.base</code>文件默认导出函数，会将环境变量传入到函数的参数中</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(env); <span class="comment">// &#123; development: true &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>合并配置文件</strong></p>
-<p>我们可以判断当前环境是否是开发环境来加载不同的配置,这里我们需要做配置合并<br>安装<code>webpack-merge</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-merge --save-dev</span><br></pre></td></tr></table></figure>
-
-<p><code>webpack.dev</code>配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>webpack.prod</code>配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;production&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>webpack.base</code>配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">&#x27;webpack-merge&#x27;</span>);</span><br><span class="line"><span class="comment">// 开发环境</span></span><br><span class="line"><span class="keyword">const</span> dev = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.dev&#x27;</span>);</span><br><span class="line"><span class="comment">// 生产环境</span></span><br><span class="line"><span class="keyword">const</span> prod = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.prod&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> base = &#123; <span class="comment">// 基础配置</span></span><br><span class="line">    <span class="attr">entry</span>:<span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>:&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>:path.resolve(__dirname,<span class="string">&#x27;../dist&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">env</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(env.development)&#123;</span><br><span class="line">        <span class="keyword">return</span> merge(base,dev);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> merge(base,prod)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>后续的开发中，我们会将公共的逻辑放到<code>base</code>中,开发和生产对的配置也分别进行存放！</p>
-<h2 id="4-webpack-dev-server"><a href="#4-webpack-dev-server" class="headerlink" title="4.webpack-dev-server"></a>4.webpack-dev-server</h2><p>配置开发服务器，可以在实现在内存中打包,并且自动启动服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-dev-server --save-dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;webpack --env.production --config ./build/webpack.base&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dev&quot;</span>: <span class="string">&quot;webpack-dev-server --env.development --config ./build/webpack.base&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过执行<code>npm run dev</code>来启启动开发环境</p>
-<p><img src="http://img.fullstackjavascript.cn/webpack2.png"></p>
-<p>默认会在当前根目录下启动服务</p>
-<p><strong>配置开发服务的配置</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="attr">devServer</span>:&#123;</span><br><span class="line">        <span class="comment">// 更改静态文件目录位置</span></span><br><span class="line">        <span class="attr">contentBase</span>:path.resolve(__dirname,<span class="string">&#x27;../dist&#x27;</span>),</span><br><span class="line">        <span class="attr">compress</span>:<span class="literal">true</span>, <span class="comment">// 开启gzip</span></span><br><span class="line">        <span class="attr">port</span>:<span class="number">3000</span>, <span class="comment">// 更改端口号</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-打包Html插件"><a href="#5-打包Html插件" class="headerlink" title="5.打包Html插件"></a>5.打包Html插件</h2><h3 id="5-1-单入口打包"><a href="#5-1-单入口打包" class="headerlink" title="5.1 单入口打包"></a>5.1 单入口打包</h3><p>自动产生html，并引入打包后的文件</p>
-<p>编辑<code>webpack.base</code>文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line">plugins:[</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">        <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span>, <span class="comment">// 打包出来的文件名</span></span><br><span class="line">        <span class="attr">template</span>:path.resolve(__dirname,<span class="string">&#x27;../public/index.html&#x27;</span>),</span><br><span class="line">        <span class="attr">hash</span>:<span class="literal">true</span>, <span class="comment">// 在引用资源的后面增加hash戳</span></span><br><span class="line">        <span class="attr">minify</span>:&#123;</span><br><span class="line">            <span class="attr">removeAttributeQuotes</span>:<span class="literal">true</span> <span class="comment">// 删除属性双引号</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-2-多入口打包"><a href="#5-2-多入口打包" class="headerlink" title="5.2 多入口打包"></a>5.2 多入口打包</h3><p>根据不同入口 生成多个js文件，引入到不同html中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">── src</span><br><span class="line">    ├── entry-1.js</span><br><span class="line">    └── entry-2.js</span><br></pre></td></tr></table></figure>
-
-<p>多入口需要配置多个entry</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">entry:&#123;</span><br><span class="line">    <span class="attr">jquery</span>:[<span class="string">&#x27;jquery&#x27;</span>], <span class="comment">// 打包jquery</span></span><br><span class="line">    <span class="attr">entry1</span>:path.resolve(__dirname,<span class="string">&#x27;../src/entry-1.js&#x27;</span>),</span><br><span class="line">    <span class="attr">entry2</span>:path.resolve(__dirname,<span class="string">&#x27;../src/entry-2.js&#x27;</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">output</span>:&#123;</span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>:path.resolve(__dirname,<span class="string">&#x27;../dist&#x27;</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>产生多个Html文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;index.html&#x27;</span>, </span><br><span class="line">    <span class="attr">template</span>:path.resolve(__dirname,<span class="string">&#x27;../public/template.html&#x27;</span>),</span><br><span class="line">    <span class="attr">hash</span>:<span class="literal">true</span>, </span><br><span class="line">    <span class="attr">minify</span>:&#123;</span><br><span class="line">        <span class="attr">removeAttributeQuotes</span>:<span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">chunks</span>:[<span class="string">&#x27;jquery&#x27;</span>,<span class="string">&#x27;entry1&#x27;</span>], <span class="comment">// 引入的chunk 有jquery,entry</span></span><br><span class="line">&#125;),</span><br><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    <span class="attr">filename</span>:<span class="string">&#x27;login.html&#x27;</span>,</span><br><span class="line">    <span class="attr">template</span>:path.resolve(__dirname,<span class="string">&#x27;../public/template.html&#x27;</span>),</span><br><span class="line">    <span class="attr">hash</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="attr">minify</span>:&#123;</span><br><span class="line">        <span class="attr">removeAttributeQuotes</span>:<span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">inject</span>:<span class="literal">false</span>, <span class="comment">// inject 为false表示不注入js文件</span></span><br><span class="line">    <span class="attr">chunksSortMode</span>:<span class="string">&#x27;manual&#x27;</span>, <span class="comment">// 手动配置代码块顺序</span></span><br><span class="line">    <span class="attr">chunks</span>:[<span class="string">&#x27;entry2&#x27;</span>,<span class="string">&#x27;jquery&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>以上的方式不是很优雅，每次都需要手动添加<code>HtmlPlugin</code>应该动态产生<code>html</code>文件，像这样:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> htmlPlugins = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&quot;entry1&quot;</span>,</span><br><span class="line">    <span class="attr">html</span>: <span class="string">&quot;index.html&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&quot;entry2&quot;</span>,</span><br><span class="line">    <span class="attr">html</span>: <span class="string">&quot;login.html&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">].map(</span><br><span class="line">  <span class="function"><span class="params">item</span> =&gt;</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="attr">filename</span>: item.html,</span><br><span class="line">      <span class="attr">template</span>: path.resolve(__dirname, <span class="string">&quot;../public/template.html&quot;</span>),</span><br><span class="line">      <span class="attr">hash</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">minify</span>: &#123;</span><br><span class="line">        <span class="attr">removeAttributeQuotes</span>: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">chunks</span>: [<span class="string">&quot;jquery&quot;</span>, item.entry]</span><br><span class="line">    &#125;)</span><br><span class="line">);</span><br><span class="line">plugins: [...htmlPlugins]</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="6-清空打包结果"><a href="#6-清空打包结果" class="headerlink" title="6.清空打包结果"></a>6.清空打包结果</h2><p>可以使用<code>clean-webpack-plugin</code>手动清除某个文件夹内容:</p>
-<p><strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev clean-webpack-plugin</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>);</span><br><span class="line"><span class="keyword">new</span> CleanWebpackPlugin(&#123;</span><br><span class="line">    <span class="comment">// 清空匹配的路径</span></span><br><span class="line">    <span class="attr">cleanOnceBeforeBuildPatterns</span>: [path.resolve(<span class="string">&#x27;xxxx/*&#x27;</span>),<span class="string">&#x27;**/*&#x27;</span>],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以清空指定的目录了,我们可以看到<code>webpack</code>插件的基本用法就是 <code>new Plugin</code>并且放到<code>plugins</code>中</p>
+<p><img src="/../images/Nginx-linux/wpsE1C1.tmp.jpg" alt="img"> </p>
+<h4 id="1-1-4-解压tar-gz"><a href="#1-1-4-解压tar-gz" class="headerlink" title="1.1.4  解压tar.gz"></a><strong>1.1.4</strong>  <em>解压tar.gz</em></h4><p>首先需要安装依赖：</p>
+<p>l yum install glibc.i686</p>
+<p>l tar –xvf xxx.tar.gz –C /usr/local/java</p>
+<h4 id="1-1-5-配置环境变量："><a href="#1-1-5-配置环境变量：" class="headerlink" title="1.1.5 配置环境变量："></a><strong>1.1.5</strong> <em>配置环境变量：</em></h4><p>vim /etc/profile</p>
+<p>​    #set java environment</p>
+<p>​    JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</p>
+<p>​    CLASSPATH=.:$JAVA_HOME/lib.tools.jar</p>
+<p>​    PATH=$JAVA_HOME/bin:$PATH</p>
+<p>​    export JAVA_HOME CLASSPATH PATH</p>
+<p>重新加载配置文件：</p>
+<p>source /etc/profile</p>
+<h2 id="Linux系统上安装MySQL"><a href="#Linux系统上安装MySQL" class="headerlink" title="Linux系统上安装MySQL:"></a><em>Linux系统上安装MySQL:</em></h2><h3 id="1-2-安装MySQL"><a href="#1-2-安装MySQL" class="headerlink" title="1.2 安装MySQL:"></a><strong>1.2</strong> <em>安装MySQL:</em></h3><h4 id="1-2-1-上传mysql到Linux"><a href="#1-2-1-上传mysql到Linux" class="headerlink" title="1.2.1 上传mysql到Linux:"></a><strong>1.2.1</strong> <em>上传mysql到Linux:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D1.tmp.jpg" alt="img"> </p>
+<h4 id="1-2-1-2-卸载自带mysql"><a href="#1-2-1-2-卸载自带mysql" class="headerlink" title="1.2.1.2 卸载自带mysql:"></a><strong>1.2.1.2</strong> <em>卸载自带mysql:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D2.tmp.jpg" alt="img"> </p>
+<h4 id="1-2-3-创建mysql的安装路径："><a href="#1-2-3-创建mysql的安装路径：" class="headerlink" title="1.2.3 创建mysql的安装路径："></a><strong>1.2.3</strong> <em>创建mysql的安装路径：</em></h4><p>Mkdir mysql</p>
+<h4 id="1-2-4-解压mysql："><a href="#1-2-4-解压mysql：" class="headerlink" title="1.2.4 解压mysql："></a><strong>1.2.4</strong> <em>解压mysql：</em></h4><p>tar -xvf MySQL-5.6.22-1.el6.i686.rpm-bundle.tar -C /usr/local/mysql</p>
+<h4 id="1-2-5-安装依赖："><a href="#1-2-5-安装依赖：" class="headerlink" title="1.2.5 安装依赖："></a><strong>1.2.5</strong> <em>安装依赖：</em></h4><p>yum -y install libaio.so.1 libgcc_s.so.1 libstdc++.so.6</p>
+<p>yum  update libstdc++-4.4.7-4.el6.x86_64</p>
+<h4 id="1-6-安装mysql的服务端："><a href="#1-6-安装mysql的服务端：" class="headerlink" title="1..6 安装mysql的服务端："></a><strong>1..6</strong> <em>安装mysql的服务端：</em></h4><p>rpm -ivh MySQL-server-5.6.22-1.el6.i686.rpm</p>
+<h4 id="1-2-7-安装mysql的客户端："><a href="#1-2-7-安装mysql的客户端：" class="headerlink" title="1.2.7 安装mysql的客户端："></a><strong>1.2.7</strong> <em>安装mysql的客户端：</em></h4><p>rpm -ivh MySQL-client-5.6.22-1.el6.i686.rpm</p>
+<h4 id="1-2-8-启动mysql的服务："><a href="#1-2-8-启动mysql的服务：" class="headerlink" title="1.2.8 启动mysql的服务："></a><strong>1.2.8</strong> <em>启动mysql的服务：</em></h4><p>service mysql status</p>
+<p>service mysql start</p>
+<h4 id="1-2-9-登录mysql"><a href="#1-2-9-登录mysql" class="headerlink" title="1.2.9 登录mysql:"></a><strong>1.2.9</strong> <em>登录mysql:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D3.tmp.jpg" alt="img"> </p>
+<p>产生一个随机的密码存放在/root/.mysql_secret</p>
+<p>查看密码进行登录:</p>
+<p>msyql –u root -p</p>
+<p>修改密码：</p>
+<p>set password = password(‘123456’);</p>
+<h4 id="1-2-10-设置开机自动启动mysql"><a href="#1-2-10-设置开机自动启动mysql" class="headerlink" title="1.2.10 设置开机自动启动mysql:"></a><strong>1.2.10</strong> <em>设置开机自动启动mysql:</em></h4><p>加入到系统服务：</p>
+<p>chkconfig –add mysql</p>
+<p>自动启动：</p>
+<p>chkconfig mysql on</p>
+<h4 id="1-2-11-开启远程服务："><a href="#1-2-11-开启远程服务：" class="headerlink" title="1.2.11 开启远程服务："></a><strong>1.2.11</strong> <em>开启远程服务：</em></h4><p>登录mysql授权可以远程访问:</p>
+<p>grant all privileges on <em>.</em> to ‘root’ @’%’ identified by ‘123456’;</p>
+<p>flush privileges;</p>
+<h4 id="1-2-12-设置Linux的防火墙"><a href="#1-2-12-设置Linux的防火墙" class="headerlink" title="1.2.12 设置Linux的防火墙:"></a><strong>1.2.12</strong> <em>设置Linux的防火墙:</em></h4><p>3306端口放行 且将该设置添加到防火墙的规则中</p>
+<p>/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<h2 id="Linux系统上安装tomcat："><a href="#Linux系统上安装tomcat：" class="headerlink" title="Linux系统上安装tomcat："></a><em>Linux系统上安装tomcat：</em></h2><h3 id="1-3-安装tomcat"><a href="#1-3-安装tomcat" class="headerlink" title="1.3 安装tomcat:"></a><strong>1.3</strong> <em>安装tomcat:</em></h3><h4 id="1-3-1-上传tomcat的安装文件："><a href="#1-3-1-上传tomcat的安装文件：" class="headerlink" title="1.3.1 上传tomcat的安装文件："></a><strong>1.3.1</strong> <em>上传tomcat的安装文件：</em></h4><h4 id="1-3-2-创建tomcat的安装路径："><a href="#1-3-2-创建tomcat的安装路径：" class="headerlink" title="1.3.2 创建tomcat的安装路径："></a><strong>1.3.2</strong> <em>创建tomcat的安装路径：</em></h4><p>在/usr/local 下mkdir tomcat</p>
+<h4 id="1-3-3-解压tomcat"><a href="#1-3-3-解压tomcat" class="headerlink" title="1.3.3 解压tomcat"></a><strong>1.3.3</strong> <em>解压tomcat</em></h4><p>tar –xvf xxx.tar.gz –C /usr/local/tomcat</p>
+<h4 id="1-3-4-设置防火墙："><a href="#1-3-4-设置防火墙：" class="headerlink" title="1.3.4 设置防火墙："></a><strong>1.3.4</strong> <em>设置防火墙：</em></h4><p>/sbin/iptables -I INPUT -p tcp –dport 8080 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<h4 id="1-3-5-启动tomcat："><a href="#1-3-5-启动tomcat：" class="headerlink" title="1.3.5 启动tomcat："></a><strong>1.3.5</strong> <em>启动tomcat：</em></h4><p>进入到tomcat/bin</p>
+<p>执行 ./startup.sh</p>
+<p>关闭tomcat</p>
+<p>执行 ./shutdown.sh</p>
+<h2 id="发布项目到Linux："><a href="#发布项目到Linux：" class="headerlink" title="发布项目到Linux："></a><em>发布项目到Linux：</em></h2><h3 id="1-4-1-将数据库还原到Linux上："><a href="#1-4-1-将数据库还原到Linux上：" class="headerlink" title="1.4-1 将数据库还原到Linux上："></a><strong>1.4-1</strong> <em>将数据库还原到Linux上：</em></h3><h4 id="1-4-1-备份Window上的数据库："><a href="#1-4-1-备份Window上的数据库：" class="headerlink" title="1.4.1 备份Window上的数据库："></a><strong>1.4.1</strong> <em>备份Window上的数据库：</em></h4><p>使用命令备份：</p>
+<p>mysqldump –u root -p store_v2.0 &gt; c:/store_v2.0.sql</p>
+<p>使用可视化工具：</p>
+<p><strong>1.4.2</strong> <em>在Linux上还原数据库：</em></p>
+<p><strong>1.4-2</strong> <em>将程序的代码发布到Linux上：</em>*</p>
+<p><strong>1.4.3</strong> <em>将工程制作为war包：</em></p>
+<p> <strong>1.4.4</strong> <em>将war包上传到linux服务器：</em></p>
+<p> <strong>1.4.5</strong> <em>将war包copy到linux下的tomcat的webapps中：</em></p>
+<p><strong>1.4.6</strong> <em>修改配置文件就可以：</em></p>
+<h2 id="1-5-Nginx"><a href="#1-5-Nginx" class="headerlink" title="1.5 Nginx"></a><strong>1.5</strong> <em>Nginx</em></h2><p><strong>1.5.1</strong> <em>Nginx的概述：</em></p>
+<p><img src="/../images/Nginx-linux/wpsE1D4.tmp.jpg" alt="img"> </p>
+<h3 id="1-5-2-什么是代理和反向代理："><a href="#1-5-2-什么是代理和反向代理：" class="headerlink" title="1.5.2 什么是代理和反向代理："></a><strong>1.5.2</strong> <em>什么是代理和反向代理：</em></h3><h3 id="1-5-3-Nginx-Tomcat的集群配置"><a href="#1-5-3-Nginx-Tomcat的集群配置" class="headerlink" title="1.5.3 Nginx+Tomcat的集群配置:"></a><strong>1.5.3</strong> <em>Nginx+Tomcat的集群配置:</em></h3><h4 id="1-5-3-1-在一台电脑上安装两个tomcat"><a href="#1-5-3-1-在一台电脑上安装两个tomcat" class="headerlink" title="1.5.3.1 在一台电脑上安装两个tomcat"></a><strong>1.5.3.1</strong> <em>在一台电脑上安装两个tomcat</em></h4><p>需要在一台电脑模拟：在E盘解压两个tomcat,分别命名为tomcat1，tomcat2.</p>
+<h4 id="1-5-3-2-修改tomcat的配置文件，将端口进行修改"><a href="#1-5-3-2-修改tomcat的配置文件，将端口进行修改" class="headerlink" title="1.5.3.2 修改tomcat的配置文件，将端口进行修改:"></a><strong>1.5.3.2</strong> <em>修改tomcat的配置文件，将端口进行修改:</em></h4><p>修改tomcat2中的端口:</p>
+<p><img src="/../images/Nginx-linux/wpsE1D5.tmp.jpg" alt="img"> </p>
+<p><img src="/../images/Nginx-linux/wpsE1D6.tmp.jpg" alt="img"> </p>
+<p><img src="/../images/Nginx-linux/wpsE1E7.tmp.jpg" alt="img"> </p>
+<h4 id="1-5-3-3-将项目分别发布到两个-tomcat中："><a href="#1-5-3-3-将项目分别发布到两个-tomcat中：" class="headerlink" title="1.5.3.3 将项目分别发布到两个**tomcat中："></a><strong>1.5.3.3</strong> <em>将项目分别发布到两个**tomcat中：</em></h4><h4 id="1-5-3-4-安装Nginx："><a href="#1-5-3-4-安装Nginx：" class="headerlink" title="1.5.3.4 安装Nginx："></a><strong>1.5.3.4</strong> <em>安装Nginx：</em></h4><p>解压</p>
+<p>双击nginx.exe</p>
+<p>启动完以后访问<a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/15/webpack-deploy-1/" data-id="ckwn0jlb5000lawtl2otm4hvh" data-title="webpack-deploy-1" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/25/Nginx-linux/" data-id="ckwn195qv00033gtldcow64i1" data-title="Nginx-linux" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack-deploy-1/" rel="tag">webpack-deploy-1</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx-linux/" rel="tag">Nginx-linux</a></li></ul>
 
     </footer>
   </div>
@@ -227,10 +198,10 @@
 
 
   
-    <article id="post-webpack-handWrite" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-TS-learn-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/10/15/webpack-handWrite/" class="article-date">
-  <time class="dt-published" datetime="2021-10-15T13:23:43.000Z" itemprop="datePublished">2021-10-15</time>
+    <a href="/2021/10/21/TS-learn-2/" class="article-date">
+  <time class="dt-published" datetime="2021-10-21T14:46:55.000Z" itemprop="datePublished">2021-10-21</time>
 </a>
     
   </div>
@@ -241,7 +212,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/10/15/webpack-handWrite/">webpack-handWrite</a>
+      <a class="p-name article-title" href="/2021/10/21/TS-learn-2/">TS-learn-2</a>
     </h1>
   
 
@@ -249,257 +220,31 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/15/webpack-handWrite/" data-id="ckwn0jlbt000oawtl206b4hg3" data-title="webpack-handWrite" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack-handWrite/" rel="tag">webpack-handWrite</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-express" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/10/15/express/" class="article-date">
-  <time class="dt-published" datetime="2021-10-15T13:20:15.000Z" itemprop="datePublished">2021-10-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/10/15/express/">express</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/15/express/" data-id="ckwn0jla9000aawtl8pndd3mn" data-title="express" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/" rel="tag">express</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-cookie-session" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/10/15/cookie-session/" class="article-date">
-  <time class="dt-published" datetime="2021-10-15T13:20:01.000Z" itemprop="datePublished">2021-10-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/10/15/cookie-session/">cookie-session</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Promise中await的问题"><a href="#1-Promise中await的问题" class="headerlink" title="1.Promise中await的问题"></a>1.Promise中await的问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        resolve([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> fn(); </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">getData();</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-编码问题"><a href="#2-编码问题" class="headerlink" title="2.编码问题"></a>2.编码问题</h2><ul>
-<li>ASCII -&gt; ANSI(GB2312) -&gt; GBK -&gt; GB18030 -&gt; Unicode -&gt; UTF-8</li>
-<li>base64编码  缺点比以前大</li>
-<li>编码问题</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">&#x27;iconv-lite&#x27;</span>); <span class="comment">// node中的编码转化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname);</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">&#x27;gbk&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Buffer方法"><a href="#3-Buffer方法" class="headerlink" title="3.Buffer方法"></a>3.Buffer方法</h2><ul>
-<li>分配方法 alloc 、from</li>
-<li>slice toString concat isBuffer length(split)</li>
-</ul>
-<h2 id="4-核心模块-fs-、event、-path、stream"><a href="#4-核心模块-fs-、event、-path、stream" class="headerlink" title="4.核心模块 fs 、event、 path、stream"></a>4.核心模块 fs 、event、 path、stream</h2><p>fs:</p>
-<ul>
-<li>readFile writeFile</li>
-<li>(open read write)</li>
-<li>mkdir access <em>stat</em> unlink</li>
-<li>createReadStream  createWriteStream (pipe用法)</li>
-</ul>
-<p>event:</p>
-<ul>
-<li>on emit off once (newListener)</li>
-</ul>
-<p>path:</p>
-<ul>
-<li><p>join  resolve  extname  dirname  <code>__dirname</code> <code> __filename</code></p>
-<p>流的类型:</p>
-</li>
-<li><p>1)可读(on(‘data’)，on(‘end’))   req</p>
-</li>
-<li><p>2)可写 write.end    res</p>
-</li>
-<li><p>3)双工  </p>
-</li>
-<li><p>4)转化流 lib createGzip</p>
-</li>
-</ul>
-<h2 id="5-HTTP-tcp用法"><a href="#5-HTTP-tcp用法" class="headerlink" title="5.HTTP (tcp用法)"></a>5.HTTP (tcp用法)</h2><h3 id="1-一个页面从输入url到页面加载完成显示，这个过程做了什么？"><a href="#1-一个页面从输入url到页面加载完成显示，这个过程做了什么？" class="headerlink" title="1).一个页面从输入url到页面加载完成显示，这个过程做了什么？"></a>1).一个页面从输入url到页面加载完成显示，这个过程做了什么？</h3><ul>
-<li>1). 浏览器通过DNS将url地址解析为ip (如果有缓存直接返回缓存,否则递归解析)    </li>
-<li>2). 通过DNS解析得到了目标服务器的IP地址后，与服务器建立TCP连接。  <ul>
-<li>ip协议： 选择传输路线,负责找到  </li>
-<li>tcp协议： 三次握手，分片，可靠传输，重新发送的机制  (tcp)  </li>
-</ul>
-</li>
-<li>3).浏览器通过http协议发送请求 (增加http的报文信息)  </li>
-<li>4).服务器接受请求后，查库，读文件，拼接好返回的http响应   </li>
-<li>5).浏览器收到html，开始渲染    (浏览器的渲染原理)</li>
-<li>6).解析html为dom，解析css为css-tree,最终生成render-tree 阻塞渲染  </li>
-<li>7).遍历渲染树开始布局，计算每个节点的位置大小信息   </li>
-<li>8).将渲染树每个节点绘制到屏幕  </li>
-<li>9).加载js文件,运行js脚本  </li>
-<li>10).reflow (样式)与repaint(位置)  </li>
-</ul>
-<blockquote>
-<p>OSI协议分层: </p>
-<ul>
-<li>应用层 HTTP,FTP,DNS (与其他计算机进行通讯的一个应用服务，向用户提供应用服务时的通信活动)</li>
-<li>传输层 TCP（可靠） UDP 数据传输 (HTTP -&gt; TCP  DNS-&gt;UDP)</li>
-<li>网络层 IP 选择传输路线 (通过ip地址和mac地址)(使用ARP协议凭借mac地址进行通信)</li>
-<li>链路层 网络连接的硬件部分 </li>
-</ul>
+        <h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><blockquote>
+<p>函数泛型和类泛型</p>
 </blockquote>
-<h3 id="2-Http与Https的区别："><a href="#2-Http与Https的区别：" class="headerlink" title="2).Http与Https的区别："></a>2).Http与Https的区别：</h3><p>缺陷：<br>    - 1).Http本身不具备加密的功能,HTTP 报文使用明文方式发送<br>    - 2).无法确认你发送到的服务器就是真正的目标服务器<br>    - 3).无法阻止海量请求下的 DoS 攻击<br>    - 4).内容被篡改</p>
-<ul>
-<li>HTTPS 是 HTTP 建立在 SSL/TLS 安全协议上的。 （信息加密，完整校验,身份验证）</li>
-</ul>
-<h3 id="3-URI和URL的区别"><a href="#3-URI和URL的区别" class="headerlink" title="3).URI和URL的区别"></a>3).URI和URL的区别</h3><ul>
-<li>URI(Uniform Resource Identifier)是统一资源标识符,在某个规则下能把这个资源独一无二标示出来</li>
-<li>URL(Uniform Resource Locator) 统一资源定位符，表示资源的地点</li>
-</ul>
-<h3 id="4-HTTP1-1版本特性"><a href="#4-HTTP1-1版本特性" class="headerlink" title="4).HTTP1.1版本特性"></a>4).HTTP1.1版本特性</h3><ul>
-<li>长链接:建立链接后可以发送多次请求</li>
-<li>管线化:不用等待可以直接发送下一个请求</li>
-<li>断点续传:206  bytes</li>
-</ul>
-<h3 id="5-常见的http状态码"><a href="#5-常见的http状态码" class="headerlink" title="5).常见的http状态码"></a>5).常见的http状态码</h3><ul>
-<li>200、204、206、301、302、304、400、401、403、404、500、503</li>
-</ul>
-<h3 id="6-常用的http方法有哪些"><a href="#6-常用的http方法有哪些" class="headerlink" title="6).常用的http方法有哪些"></a>6).常用的http方法有哪些</h3><ul>
-<li>GET 获取资源</li>
-<li>POST 向服务器端发送数据，传输实体主体</li>
-<li>PUT 传输文件</li>
-<li>HEAD 获取报文首部</li>
-<li>DELETE 删除文件</li>
-<li>OPTIONS 询问支持的方法</li>
-</ul>
-<h3 id="7-Jsonp的原理-不符合规范的"><a href="#7-Jsonp的原理-不符合规范的" class="headerlink" title="7).Jsonp的原理 (不符合规范的)"></a>7).Jsonp的原理 (不符合规范的)</h3><h3 id="8-页面的性能优化"><a href="#8-页面的性能优化" class="headerlink" title="8).页面的性能优化"></a>8).页面的性能优化</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562322737439&di=6940a8a49d168d9690f3732794b01a4e&imgtype=0&src=http://img2018.cnblogs.com/blog/1555757/201812/1555757-20181210173358459-380857182.png" alt="img"></p>
-<ul>
-<li><p>缓存<br>强制缓存 &amp; 对比缓存</p>
-<blockquote>
-<p>from memory cache 和 from disk cache<br>查找优先级:</p>
-<ul>
-<li>Service Worker (PWA)  cacheApi 离线缓存 </li>
-</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数泛型</span></span><br><span class="line"><span class="keyword">namespace</span> functionGeneric &#123;</span><br><span class="line">    <span class="comment">// function join(first:string|number,second:string|number)&#123;</span></span><br><span class="line">    <span class="comment">//     return `$&#123;first&#125;$&#123;second&#125;`</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">//如果我想保证两个参数同类型但不一定是什么类型，就要用泛型</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">join</span>&lt;<span class="title">T</span>&gt;(<span class="params">first: T, second: T</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;first&#125;</span><span class="subst">$&#123;second&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//join&lt;number&gt;(1,&#x27;1&#x27;)//报错</span></span><br><span class="line">    <span class="comment">//join&lt;string&gt;(1,1)//报错</span></span><br><span class="line">    <span class="built_in">console</span>.log(join(<span class="number">1</span>, <span class="number">1</span>), join&lt;<span class="built_in">string</span>&gt;(<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;1&#x27;</span>))<span class="comment">//这样是可以的，不写泛型也会自动推断</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">map</span>&lt;<span class="title">M</span>&gt;(<span class="params">params:M[],_:<span class="built_in">Array</span>&lt;M&gt;</span>)</span>&#123;<span class="comment">//指M数组,M[]和Array&lt;M&gt;差不多</span></span><br><span class="line">        <span class="keyword">return</span> params.concat(_)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(map&lt;<span class="built_in">string</span>&gt;([<span class="string">&#x27;123&#x27;</span>],[<span class="string">&#x27;0&#x27;</span>]))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类泛型</span></span><br><span class="line"><span class="keyword">namespace</span> classGeneric &#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DataManager</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> data: T[]</span>)</span> &#123; &#125;</span><br><span class="line">        <span class="function"><span class="title">getItem</span>(<span class="params">index: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.data[index]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> data = <span class="keyword">new</span> DataManager([<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>])<span class="comment">//类自动进行了推断</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.getItem(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">const</span> numbers = <span class="keyword">new</span> DataManager&lt;<span class="built_in">number</span>&gt;([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">    <span class="built_in">console</span>.log(numbers)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//让泛型继承接口，会限制格式</span></span><br><span class="line">    <span class="keyword">interface</span> Obj &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DataManager1</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Obj</span>&gt;</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> data: T[]</span>)</span> &#123; &#125;</span><br><span class="line">        <span class="function"><span class="title">getItem</span>(<span class="params">index: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.data[index].name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> data1 = <span class="keyword">new</span> DataManager1&lt;Obj&gt;([&#123; <span class="attr">name</span>: <span class="string">&#x27;dell&#x27;</span> &#125;])</span><br><span class="line">    <span class="built_in">console</span>.log(data.getItem(<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DataManager2</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">number</span> | <span class="title">string</span>&gt;</span>&#123;<span class="comment">//让T只能是某些类型</span></span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> data: T[]</span>)</span> &#123; &#125;</span><br><span class="line">        getItem(index: <span class="built_in">number</span>): T &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.data[index]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> Test &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> data2 = <span class="keyword">new</span> DataManager2&lt;<span class="built_in">string</span>&gt;([<span class="string">&#x27;&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment">//泛型和函数</span></span><br><span class="line">    <span class="keyword">const</span> fun: &lt;T&gt;<span class="function">(<span class="params">a: T</span>) =&gt;</span> <span class="built_in">string</span></span><br><span class="line">        = &lt;T&gt;<span class="function">(<span class="params">a: T</span>) =&gt;</span> <span class="string">&#x27;123&#x27;</span></span><br><span class="line">    <span class="built_in">console</span>.log(fun&lt;<span class="built_in">number</span>&gt;(<span class="number">0</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><blockquote>
+<p>命名空间</p>
 </blockquote>
-<ul>
-<li>Memory Cache 网页关闭则失效 （几乎所有的请求资源）</li>
-<li>DiskCache</li>
-<li>网络请求<br>对于大文件来说，大概率是不存储在内存中的,当前系统内存使用率高的话，文件优先存储进硬盘</li>
-</ul>
-</li>
-<li><p>gzip压缩 重复率越高 压缩越高</p>
-</li>
-<li><p>本地存储:localStorage,sessionStorage,session,cookie,indexDB,cacheApi</p>
-</li>
-<li><p>CDN: 内容分发网络,实现负载均衡，并且就近返回内容</p>
-</li>
-<li><p>defer &amp; async ／ preload &amp; prefetch</p>
-<ul>
-<li>defer 和 async 在网络读取的过程中都是异步解析</li>
-<li>defer是有顺序依赖的，async只要脚本加载完后就会执行</li>
-<li>preload 可以对当前页面所需的脚本、样式等资源进行预加载  vue 路由懒加载</li>
-<li>prefetch 加载的资源一般不是用于当前页面的，是未来很可能用到的这样一些资源</li>
-</ul>
-</li>
-</ul>
-<h3 id="HTTP相关Header内容"><a href="#HTTP相关Header内容" class="headerlink" title="HTTP相关Header内容"></a>HTTP相关Header内容</h3><ul>
-<li>缓存Header <ul>
-<li>强:Cache-Control &amp;&amp; Expires<ul>
-<li>private 客户端可以缓存</li>
-<li>public 客户端和代理服务器都可以缓存</li>
-<li>max-age=60 缓存内容将在60秒后失效</li>
-<li>no-cache 需要使用对比缓存验证数据,强制向源服务器再次验证  (没有强制缓存)</li>
-<li>no-store 所有内容都不会缓存，强制缓存和对比缓存都不会触发 (不缓存)</li>
-</ul>
-</li>
-<li>对比:Last-Modified &amp; If-Modified-Since  /  ETag &amp; <em>If-None-Match</em></li>
-</ul>
-</li>
-<li>跨域:Access-Control</li>
-<li>压缩:Content-Encoding : gzip</li>
-<li>范围请求:range</li>
-<li>防盗链:referer  (防止盗用链接)</li>
-<li>用户内核:user-agent</li>
-<li>单主机多域名:host</li>
-<li>多语言:accept-language</li>
-<li>文件上传:Content-Type:multipart/form-data</li>
-<li>文件下载:Content-Description</li>
-</ul>
-<h2 id="6-KOA"><a href="#6-KOA" class="headerlink" title="6.KOA"></a>6.KOA</h2><ul>
-<li>compose应用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="built_in">this</span>.arr.reduce(<span class="function">(<span class="params">a, b, index</span>) =&gt;</span> <span class="function">(<span class="params">...args</span>) =&gt;</span></span><br><span class="line">    <span class="built_in">Promise</span>.resolve(a(<span class="function">() =&gt;</span> b(...args)))</span><br><span class="line">)(<span class="function">() =&gt;</span> &#123;&#125;).then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;ok&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名空间上</span></span><br><span class="line"><span class="keyword">namespace</span> nameSpaces&#123;</span><br><span class="line">    <span class="keyword">interface</span> Person &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">        age: <span class="built_in">number</span>;</span><br><span class="line">        gender?: <span class="built_in">string</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> info: Person</span>)</span> &#123; &#125;</span><br><span class="line">        getInfo&lt;T <span class="keyword">extends</span> keyof Person&gt;(key: T) &#123;</span><br><span class="line">            <span class="comment">//type T=&#x27;name&#x27;|&#x27;age&#x27;|&#x27;gender&#x27;</span></span><br><span class="line">            <span class="comment">//keyof 通过遍历Person上的属性保证了T类型属于Person的属性的类型</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.info[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> teacher = <span class="keyword">new</span> Teacher(&#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;teacher&#x27;</span>,</span><br><span class="line">        <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">        <span class="attr">gender</span>: <span class="string">&#x27;male&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> name = teacher.getInfo(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> age = teacher.getInfo(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    <span class="keyword">const</span> gender = teacher.getInfo(<span class="string">&#x27;gender&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(name,age,gender)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>async + await</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> dispatch = <span class="keyword">async</span> (index) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(index === <span class="built_in">this</span>.arr.length) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.arr[index](<span class="function">()=&gt;</span>dispatch(index+<span class="number">1</span>));</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">return</span> dispatch(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名空间下</span></span><br><span class="line"><span class="keyword">namespace</span> Demo &#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Header</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Header&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Content</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Content&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Footer</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Footer&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;<span class="comment">//暴露加export</span></span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">new</span> Header()</span><br><span class="line">            <span class="keyword">new</span> Content()</span><br><span class="line">            <span class="keyword">new</span> Footer()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 命名空间相互引用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// components.ts</span></span><br><span class="line"><span class="keyword">namespace</span> Components &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">namespace</span> SubComponents &#123;</span><br><span class="line">        <span class="keyword">export</span> <span class="keyword">interface</span> User &#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Header</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Header&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Content</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Content&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Footer</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> elem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">            elem.innerText = <span class="string">&#x27;Footer&#x27;</span></span><br><span class="line">            elem.setAttribute(<span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;background-color:red&#x27;</span>)</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(elem)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// page.ts</span></span><br><span class="line"><span class="comment">///&lt;reference path=&#x27;./components.ts&#x27;/&gt;</span></span><br><span class="line"><span class="comment">// 上边这句话代表命名空间的引入路径</span></span><br><span class="line"><span class="keyword">namespace</span> Demo &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Page</span> </span>&#123;<span class="comment">//暴露加export</span></span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">new</span> Components.Header()</span><br><span class="line">            <span class="keyword">new</span> Components.Content()</span><br><span class="line">            <span class="keyword">new</span> Components.Footer()</span><br><span class="line">            <span class="keyword">let</span> n: Components.SubComponents.User = &#123;</span><br><span class="line">                <span class="attr">name</span>: <span class="string">&#x27;name&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(n)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-<p>下周 1-4 webpack训练营 周六flutter 两个周六</p>
-<p>node进程</p>
-<h2 id="HTTP无状态的"><a href="#HTTP无状态的" class="headerlink" title="HTTP无状态的"></a>HTTP无状态的</h2><p>不知道每次谁来了</p>
-<ul>
-<li>cookie 是存放到 浏览器上的 ,服务器可以设置，每此请求时会带上cookie</li>
-<li>cookie 不安全 不能存放敏感信息 </li>
-</ul>
-<ul>
-<li>session 服务端（基于cookie） 服务器的内存中，-》 redis 数据库 (get set)</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/15/cookie-session/" data-id="ckwn0jla40007awtl7z87b3ww" data-title="cookie-session" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/21/TS-learn-2/" data-id="ckwn195r200053gtl4sroa4wm" data-title="TS-learn-2" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cookie-session/" rel="tag">cookie-session</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TS-learn-2/" rel="tag">TS-learn-2</a></li></ul>
 
     </footer>
   </div>
@@ -509,10 +254,10 @@
 
 
   
-    <article id="post-珠峰架构课目录-leesir" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-TS-learn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-leesir/" class="article-date">
-  <time class="dt-published" datetime="2021-10-13T14:31:56.000Z" itemprop="datePublished">2021-10-13</time>
+    <a href="/2021/10/21/TS-learn/" class="article-date">
+  <time class="dt-published" datetime="2021-10-21T13:56:01.000Z" itemprop="datePublished">2021-10-21</time>
 </a>
     
   </div>
@@ -523,7 +268,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-leesir/">珠峰架构课目录-leesir</a>
+      <a class="p-name article-title" href="/2021/10/21/TS-learn/">TS-learn</a>
     </h1>
   
 
@@ -531,122 +276,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
-<h3 id="一、珠峰高级全栈架构课基础部分"><a href="#一、珠峰高级全栈架构课基础部分" class="headerlink" title="一、珠峰高级全栈架构课基础部分"></a>一、珠峰高级全栈架构课基础部分</h3></blockquote>
-<ol>
-<li>ES6/ES7语法和原理实现</li>
-<li>异步发展过程：callback、promise、generator、co、async/await等异步流程控制(async和await的实现原理) </li>
-<li>promise设计模式原理及在es6中的应用，手写一个符合promise A+规范的promise实现 </li>
-<li>Node基础与实战 </li>
-<li>Node事件原理和发布定阅设计模式 </li>
-<li>函数式编程 </li>
-</ol>
-<blockquote>
-<h3 id="二、模块化的演进"><a href="#二、模块化的演进" class="headerlink" title="二、模块化的演进"></a>二、模块化的演进</h3></blockquote>
-<ol>
-<li>JavaScript模块化发展的演进历史 CommonJS、AMD、CMD、ES6模块的演进历史</li>
-<li>目前最主流的模块化实现方案: CommonJS 到 ES Module</li>
-<li>手写 CommonJS 的简单实现</li>
-</ol>
-<blockquote>
-<h3 id="三、前端工程化构建工具"><a href="#三、前端工程化构建工具" class="headerlink" title="三、前端工程化构建工具"></a>三、前端工程化构建工具</h3></blockquote>
-<ol>
-<li>gulp的基本用法以及实现原理 </li>
-<li>常用插件(压缩、合并、编译、预览服务、自动注入) </li>
-<li>node.js中自定义流的高级用法 </li>
-<li>实现自定义插件(auto-prefixer) </li>
-<li>webpack基本用法以及运行原理 </li>
-<li>常见的loader以及plugin(DllPlugin等) </li>
-<li>Webpack工作原理分析 </li>
-<li>编写自定义Loader、编写自定义Plugin </li>
-<li>webpack优化(resolve、模块热替换、压缩、代码分割、可视化工具)</li>
-</ol>
-<blockquote>
-<h3 id="四-React全家桶"><a href="#四-React全家桶" class="headerlink" title="四.React全家桶"></a>四.React全家桶</h3></blockquote>
-<h4 id="1-react基础"><a href="#1-react基础" class="headerlink" title="1.react基础"></a>1.react基础</h4><ol>
-<li>为什么采用组件化的方式</li>
-<li>react环境搭建</li>
-<li>JSX语法的使用(createElement,render的原理实现)</li>
-<li>JSX表达式的用法</li>
-<li>JSX的属性(className,htmlFor,style,dangerouslyInnerHTML)</li>
-<li>组件使用(类声明,函数声明)</li>
-<li>组件的属性和状态(属性的检验以及setState详解)</li>
-<li>复合组件</li>
-<li>组件的声明周期</li>
-<li>受控组件 非受控组件</li>
-<li>children属性的使用</li>
-<li>项目实战留言板</li>
-</ol>
-<h4 id="2-redux"><a href="#2-redux" class="headerlink" title="2.redux"></a>2.redux</h4><ol>
-<li>手写redux库(getState,createStore,dispatch,subscribe,applyMiddlewar e,combineReducer,compose,bindActionCreators)</li>
-</ol>
-<h4 id="3-react­redux"><a href="#3-react­redux" class="headerlink" title="3.react­redux"></a>3.react­redux</h4><ol>
-<li>高阶组件的原理和使用</li>
-<li>react高级属性context上下文</li>
-<li>react-redux实现todoList</li>
-<li>手写react-redux(Provider和connect原理解析)</li>
-</ol>
-<h4 id="4-中间件"><a href="#4-中间件" class="headerlink" title="4.中间件"></a>4.中间件</h4><ol>
-<li>手写applyMiddle和compose(中间件原理)</li>
-<li>手写redux-logger,redux-thunk,redux-promise</li>
-<li>手写自定义本地缓存中间件</li>
-</ol>
-<h4 id="5-react­router­dom"><a href="#5-react­router­dom" class="headerlink" title="5.react­router­dom"></a>5.react­router­dom</h4><ol>
-<li>HashRouter,BrowserRouter的区别</li>
-<li>Link,NavLink的使用(extact绝对匹配,state带参数跳转)</li>
-<li>Route组件三种渲染方式(component,render,children)</li>
-<li>路由参数以及子路由的使用(params)</li>
-<li>withRouter,PrivateRouter的用法</li>
-<li>Prompt组件阻止跳转</li>
-<li>重定向(Redirect组件)</li>
-<li>手写HashRouter Route等常用组件</li>
-</ol>
-<h4 id="6-React­Transition­group"><a href="#6-React­Transition­group" class="headerlink" title="6.React­Transition­group"></a>6.React­Transition­group</h4><ol>
-<li>react动画的实现原理 2.使用React-Transition-group库开发todo动画应用</li>
-</ol>
-<h4 id="7-项目实战React珠峰课堂1-0项目"><a href="#7-项目实战React珠峰课堂1-0项目" class="headerlink" title="7.项目实战React珠峰课堂1.0项目"></a>7.项目实战React珠峰课堂1.0项目</h4><h4 id="8-源码级Vue-React深度解析与实现"><a href="#8-源码级Vue-React深度解析与实现" class="headerlink" title="8.源码级Vue+React深度解析与实现"></a>8.源码级Vue+React深度解析与实现</h4><ol>
-<li>手写Vue双向绑定实现</li>
-<li>Vue虚拟DOM和React虚拟DOM的区别</li>
-<li>如何实现一个 Virtual DOM 算法</li>
-<li>通过源码彻底搞明白setState的更新机制</li>
-<li>手写包含虚拟DOM、事件监听、基本组件生命周期等功能的React库</li>
-</ol>
-<h3 id="五-node高级"><a href="#五-node高级" class="headerlink" title="五.node高级"></a>五.node高级</h3><h4 id="1-http深入和tcp详解"><a href="#1-http深入和tcp详解" class="headerlink" title="1.http深入和tcp详解"></a>1.http深入和tcp详解</h4><h4 id="2-express"><a href="#2-express" class="headerlink" title="2.express"></a>2.express</h4><ol>
-<li>手写express框架</li>
-<li>中间件的实现原理、bodyParser、cookie-parser、static、模板原理</li>
-</ol>
-<h4 id="3-Koa"><a href="#3-Koa" class="headerlink" title="3.Koa"></a>3.Koa</h4><ol>
-<li>手写Koa框</li>
-<li>中间件的实现原理、bodyParser、cookie-parser、static、模板原理</li>
-</ol>
-<h4 id="4-Linux"><a href="#4-Linux" class="headerlink" title="4.Linux"></a>4.Linux</h4><h4 id="5-Mongodb"><a href="#5-Mongodb" class="headerlink" title="5.Mongodb"></a>5.Mongodb</h4><h4 id="6-珠峰博客-express-mongodb-mongodb"><a href="#6-珠峰博客-express-mongodb-mongodb" class="headerlink" title="6.珠峰博客(express+mongodb+mongodb)"></a>6.珠峰博客(express+mongodb+mongodb)</h4><p>  基于bootstrap+express+mongodb实现一个包括用户管理、文章管理、多看留言、分页查询、 搜索、文件上传、pv留言统计等功能完整的博客系统。使用了express的路由、ejs模板和serve-favicon、morgan、cookie-parser、body-parser、express-session、connect-mongo、connect-flash、uuid、async等内置各种中间件以及其它发路径保护等自定义中间件，并扩展了富文本编辑器、markdown和heroku云布署等功能。</p>
-<h4 id="7-珠峰聊天室项目实战-react-socket-io-mongodb"><a href="#7-珠峰聊天室项目实战-react-socket-io-mongodb" class="headerlink" title="7.珠峰聊天室项目实战(react+socket.io+mongodb)"></a>7.珠峰聊天室项目实战(react+socket.io+mongodb)</h4><h4 id="8-MySQL"><a href="#8-MySQL" class="headerlink" title="8.MySQL"></a>8.MySQL</h4><h4 id="9-珠峰爬虫-cheerio-request-mysql"><a href="#9-珠峰爬虫-cheerio-request-mysql" class="headerlink" title="9.珠峰爬虫(cheerio+request+mysql)"></a>9.珠峰爬虫(cheerio+request+mysql)</h4><h4 id="10-Redis"><a href="#10-Redis" class="headerlink" title="10.Redis"></a>10.Redis</h4><h4 id="11-Nginx"><a href="#11-Nginx" class="headerlink" title="11.Nginx"></a>11.Nginx</h4><h4 id="12-Docker"><a href="#12-Docker" class="headerlink" title="12.Docker"></a>12.Docker</h4><h4 id="13-单元测试"><a href="#13-单元测试" class="headerlink" title="13.单元测试"></a>13.单元测试</h4><h4 id="14-集群和负载均衡"><a href="#14-集群和负载均衡" class="headerlink" title="14.集群和负载均衡"></a>14.集群和负载均衡</h4><h4 id="15-前端性能监控与性能优化、行为监控与安全防范"><a href="#15-前端性能监控与性能优化、行为监控与安全防范" class="headerlink" title="15.前端性能监控与性能优化、行为监控与安全防范"></a>15.前端性能监控与性能优化、行为监控与安全防范</h4><h4 id="16-项目部署"><a href="#16-项目部署" class="headerlink" title="16.项目部署"></a>16.项目部署</h4><h4 id="17-安全"><a href="#17-安全" class="headerlink" title="17.安全"></a>17.安全</h4><h4 id="18-功能测试与性能测试"><a href="#18-功能测试与性能测试" class="headerlink" title="18.功能测试与性能测试"></a>18.功能测试与性能测试</h4><h4 id="19-全链路优化"><a href="#19-全链路优化" class="headerlink" title="19.全链路优化"></a>19.全链路优化</h4><h3 id="六、前端设计模式-选讲"><a href="#六、前端设计模式-选讲" class="headerlink" title="六、前端设计模式(选讲)"></a>六、前端设计模式(选讲)</h3><h4 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="创建型设计模式"></a>创建型设计模式</h4><h4 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a>结构型设计模式</h4><h4 id="行为型设计模式"><a href="#行为型设计模式" class="headerlink" title="行为型设计模式"></a>行为型设计模式</h4><h3 id="七、算法-amp-数据结构-选讲"><a href="#七、算法-amp-数据结构-选讲" class="headerlink" title="七、算法&amp;数据结构(选讲)"></a>七、算法&amp;数据结构(选讲)</h3><ol>
-<li>时间复杂度</li>
-<li>空间复杂度</li>
-<li>常见排序算法</li>
-<li>冒泡排序、优化</li>
-<li>选择排序</li>
-<li>插入排序</li>
-<li>归并排序</li>
-<li>快速排序式</li>
-<li>计数排序</li>
-<li>桶排序</li>
-<li>基数排序</li>
-<li>链表(链表反转、链表是否有环)</li>
-<li>树(高度、前序、中序、后序、广度优先算法、反转)</li>
-<li>二叉树搜索算法</li>
-<li>青蛙跳台阶问题动态规划算法</li>
-<li>React虚拟DOM Diff算法实现</li>
-</ol>
+        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><blockquote>
+<p>配置文件 tsconfig.json</p>
+</blockquote>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><blockquote>
+<p> 联合类型和类型保护</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> typeUnion &#123;</span><br><span class="line">    <span class="keyword">interface</span> Bird &#123;</span><br><span class="line">        <span class="attr">fly</span>: <span class="built_in">boolean</span>;</span><br><span class="line">        sing: <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> Dog &#123;</span><br><span class="line">        <span class="attr">fly</span>: <span class="built_in">boolean</span>;</span><br><span class="line">        bark: <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trainAnimal</span>(<span class="params">animal: Bird | Dog</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (animal.fly) &#123;</span><br><span class="line">            (animal <span class="keyword">as</span> Bird).sing()</span><br><span class="line">            <span class="comment">//这里使用as断言，用自己的逻辑来梳理类型</span></span><br><span class="line">        &#125;</span><br><span class="line">        (animal <span class="keyword">as</span> Dog).bark()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//in语法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trainAnimal2</span>(<span class="params">animal: Bird | Dog</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&#x27;sing&#x27;</span> <span class="keyword">in</span> animal) &#123;<span class="comment">//这里使用in检索</span></span><br><span class="line">            animal.sing()</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">//这里自动检测成除了Bird的情况</span></span><br><span class="line">            animal.bark()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//typeof语法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first: <span class="built_in">string</span> | <span class="built_in">number</span>, second: <span class="built_in">string</span> | <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> first === <span class="string">&quot;number&quot;</span> &amp;&amp; <span class="keyword">typeof</span> second === <span class="string">&quot;number&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> first + second</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> first + <span class="string">&#x27;&#x27;</span> + second</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="string">&#x27;23&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用instanceof来做类型保护，</span></span><br><span class="line">    <span class="comment">//需要用class而不是interface</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NumberObj</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> count: <span class="built_in">number</span></span>)</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">first: <span class="built_in">object</span> | NumberObj, second: <span class="built_in">object</span> | NumberObj</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (first <span class="keyword">instanceof</span> NumberObj &amp;&amp; second <span class="keyword">instanceof</span> NumberObj) &#123;</span><br><span class="line">            <span class="keyword">return</span> first.count + second.count</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> f:NumberObj=&#123;<span class="attr">count</span>:<span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">let</span> s:NumberObj=<span class="keyword">new</span> NumberObj(<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(add2(f,s))<span class="comment">//这样f不行，0</span></span><br><span class="line">    <span class="built_in">console</span>.log(add2(<span class="keyword">new</span> NumberObj(<span class="number">1</span>),s))</span><br><span class="line">    <span class="comment">//这样可以，3,instanceof基于obj的原型链</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><blockquote>
+<p>Enum枚举类型   </p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Enum &#123;</span><br><span class="line">    <span class="keyword">const</span> Status = &#123;</span><br><span class="line">        <span class="attr">OFF</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">ON</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">ERR</span>: <span class="number">2</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上面是js通常用法，可以用enum枚举代替</span></span><br><span class="line">    <span class="comment">//枚举通常从0开始赋值，但是也可以自定义数字，</span></span><br><span class="line">    <span class="comment">//比如OFF=1，就会1，2，3这样枚举</span></span><br><span class="line">    <span class="comment">//也可以ON=2，会变成0，2，3</span></span><br><span class="line">    <span class="built_in">enum</span> StatusEnum &#123;</span><br><span class="line">        OFF, </span><br><span class="line">        ON, </span><br><span class="line">        ERR</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">status: <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (status === StatusEnum.OFF) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;off&#x27;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status === StatusEnum.ON) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;on&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;err&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(getResult(<span class="number">2</span>), getResult(Status.ON), getResult(StatusEnum.OFF))</span><br><span class="line">    <span class="built_in">console</span>.log(StatusEnum)<span class="comment">//&#123; &#x27;0&#x27;: &#x27;OFF&#x27;, &#x27;1&#x27;: &#x27;ON&#x27;, &#x27;2&#x27;: &#x27;ERR&#x27;, OFF: 0, ON: 1, ERR: 2 &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-leesir/" data-id="ckwn0jldr0019awtla74rftxo" data-title="珠峰架构课目录-leesir" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/21/TS-learn/" data-id="ckwn195r600073gtl9jog1rme" data-title="TS-learn" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95%E7%AC%AC%E4%BA%8C%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" rel="tag">珠峰架构课目录第二版 姜文 张仁阳</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TS-learn-%E8%AF%AD%E6%B3%95%E8%BF%9B%E9%98%B6/" rel="tag">TS-learn-语法进阶</a></li></ul>
 
     </footer>
   </div>
@@ -660,7 +311,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
