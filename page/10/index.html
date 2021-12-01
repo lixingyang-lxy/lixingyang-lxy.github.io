@@ -74,10 +74,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-模拟一个加载模块函数require" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Nginx-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/" class="article-date">
-  <time class="dt-published" datetime="2021-09-20T07:27:23.000Z" itemprop="datePublished">2021-09-20</time>
+    <a href="/2021/10/25/Nginx-linux/" class="article-date">
+  <time class="dt-published" datetime="2021-10-25T14:35:16.000Z" itemprop="datePublished">2021-10-25</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/">模拟一个加载模块的函数-require</a>
+      <a class="p-name article-title" href="/2021/10/25/Nginx-linux/">Nginx-linux</a>
     </h1>
   
 
@@ -96,118 +96,100 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// module 模块</span><br><span class="line">// node中js文件就是一个模块</span><br><span class="line">// 为什么出现模块的概念 防止命名冲突，可以把同样的功能封装到一起</span><br><span class="line">// esModule commonjs规范</span><br><span class="line">// 一个文件是一个模块</span><br><span class="line">// module.exports 导出给别人使用</span><br><span class="line">// require 来引用别人的模块</span><br><span class="line"></span><br><span class="line">// 1) node模块 会按照后缀名查找 .js 文件是否存在 .json文件</span><br><span class="line">const path = require(&quot;path&quot;);</span><br><span class="line">const fs = require(&quot;fs&quot;);</span><br><span class="line">const vm = require(&quot;vm&quot;);</span><br><span class="line">function Module(id) &#123;</span><br><span class="line">  this.id = id;</span><br><span class="line">  this.exports = &#123;&#125;; // 模块的结果</span><br><span class="line">&#125;</span><br><span class="line">Module.wrapper = [</span><br><span class="line">  &quot;(function(module,exports,require,__filename,__dirname)&#123;&quot;,</span><br><span class="line">  &quot;&#125;)&quot;</span><br><span class="line">];</span><br><span class="line">Module.extensions = &#123;</span><br><span class="line">  &quot;.js&quot;(module) &#123;</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    let fnStr = Module.wrapper[0] + script + Module.wrapper[1];</span><br><span class="line">    let fn = vm.runInThisContext(fnStr); // 让字符串变成js代码</span><br><span class="line">    // 第一个参数是改变this指向  module  module.exports</span><br><span class="line">    fn.call(</span><br><span class="line">      module.exports,</span><br><span class="line">      module,</span><br><span class="line">      module.exports,</span><br><span class="line">      req,</span><br><span class="line">      module.id,</span><br><span class="line">      path.dirname(module.id)</span><br><span class="line">    );</span><br><span class="line">    // exports 已经让用户更改了</span><br><span class="line">  &#125;, // js需要将exports 传入给用户 用户自己赋值</span><br><span class="line">  &quot;.json&quot;(module) &#123;</span><br><span class="line">    // 解析后 node默认会赋值</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    module.exports = JSON.parse(script);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">// 给你一个相对路径 解析成绝对路径</span><br><span class="line">Module.resolveFileName = function(filename) &#123;</span><br><span class="line">  // 1) 把相对路径转化成绝对路口 默认会先判断一下是否是绝对路径</span><br><span class="line">  let absPath = path.resolve(__dirname, filename);</span><br><span class="line">  let flag = fs.existsSync(absPath); // 判断文件是否存在 异步方法被废弃</span><br><span class="line">  let current = absPath; // 默认是当前路径</span><br><span class="line">  if (!flag) &#123;</span><br><span class="line">    let keys = Object.keys(Module.extensions);</span><br><span class="line">    for (let i = 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">      current = absPath + keys[i]; // 当前找到的文件路径</span><br><span class="line">      let flag = fs.existsSync(current);</span><br><span class="line">      if (flag) &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        current = null;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!current) &#123;</span><br><span class="line">    // 如果没有 说明加了后缀文件还是不存在</span><br><span class="line">    throw new Error(&quot;文件不存在&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return current; // 返回文件的路径</span><br><span class="line">&#125;;</span><br><span class="line">Module.prototype.load = function() &#123;</span><br><span class="line">  // 模块加载就是读取文件的内容</span><br><span class="line">  let ext = path.extname(this.id);</span><br><span class="line">  Module.extensions[ext](this); // 根据不同的后缀 调用不同的处理方法</span><br><span class="line">&#125;;</span><br><span class="line">Module.cache = &#123;&#125;;</span><br><span class="line">function req(filename) &#123;</span><br><span class="line">  // 自己实现了一个require方法</span><br><span class="line">  let current = Module.resolveFileName(filename);</span><br><span class="line">  if (Module.cache[current]) &#123;</span><br><span class="line">    return Module.cache[current].exports;</span><br><span class="line">  &#125;</span><br><span class="line">  let module = new Module(current); // 产生一个module</span><br><span class="line">   Module.cache[current] = module;</span><br><span class="line">  module.load();</span><br><span class="line"></span><br><span class="line">  return module.exports; // 默认导出module.exports对象</span><br><span class="line">&#125;</span><br><span class="line">let json = require(&quot;./a1&quot;);</span><br><span class="line">json = require(&quot;./a1&quot;);</span><br><span class="line">console.log(json);</span><br><span class="line"></span><br><span class="line">// node中的模块 3类 文件模块  第三方模块 需要安装 内置模块 fs</span><br><span class="line">// 模块的查找路径</span><br><span class="line"></span><br><span class="line">// 先找文件，找不到的话 找文件夹  </span><br><span class="line">// 第三方模块查找</span><br><span class="line"></span><br><span class="line">require(&#x27;commander&#x27;); // 找不到会像上级查找node_module 直到根目录如果跟目录找不到则报错, 会先找main 对应的字段如果有直接查找，如果没有main 会找index.js / index.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// vue store.js  store</span><br><span class="line"></span><br><span class="line">// npm + buffer 的使用fs </span><br><span class="line">// 流 http</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// a1.js</span><br><span class="line">// module.exports = &#x27;hello&#x27;;</span><br><span class="line">// exports = &#x27;hello&#x27;</span><br><span class="line">// console.log(module.exports == exports)</span><br><span class="line"></span><br><span class="line">// module.exports  ==  exports ????</span><br><span class="line"></span><br><span class="line">// let exports = module.exports = &#123;&#125;</span><br><span class="line">exports.a = &#x27;hello&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// index.js 查看arguments 跟 process</span><br><span class="line">console.log(arguments)</span><br><span class="line">console.log(process.argv)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 需要实现的功能即：require部分</span><br><span class="line">Arguments: &#123;</span><br><span class="line">    module,</span><br><span class="line">    exports,</span><br><span class="line">    require,</span><br><span class="line">    __filename,</span><br><span class="line">    __dirname</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 类似于</span><br><span class="line">(function() &#123;</span><br><span class="line">  console.log(arguments)&#125;  //  [1, 2, 3]</span><br><span class="line">)(1, 2, 3)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">[Arguments] &#123;</span><br><span class="line">  &#x27;0&#x27;: &#123;&#125;,</span><br><span class="line">  &#x27;1&#x27;: [Function: require] &#123;</span><br><span class="line">    resolve: [Function: resolve] &#123; paths: [Function: paths] &#125;,</span><br><span class="line">    main: Module &#123;</span><br><span class="line">      id: &#x27;.&#x27;,</span><br><span class="line">      path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">      exports: &#123;&#125;,</span><br><span class="line">      parent: null,</span><br><span class="line">      filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">      loaded: false,</span><br><span class="line">      children: [],</span><br><span class="line">      paths: [Array]</span><br><span class="line">    &#125;,</span><br><span class="line">    extensions: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;.js&#x27;: [Function],</span><br><span class="line">      &#x27;.json&#x27;: [Function],</span><br><span class="line">      &#x27;.node&#x27;: [Function]</span><br><span class="line">    &#125;,</span><br><span class="line">    cache: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;: [Module]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;2&#x27;: Module &#123;</span><br><span class="line">    id: &#x27;.&#x27;,</span><br><span class="line">    path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">    exports: &#123;&#125;,</span><br><span class="line">    parent: null,</span><br><span class="line">    filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">    loaded: false,</span><br><span class="line">    children: [],</span><br><span class="line">    paths: [</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\node_modules&#x27;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;3&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;4&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a&#x27;</span><br><span class="line">&#125;</span><br><span class="line">[</span><br><span class="line">  &#x27;D:\\soft\\node-v12.21.0-win-x64\\node.exe&#x27;,</span><br><span class="line">  &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;--port&#x27;,</span><br><span class="line">  &#x27;3003&#x27;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/" data-id="ckwn195so00153gtl1knsch5h" data-title="模拟一个加载模块的函数-require" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E7%8E%B0require%E5%8A%9F%E8%83%BD/" rel="tag">实现require功能</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-自动部署pm2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/20/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2pm2/" class="article-date">
-  <time class="dt-published" datetime="2021-09-20T07:22:11.000Z" itemprop="datePublished">2021-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/09/20/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2pm2/">自动部署pm2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>自动部署相关：</p>
-<p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4301418/blog/3342820">https://my.oschina.net/u/4301418/blog/3342820</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113228998">https://zhuanlan.zhihu.com/p/113228998</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/20/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2pm2/" data-id="ckwn195t1001f3gtlceaqegpg" data-title="自动部署pm2" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-评论设置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/20/%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE/" class="article-date">
-  <time class="dt-published" datetime="2021-09-20T07:00:08.000Z" itemprop="datePublished">2021-09-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/09/20/%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE/">评论设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="4-1-Twikoo评论设置"><a href="#4-1-Twikoo评论设置" class="headerlink" title="4.1 Twikoo评论设置"></a>4.1 Twikoo评论设置</h2><p>我最初是想要使用Valine或者MiniValine来做评论系统的，但是不知道什么原因，在本地端口打开网页测试评论功能时一切正常，一旦部署到github pages后就失效了，无法正常访问leancloud。我不想太过麻烦，所以直接使用了twikoo评论系统。我使用的主题Matery也支持twikoo。</p>
-<p>注意：Twikoo<strong>不兼容IE</strong>（但兼容Edge），介意的小伙伴勿选。</p>
-<p>以下是我的配置过程，也可以参考<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">官方文档</a>。</p>
-<h3 id="4-1-1-手动部署"><a href="#4-1-1-手动部署" class="headerlink" title="4.1.1 手动部署"></a>4.1.1 手动部署</h3><p>进入腾讯云<a target="_blank" rel="noopener" href="https://cloud.tencent.com/act/pro/cloudbase01#4">CloudBase</a>，下拉到新用户专享部分，选择免费的基础版1即可（有钱的话当我没说），然后按照提示一步步购买。</p>
-<p>购买成功后，进入环境-&gt;登录授权，开启匿名登陆。然后点击“自定义登录”一行中的“私钥下载”，下载该文件，一会儿要用。</p>
-<p>进入环境-&gt;安全配置，将网站域名加入到“WEB安全域名”。如“qiacuhome.cn”。</p>
-<p>进入云函数界面，新建云函数，函数名称填写twikoo，创建方式选空白函数，运行环境选Nodejs 10.15，函数内存选128MB，然后进入下一步。之后会看到一个输入框，清空里面的内容，填写以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.main = require(&#x27;twikoo-func&#x27;).main</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p>创建完成后，点击“twikoo”进入云函数详情页，进入“函数代码”标签，新建文件，文件名为package.json，填写以下代码，点击<strong>保存并安装依赖</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;dependencies&quot;: &#123; &quot;twikoo-func&quot;: &quot;1.2.0&quot; &#125; &#125;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-1-2-管理面板配置"><a href="#4-1-2-管理面板配置" class="headerlink" title="4.1.2 管理面板配置"></a>4.1.2 管理面板配置</h3><p>在环境-&gt;资源购买页面可以找到自己的环境ID，复制后填入Matery主题的_config.yml文件中。</p>
-<p>然后重新<code>hexo g -d</code>，部署github pages。完成后，进入自己的网站，随便找到一个有评论框的页面进入，在右下角有一个设置，点进入，输入刚才下载的私钥，就可以进入管理界面了。按照提示修改配置即可。</p>
+        <h2 id="Linux系统上安装JDK："><a href="#Linux系统上安装JDK：" class="headerlink" title="Linux系统上安装JDK："></a><em>Linux系统上安装JDK：</em></h2><h3 id="1-1-安装步骤："><a href="#1-1-安装步骤：" class="headerlink" title="1.1  安装步骤："></a><strong>1.1</strong>  <em>安装步骤：</em></h3><h4 id="1-1-1-卸载OpenJDK"><a href="#1-1-1-卸载OpenJDK" class="headerlink" title="1.1.1 卸载OpenJDK"></a><strong>1.1.1</strong> <em>卸载OpenJDK</em></h4><p>执行命令查看:</p>
+<ul>
+<li>rpm –qa | grep java  查看和java相关的包</li>
+</ul>
+<p><img src="/../images/Nginx-linux/wpsE1BE.tmp.jpg" alt="img"> </p>
+<ul>
+<li>卸载OPENJDK</li>
+</ul>
+<p><img src="/../images/Nginx-linux/wpsE1BF.tmp.jpg" alt="img"> </p>
+<h4 id="1-1-2-创建JDK的安装路径："><a href="#1-1-2-创建JDK的安装路径：" class="headerlink" title="1.1.2 创建JDK的安装路径："></a><strong>1.1.2</strong> <em>创建JDK的安装路径：</em></h4><p>在/usr/local/  创建文件夹java</p>
+<p>mkdir java</p>
+<p><strong>1.1.3</strong>  <em>传安装文件到linux:</em></p>
+<p><img src="/../images/Nginx-linux/wpsE1C0.tmp.jpg" alt="img"> </p>
+<ul>
+<li><p>cd ~</p>
+</li>
+<li><p>ll</p>
+</li>
+</ul>
+<p><img src="/../images/Nginx-linux/wpsE1C1.tmp.jpg" alt="img"> </p>
+<h4 id="1-1-4-解压tar-gz"><a href="#1-1-4-解压tar-gz" class="headerlink" title="1.1.4  解压tar.gz"></a><strong>1.1.4</strong>  <em>解压tar.gz</em></h4><p>首先需要安装依赖：</p>
+<p>l yum install glibc.i686</p>
+<p>l tar –xvf xxx.tar.gz –C /usr/local/java</p>
+<h4 id="1-1-5-配置环境变量："><a href="#1-1-5-配置环境变量：" class="headerlink" title="1.1.5 配置环境变量："></a><strong>1.1.5</strong> <em>配置环境变量：</em></h4><p>vim /etc/profile</p>
+<p>​    #set java environment</p>
+<p>​    JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</p>
+<p>​    CLASSPATH=.:$JAVA_HOME/lib.tools.jar</p>
+<p>​    PATH=$JAVA_HOME/bin:$PATH</p>
+<p>​    export JAVA_HOME CLASSPATH PATH</p>
+<p>重新加载配置文件：</p>
+<p>source /etc/profile</p>
+<h2 id="Linux系统上安装MySQL"><a href="#Linux系统上安装MySQL" class="headerlink" title="Linux系统上安装MySQL:"></a><em>Linux系统上安装MySQL:</em></h2><h3 id="1-2-安装MySQL"><a href="#1-2-安装MySQL" class="headerlink" title="1.2 安装MySQL:"></a><strong>1.2</strong> <em>安装MySQL:</em></h3><h4 id="1-2-1-上传mysql到Linux"><a href="#1-2-1-上传mysql到Linux" class="headerlink" title="1.2.1 上传mysql到Linux:"></a><strong>1.2.1</strong> <em>上传mysql到Linux:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D1.tmp.jpg" alt="img"> </p>
+<h4 id="1-2-1-2-卸载自带mysql"><a href="#1-2-1-2-卸载自带mysql" class="headerlink" title="1.2.1.2 卸载自带mysql:"></a><strong>1.2.1.2</strong> <em>卸载自带mysql:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D2.tmp.jpg" alt="img"> </p>
+<h4 id="1-2-3-创建mysql的安装路径："><a href="#1-2-3-创建mysql的安装路径：" class="headerlink" title="1.2.3 创建mysql的安装路径："></a><strong>1.2.3</strong> <em>创建mysql的安装路径：</em></h4><p>Mkdir mysql</p>
+<h4 id="1-2-4-解压mysql："><a href="#1-2-4-解压mysql：" class="headerlink" title="1.2.4 解压mysql："></a><strong>1.2.4</strong> <em>解压mysql：</em></h4><p>tar -xvf MySQL-5.6.22-1.el6.i686.rpm-bundle.tar -C /usr/local/mysql</p>
+<h4 id="1-2-5-安装依赖："><a href="#1-2-5-安装依赖：" class="headerlink" title="1.2.5 安装依赖："></a><strong>1.2.5</strong> <em>安装依赖：</em></h4><p>yum -y install libaio.so.1 libgcc_s.so.1 libstdc++.so.6</p>
+<p>yum  update libstdc++-4.4.7-4.el6.x86_64</p>
+<h4 id="1-6-安装mysql的服务端："><a href="#1-6-安装mysql的服务端：" class="headerlink" title="1..6 安装mysql的服务端："></a><strong>1..6</strong> <em>安装mysql的服务端：</em></h4><p>rpm -ivh MySQL-server-5.6.22-1.el6.i686.rpm</p>
+<h4 id="1-2-7-安装mysql的客户端："><a href="#1-2-7-安装mysql的客户端：" class="headerlink" title="1.2.7 安装mysql的客户端："></a><strong>1.2.7</strong> <em>安装mysql的客户端：</em></h4><p>rpm -ivh MySQL-client-5.6.22-1.el6.i686.rpm</p>
+<h4 id="1-2-8-启动mysql的服务："><a href="#1-2-8-启动mysql的服务：" class="headerlink" title="1.2.8 启动mysql的服务："></a><strong>1.2.8</strong> <em>启动mysql的服务：</em></h4><p>service mysql status</p>
+<p>service mysql start</p>
+<h4 id="1-2-9-登录mysql"><a href="#1-2-9-登录mysql" class="headerlink" title="1.2.9 登录mysql:"></a><strong>1.2.9</strong> <em>登录mysql:</em></h4><p><img src="/../images/Nginx-linux/wpsE1D3.tmp.jpg" alt="img"> </p>
+<p>产生一个随机的密码存放在/root/.mysql_secret</p>
+<p>查看密码进行登录:</p>
+<p>msyql –u root -p</p>
+<p>修改密码：</p>
+<p>set password = password(‘123456’);</p>
+<h4 id="1-2-10-设置开机自动启动mysql"><a href="#1-2-10-设置开机自动启动mysql" class="headerlink" title="1.2.10 设置开机自动启动mysql:"></a><strong>1.2.10</strong> <em>设置开机自动启动mysql:</em></h4><p>加入到系统服务：</p>
+<p>chkconfig –add mysql</p>
+<p>自动启动：</p>
+<p>chkconfig mysql on</p>
+<h4 id="1-2-11-开启远程服务："><a href="#1-2-11-开启远程服务：" class="headerlink" title="1.2.11 开启远程服务："></a><strong>1.2.11</strong> <em>开启远程服务：</em></h4><p>登录mysql授权可以远程访问:</p>
+<p>grant all privileges on <em>.</em> to ‘root’ @’%’ identified by ‘123456’;</p>
+<p>flush privileges;</p>
+<h4 id="1-2-12-设置Linux的防火墙"><a href="#1-2-12-设置Linux的防火墙" class="headerlink" title="1.2.12 设置Linux的防火墙:"></a><strong>1.2.12</strong> <em>设置Linux的防火墙:</em></h4><p>3306端口放行 且将该设置添加到防火墙的规则中</p>
+<p>/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<h2 id="Linux系统上安装tomcat："><a href="#Linux系统上安装tomcat：" class="headerlink" title="Linux系统上安装tomcat："></a><em>Linux系统上安装tomcat：</em></h2><h3 id="1-3-安装tomcat"><a href="#1-3-安装tomcat" class="headerlink" title="1.3 安装tomcat:"></a><strong>1.3</strong> <em>安装tomcat:</em></h3><h4 id="1-3-1-上传tomcat的安装文件："><a href="#1-3-1-上传tomcat的安装文件：" class="headerlink" title="1.3.1 上传tomcat的安装文件："></a><strong>1.3.1</strong> <em>上传tomcat的安装文件：</em></h4><h4 id="1-3-2-创建tomcat的安装路径："><a href="#1-3-2-创建tomcat的安装路径：" class="headerlink" title="1.3.2 创建tomcat的安装路径："></a><strong>1.3.2</strong> <em>创建tomcat的安装路径：</em></h4><p>在/usr/local 下mkdir tomcat</p>
+<h4 id="1-3-3-解压tomcat"><a href="#1-3-3-解压tomcat" class="headerlink" title="1.3.3 解压tomcat"></a><strong>1.3.3</strong> <em>解压tomcat</em></h4><p>tar –xvf xxx.tar.gz –C /usr/local/tomcat</p>
+<h4 id="1-3-4-设置防火墙："><a href="#1-3-4-设置防火墙：" class="headerlink" title="1.3.4 设置防火墙："></a><strong>1.3.4</strong> <em>设置防火墙：</em></h4><p>/sbin/iptables -I INPUT -p tcp –dport 8080 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<h4 id="1-3-5-启动tomcat："><a href="#1-3-5-启动tomcat：" class="headerlink" title="1.3.5 启动tomcat："></a><strong>1.3.5</strong> <em>启动tomcat：</em></h4><p>进入到tomcat/bin</p>
+<p>执行 ./startup.sh</p>
+<p>关闭tomcat</p>
+<p>执行 ./shutdown.sh</p>
+<h2 id="发布项目到Linux："><a href="#发布项目到Linux：" class="headerlink" title="发布项目到Linux："></a><em>发布项目到Linux：</em></h2><h3 id="1-4-1-将数据库还原到Linux上："><a href="#1-4-1-将数据库还原到Linux上：" class="headerlink" title="1.4-1 将数据库还原到Linux上："></a><strong>1.4-1</strong> <em>将数据库还原到Linux上：</em></h3><h4 id="1-4-1-备份Window上的数据库："><a href="#1-4-1-备份Window上的数据库：" class="headerlink" title="1.4.1 备份Window上的数据库："></a><strong>1.4.1</strong> <em>备份Window上的数据库：</em></h4><p>使用命令备份：</p>
+<p>mysqldump –u root -p store_v2.0 &gt; c:/store_v2.0.sql</p>
+<p>使用可视化工具：</p>
+<p><strong>1.4.2</strong> <em>在Linux上还原数据库：</em></p>
+<p><strong>1.4-2</strong> <em>将程序的代码发布到Linux上：</em>*</p>
+<p><strong>1.4.3</strong> <em>将工程制作为war包：</em></p>
+<p> <strong>1.4.4</strong> <em>将war包上传到linux服务器：</em></p>
+<p> <strong>1.4.5</strong> <em>将war包copy到linux下的tomcat的webapps中：</em></p>
+<p><strong>1.4.6</strong> <em>修改配置文件就可以：</em></p>
+<h2 id="1-5-Nginx"><a href="#1-5-Nginx" class="headerlink" title="1.5 Nginx"></a><strong>1.5</strong> <em>Nginx</em></h2><p><strong>1.5.1</strong> <em>Nginx的概述：</em></p>
+<p><img src="/../images/Nginx-linux/wpsE1D4.tmp.jpg" alt="img"> </p>
+<h3 id="1-5-2-什么是代理和反向代理："><a href="#1-5-2-什么是代理和反向代理：" class="headerlink" title="1.5.2 什么是代理和反向代理："></a><strong>1.5.2</strong> <em>什么是代理和反向代理：</em></h3><h3 id="1-5-3-Nginx-Tomcat的集群配置"><a href="#1-5-3-Nginx-Tomcat的集群配置" class="headerlink" title="1.5.3 Nginx+Tomcat的集群配置:"></a><strong>1.5.3</strong> <em>Nginx+Tomcat的集群配置:</em></h3><h4 id="1-5-3-1-在一台电脑上安装两个tomcat"><a href="#1-5-3-1-在一台电脑上安装两个tomcat" class="headerlink" title="1.5.3.1 在一台电脑上安装两个tomcat"></a><strong>1.5.3.1</strong> <em>在一台电脑上安装两个tomcat</em></h4><p>需要在一台电脑模拟：在E盘解压两个tomcat,分别命名为tomcat1，tomcat2.</p>
+<h4 id="1-5-3-2-修改tomcat的配置文件，将端口进行修改"><a href="#1-5-3-2-修改tomcat的配置文件，将端口进行修改" class="headerlink" title="1.5.3.2 修改tomcat的配置文件，将端口进行修改:"></a><strong>1.5.3.2</strong> <em>修改tomcat的配置文件，将端口进行修改:</em></h4><p>修改tomcat2中的端口:</p>
+<p><img src="/../images/Nginx-linux/wpsE1D5.tmp.jpg" alt="img"> </p>
+<p><img src="/../images/Nginx-linux/wpsE1D6.tmp.jpg" alt="img"> </p>
+<p><img src="/../images/Nginx-linux/wpsE1E7.tmp.jpg" alt="img"> </p>
+<h4 id="1-5-3-3-将项目分别发布到两个-tomcat中："><a href="#1-5-3-3-将项目分别发布到两个-tomcat中：" class="headerlink" title="1.5.3.3 将项目分别发布到两个**tomcat中："></a><strong>1.5.3.3</strong> <em>将项目分别发布到两个**tomcat中：</em></h4><h4 id="1-5-3-4-安装Nginx："><a href="#1-5-3-4-安装Nginx：" class="headerlink" title="1.5.3.4 安装Nginx："></a><strong>1.5.3.4</strong> <em>安装Nginx：</em></h4><p>解压</p>
+<p>双击nginx.exe</p>
+<p>启动完以后访问<a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/20/%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE/" data-id="ckwn195t5001l3gtl3wn9gyij" data-title="评论设置" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/10/25/Nginx-linux/" data-id="ckwn1c0k50003mstlg1v202br" data-title="Nginx-linux" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx-linux/" rel="tag">Nginx-linux</a></li></ul>
+
     </footer>
   </div>
   
@@ -220,7 +202,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
   </nav>
 
 </section>
