@@ -1,37 +1,775 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux常用命令-英文全称," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="alias：给命令起别名 awk &#x3D; “Aho Weiberger and Kernighan” ，三个作者的姓的第一个字母 bash：GNU Bourne-Again Shell，大多Linux的默认shell bc &#x3D; Basic Calculator，基础计算器，scale设定小数位，quit退出 bg &#x3D; BackGround，后台运行任务 bye &#x3D; bye，用于在FTP时退出FTP执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令-英文全称">
+<meta property="og:url" content="http://example.com/2021/10/25/linux%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/index.html">
+<meta property="og:site_name" content="lixingyang">
+<meta property="og:description" content="alias：给命令起别名 awk &#x3D; “Aho Weiberger and Kernighan” ，三个作者的姓的第一个字母 bash：GNU Bourne-Again Shell，大多Linux的默认shell bc &#x3D; Basic Calculator，基础计算器，scale设定小数位，quit退出 bg &#x3D; BackGround，后台运行任务 bye &#x3D; bye，用于在FTP时退出FTP执行">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-25T15:13:14.000Z">
+<meta property="article:modified_time" content="2021-10-25T15:55:53.300Z">
+<meta property="article:author" content="lixingyang">
+<meta property="article:tag" content="linux常用命令-英文全称">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/10/25/linux命令-英文全称/"/>
+
+
+
+
+
+  <title>linux命令-英文全称 | lixingyang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lixingyang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/25/linux%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lixingyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux命令-英文全称</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-25T23:13:14+08:00">
+                2021-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>alias：给命令起别名</p>
+<p>awk = “Aho Weiberger and Kernighan” ，三个作者的姓的第一个字母</p>
+<p>bash：GNU Bourne-Again Shell，大多Linux的默认shell</p>
+<p>bc = Basic Calculator，基础计算器，scale设定小数位，quit退出</p>
+<p>bg = BackGround，后台运行任务</p>
+<p>bye = bye，用于在FTP时退出FTP执行</p>
+<p>cal = calendar，日历，后跟月份数、年份数可显示指定月日历</p>
+<p>cat = catenate，连续，输出文件内容，-n显示行号，-b不显示空行，有意思的是tac则从后向前输出</p>
+<p>cd = Change Directory，切换目录</p>
+<p>chgrp = Change group，改变文件归属用户组</p>
+<p>clear = clear，清屏</p>
+<p>chmod = Change mode，改变读写权限，-R递归更改，a默认所有用户u本用户g本群组o其他用户，+-rwx增减读写执行权限，rwx421</p>
+<p>chown = Change owner，改变所有者</p>
+<p>cp = copy，复制</p>
+<p>crontab = Chronos，希腊文时间，定时执行工具，* * * * <em>分别为分时日月星期，</em>代表所有，”-“为范围”,”为多值”/“为频率，-u指定用户，-l查看任务，-r删除任务，-e编辑任务。</p>
+<p>cut = cut，从文件中的每行文本中剪出指定字符，功能类似grep，-b以字节为单位，-c以字符为单位，-d自定义分隔符默认制表符</p>
+<p>date = date，日期时间，date “+option”，-d显示指定时间，-r显示文件最后修改时间，-s修改时间，%x日期，%X时间，%F日期，%D月日年，%Y4位年份，%y2位年份，%m月份，%d日，%H24制时，%I12制时，%M分，%S秒</p>
+<p>declare = declare，用于声明shell变量，-a数组，-i指定整数型</p>
+<p>df = Disk Free，剩余磁盘空间，-h以适阅读单位显示，后跟文件则显示其所在挂载点磁盘剩余空间</p>
+<p>dirs = directories，从目录栈中读取，功能类似于一个数组，先显示本目录再显示目录栈，-c删除目录栈中所有记录，-p每行显示一个（默认连续显示），-v每行显示一个并加编号，+N显示第N个目录（数字从0开始），-N显示倒数第N个目录</p>
+<p>du = Disk Usage，磁盘使用情况，统计文件大小，-h以适阅读单位显示，-s不迭代仅合计统计，–max-depth n指定统计深度</p>
+<p>egrep = Extended GREP，可使用扩展正则的grep</p>
+<p>exec =execute，执行 ，内部命令</p>
+<p>find = find，查找，find PATH -OPTION [-print] [-exec cmd] {} ;，PATH为查找数据若为当前目录下则为“.”，-name文件名，-mtime +/- N N天前或内更改的文件，-ctime +/-N N天前或内创建的文件，-type文件类型d为目录f为文件，-size 大于指定字节的文件，</p>
+<p>fg = ForeGround，前台运行任务</p>
+<p>fmt = format，简单的文本格式化</p>
+<p>ftp = File Transfer Protocol，文件传输，后跟IP地址，get从远程FTP机下载到本机，mget批量下载，put将本机文件上传到远程FTP机，mput批量上传</p>
+<p>free = free，内存使用情况，-s间隔N秒查询一次，-m -k -b以M、KB、Byte为单位显示</p>
+<p>gawk = GNU AWK</p>
+<p>grep = global regular expression print，全局正则表达式打印，强大的文本搜索工具，-c只输出计数，-i忽略大小写，-n输出行号，-v取反，-h多文件时不显文件名，-r递归搜索</p>
+<p>head = head，查看前n行</p>
+<p>iostat = in out status，IO及CPU状态</p>
+<p>iostat = in out status，IO及CPU状态</p>
+<p>less = less，分页展示文件内容</p>
+<p>logname = loginname，显示当前登录用户名</p>
+<p>ln = link，建立链接，-s建立软链接（默认硬链接）</p>
+<p>locate = locate，查找文件地址，并不查硬盘，而是在/var/lib/slocate/slocate.db中查看，速度快省资源</p>
+<p>ls = list，列出文件，-l详细信息，-h合适单位显示，-S大小排序，-t时间排序</p>
+<p>lsof = List Open Files，列出当前系统打开的文件，ROOT权限，-c某进程打开的文件，-p某进程打开的文件，-u某用户打开的文件，跟目录为目录下打开的文件，跟文件为文件相关打开信息，-i某端口或IP打开的文件</p>
+<p>man = Manual意思是手册，可以用这个命令查询其他命令的用法。</p>
+<p>mkdir = Makedirectory，创建目录，-p指定路径，-m指定权限</p>
+<p>mv = Move，移动文件，同目录下则为重命名，-i询问试覆盖，-f同名强制覆盖，-b备份旧文件（文件名后加~），-u若本文件较新则覆盖旧文件</p>
+<p>more = more，分页显示</p>
+<p>nl = Number of Lines，计算文件行号，类似cat，-b a 计算空行（默认不计算），-n rz以6位数字显示行号前补0，-w指定占位数（默认6）</p>
+<p>passwd = PassWord</p>
+<p>pg = pager，分页显示文件内容</p>
+<p>ping = Packet InterNet Grouper，测试网络，-c指定次数，-i指定间隔秒数</p>
+<p>printf = Print Format</p>
+<p>ps = Processes Status，进程状态 ，命令执行时刻进程信息，-a同终端进程，-A所有进程，-u指定用户，-e同-A，-f展示所有信息，aux查看进程详细信息类似-ef，-C可跟搜索词，–sort=-pcpu,+pmem按cpu降序按mem内存升序排序</p>
+<p>pushd = push Directory，当目录放入目录栈，+/-N将正数/倒数第N个目录移到栈顶并切换到该目录，-n在切目录栈时不切目录</p>
+<p>popd = pop Directory，从目录栈弹出目录，+/-N将正数/倒数第N个目录从目录栈中移除</p>
+<p>pwd = print working Directory，打印工作目录</p>
+<p>rcp = remote copy，远程拷贝，-r递归，-p保留修改时间和权限，将远程文件拷贝到本机，限制条件较多</p>
+<p>rm = ReMove，删除文件，-r递归，-f不询问强制删除</p>
+<p>rmdir = Remove directory，删除目录</p>
+<p>rlogin = remote login，-l指定登录用户名，rlogin IP/主机名</p>
+<p>rsh = remote shell，远程执行shell，-l指定用户</p>
+<p>rmp = RedHat Package Manager，RedHat软件包管理工具，类似Windows里面的“添加/删除程序”，-a查询所有，-e卸载，-h显示进度，-i显示相关信息，-l列出软件所有文件名，-q查询，-p软件包内文件，-v显示执行过程；常用参数：-ivh安装并显示进度，-qpl查看软件包内文件，-qa查询一个软件是否安装过，–relocate指定安装目录，–rebuild编译+打包，–recompile编译+打包+安装</p>
+<p>reboot=Restart your computer，重启</p>
+<p>scp = secure copy，用于Linux间复制，基于ssh远程复制，-p保留修改时间权限，-r递归，-P指定端口，-v显示进度，</p>
+<p>sed = Stream Editor，流编辑器，本身即先查，在CMD中匹配字符两侧要有//，sed -OPTION ‘CMD’ file，选项：-n安静模式，-i直接修改不屏幕输出，-r支持扩展正则，-e多命令，-f文件指定动作；命令：a增，d删除，i插，c改，s正则查，p屏幕输出，g获取内存缓冲区内容并替代当前模板块中文字，G获取内容追加，h内容拷贝到内存，H内容追加到内存</p>
+<p>set = set，主要作用是显示系统中已经存在的shell变量，以及设置shell变量的新变量值，不能够定义新的shell变量，定义新的变量使用declare命令。</p>
+<p>shutdown，关机，-t设定延迟时间，-k通知所有用户，-r重启，-h关机后停机，-c取消关机，-f强制关机，time设定关机时间</p>
+<p>sleep = sleep，动作延迟</p>
+<p>sort = sort，排序，-b忽略行首空格，-r反向，-n以数值，-o排序结果输出文件，-t指定列分隔符，-k指定排序列，-f忽略大小定</p>
+<p>split = split，将大文件分割成小文件，-N每N行分割成一个文件，-bN每N字节分割成一个文件，-C按字节分割保证完整性</p>
+<p>ssh = Secure Shell，远程登录Linux，-l指定用户，-p指定端口</p>
+<p>sshpass，一款ssh免密码输入软件</p>
+<p>su = switch user，切换用户，root切任何用户不需要密码，但其他用户之间切换需要密码，- user表示切换到用户user并将用户环境一并切换，-c执行命令再退回原用户</p>
+<p>sudo = super user do，受限制的su</p>
+<p>svn = SubVersioN</p>
+<p>sync = 强制将内存写入硬盘</p>
+<p>tar = tape archive，打包归档文件，-c创建create，-x提取extract，-t查看list，-f指定归档文件，-m解压时不变更文件更改时间，-p解压时原权限不变，-v显示执行详情，-r向归档文件中追加，-u更新归档文件中文件</p>
+<p>tail = tail，查看尾部n行</p>
+<p>touch = touch，创建，修改文件或者目录的时间属性，若文件不存在，系统会建立一个新的文件，更改文件权限再结合chmod</p>
+<p>top = top，实时显示系统中各个进程的资源占用状况，该命令可以按CPU使用、内存使用和执行时间对任务进行排序</p>
+<p>umount = Unmount 卸载，可以通过设备名卸载或挂载点卸载</p>
+<p>unset = unset，用于删除变量或函数</p>
+<p>useradd、userdel、usermod，新增用户、删除用户、修改用户</p>
+<p>w = who，显示目前登入系统的用户信息</p>
+<p>xargs = eXtended ARGuments，给命令传递参数的一个过滤器，也是组合多个命令的一个工具，它把一个数据流分割为一些足够小的块，以方便过滤器和命令进行处理</p>
+<p>wc = Word Count，计算文件的Byte数、字数、或是列数，-c只显示字节数，-l只显示行数，-w只统计单词数</p>
+<p>who = who，显示当前系统所有使用者等信息</p>
+<p>whoami = whoami，命令用于显示自身用户名称。</p>
+<p>which = which，命令用于查找文件</p>
+<p>whereis = where is，查看文件</p>
+<p>ls：list(列出目录内容)<br> cd：Change Directory（改变目录）<br> su:switch user 切换用户<br> rpm:redhat package manager 红帽子打包管理器<br> pwd:print work directory 打印当前目录 显示出当前工作目录的绝对路径<br> ps: process status(进程状态，类似于windows的任务管理器) 常用参数：－auxf<br> ps -auxf 显示进程状态  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> df: disk free其功能是显示磁盘可用空间数目信息及空间结点信息。换句话说，就是报告在任何安装的设备或目录中，还剩多少自由的空间。<br> rpm： 即RedHat Package Management，是RedHat的发明之一</p>
+<p>rmdir：Remove Directory（删除目录）<br> rm：Remove（删除目录或文件）<br> cat: concatenate连锁 cat file1file2&gt;&gt;file3把文件1和文件2的内容联合起来放到file3中<br> insmod: install module,载入模块<br> ln -s : link -soft 创建一个软链接，相当于创建一个快捷方式<br> mkdir：Make Directory(创建目录<br> touch<br> man: Manual<br> pwd：Print working directory<br> su：Swith user<br> cd：Change directory<br> ls：List files<br> ps：Process Status<br> mkdir：Make directory<br> rmdir：Remove directory<br> mkfs: Make file system<br> fsck：File system check<br> cat: Concatenate</p>
+<p>uname: Unix name<br> df: Disk free<br> du: Disk usage<br> lsmod: List modules<br> mv: Move file<br> rm: Remove file<br> cp: Copy file<br> ln: Link files<br> fg: Foreground<br> bg: Background<br> chown: Change owner<br> chgrp: Change group<br> chmod: Change mode<br> umount: Unmount</p>
+<p>dd: 本来应根据其功能描述“Convert an copy”命名为“cc”，但“cc”已经被用以代表“CComplier”，所以命名为“dd”  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> tar：Tape archive<br> ldd：List dynamic dependencies<br> insmod：Install module<br> rmmod：Remove module<br> lsmod：List module<br> 文件结尾的”rc”（如.bashrc、.xinitrc等）：Resource configuration<br> Knnxxx /Snnxxx（位于rcx.d目录下）：K（Kill）；S(Service)；nn（执行顺序号）；xxx（服务标识）<br> .a（扩展名a）：Archive，static library<br> .so（扩展名so）：Shared object，dynamically linked library<br> .o（扩展名o）：Object file，complied result of C/C++ source file<br> RPM：Red hat package manager<br> dpkg：Debian package manager<br> apt：Advanced package tool（Debian或基于Debian的发行版中提供）<br> 部分<a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/os/linux/">Linux</a>命令缩写  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a></p>
+<p>bin = BINaries<br> /dev = DEVices<br> /etc = ETCetera<br> /lib = LIBrary<br> /proc = PROCesses<br> /sbin = Superuser BINaries<br> /tmp = TeMPorary<br> /usr = Unix Shared Resources<br> /var = VARiable ?<br> FIFO = First In, First Out<br> GRUB = GRand Unified Bootloader<br> IFS = Internal Field Seperators<br> LILO = LInux LOader</p>
+<p>MySQL = My是最初作者女儿的名字，SQL = Structured QueryLanguage<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/kf/web/php/">PHP</a> = Personal Home Page Tools = PHP HypertextPreprocessor<br> PS = Prompt String  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> Perl = “Pratical Extraction and Report Language” =”Pathologically Eclectic Rubbish Lister”<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/kf/web/Python/">Python</a> 得名于电视剧Monty Python’s Flying Circus<br> Tcl = Tool Command Language<br> Tk = ToolKit<br> VT = Video Terminal<br> YaST = Yet Another Setup Tool<br> apache = “a patchy” server<br> apt = Advanced Packaging Tool<br> ar = archiver<br> as = assembler</p>
+<p>awk = “Aho Weiberger and Kernighan”三个作者的姓的第一个字母<br> bash = Bourne Again SHell<br> bc = Basic (Better) Calculator<br> bg = BackGround<br> biff = 作者HeidiStettner在U.C.Berkely养的一条狗,喜欢对邮递员汪汪叫。<br> cal = CALendar<br> cat = CATenate<br> cd = Change Directory<br> chgrp = CHange GRouP<br> chmod = CHange MODe<br> chown = CHange OWNer<br> chsh = CHange SHell<br> cmp = compare<br> cobra = Common Object Request BrokerArchitecture<br> comm = common<br> cp = CoPy<br> cpio = CoPy In and Out<br> cpp = C Pre Processor<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> cron = Chronos 希腊文时间<br> cups = Common Unix Printing System<br> cvs = Current Version System<br> daemon = Disk And Execution MONitor<br> dc = Desk Calculator<br> dd = Disk Dump<br> df = Disk Free<br> diff = DIFFerence<br> dmesg = diagnostic message<br> du = Disk Usage<br> ed = editor<br> egrep = Extended GREP<br> elf = Extensible Linking Format<br> elm = ELectronic Mail<br> emacs = Editor MACroS<br> eval = EVALuate<br> ex = EXtended<br> exec = EXECute<br> fd = file descriptors<br> fg = ForeGround<br> fgrep = Fixed GREP<br> fmt = format<br> fsck = File System ChecK<br> fstab = FileSystem TABle<br> fvwm = F*** Virtual Window Manager<br> gawk = GNU AWK<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> gpg = GNU Privacy Guard<br> groff = GNU troff<br> hal = Hardware Abstraction Layer<br> joe = Joe’s Own Editor<br> ksh = Korn SHell<br> lame = Lame Ain’t an MP3 Encoder<br> lex = LEXical analyser<br> lisp = LISt Processing = Lots of IrritatingSuperfluous Parentheses<br> ln = LiNk<br> lpr = Line PRint<br> ls = list<br> lsof = LiSt Open Files<br> m4 = Macro processor Version 4<br> man = MANual pages<br> mawk = Mike Brennan’s AWK<br> mc = Midnight Commander<br> mkfs = MaKe FileSystem<br> mknod = MaKe NODe<br> motd = Message of The Day<br> mozilla = MOsaic GodZILLa<br> mtab = Mount TABle<br> mv = MoVe</p>
+<p>nano = Nano’s ANOther editor<br> nawk = New AWK<br> nl = Number of Lines<br> nm = names<br> nohup = No HangUP<br> nroff = New ROFF<br> od = Octal Dump<br> passwd = PASSWorD<br> pg = pager<br> pico = PIne’s message COmposition editor<br> pine = “Program for Internet News &amp;Email” = “Pine is not Elm”<br> ping = 拟声 又 = Packet InterNet Grouper<br> pirntcap = PRINTer CAPability<br> popd = POP Directory<br> pr = pre</p>
+<p>printf = PRINT Formatted<br> ps = Processes Status<br> pty = pseudo tty<br> pushd = PUSH Directory<br> pwd = Print Working Directory<br> rc = runcom = run command, rc还是plan9的shell<br> rev = REVerse<br> rm = ReMove<br> rn = Read News<br> roff = RunOFF<br> rpm = RPM Package Manager = RedHat PackageManager<br> rsh, rlogin, rvim中的r = Remote<br> rxvt = ouR XVT<br> seamoneky = 我<br> sed = Stream EDitor<br> seq = SEQuence<br> shar = SHell ARchive<br> slrn = S-Lang rn<br> ssh = Secure SHell<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> ssl = Secure Sockets Layer<br> stty = Set TTY<br> su = Substitute User<br> svn = SubVersioN<br> tar = Tape ARchive<br> tcsh = TENEX C shell<br> tee = T (T形水管接口)<br> telnet = TEminaL over Network<br> termcap = terminal capability<br> terminfo = terminal information<br> tex = τέχνη的缩写，希腊文art<br> tr = traslate<br> troff = Typesetter new ROFF<br> tsort = Topological SORT<br> tty = TeleTypewriter<br> twm = Tom’s Window Manager<br> tz = TimeZone</p>
+<p>udev = Userspace DEV<br> ulimit = User’s LIMIT<br> umask = User’s MASK<br> uniq = UNIQue<br> vi = VIsual = Very Inconvenient<br> vim = Vi IMproved<br> wall = write all<br> wc = Word Count  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> wine = WINE Is Not an Emulator<br> xargs = eXtended ARGuments<br> xdm = X Display Manager<br> xlfd = X Logical Font Description<br> xmms = X Multimedia System<br> xrdb = X Resources DataBase<br> xwd = X Window Dump<br> yacc = yet another compiler compiler<br> Fish = the Friendly Interactive SHell<br> su = Switch User<br> MIME = Multipurpose Internet Mail Extensions<br> ECMA = European Computer ManufacturersAssociation</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/" rel="tag"># linux常用命令-英文全称</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/10/25/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next" title="linux常用命令">
+                <i class="fa fa-chevron-left"></i> linux常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/26/linux-%E4%BB%A3%E7%90%86/" rel="prev" title="linux-代理">
+                linux-代理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lixingyang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
