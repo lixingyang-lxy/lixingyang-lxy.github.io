@@ -1,258 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Archives: 2021/11 | lixingyang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="private blog by lixingyang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lixingyang">
-<meta property="og:url" content="http://example.com/archives/2021/11/index.html">
-<meta property="og:site_name" content="lixingyang">
-<meta property="og:description" content="private blog by lixingyang">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="lixingyang">
-<meta property="article:tag" content="lixingyang leexingyang lxy web-front-development technology">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="lixingyang" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post-collapse.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% block title %}{{ __('title.archive') }} | {{ config.title }}{% endblock %}
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+{% block page_class %}page-archive{% endblock %}
 
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
+{% block content %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">lixingyang</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+  {#####################}
+  {### ARCHIVE BLOCK ###}
+  {#####################}
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/11/22/%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-11-22T12:33:03.000Z" itemprop="datePublished">Nov 22</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/11/22/%E5%85%B3%E7%B3%BB/">关系</a>
-    </h1>
-  
+      <span class="archive-page-counter">
+        {% set cheers %}
+        {% set posts_length = site.posts.length %}
+        {% if posts_length > 210 %} {% set cheers = 'excellent' %}
+          {% elif posts_length > 130 %} {% set cheers = 'great' %}
+          {% elif posts_length > 80 %} {% set cheers = 'good' %}
+          {% elif posts_length > 50 %} {% set cheers = 'nice' %}
+          {% elif posts_length > 30 %} {% set cheers = 'ok' %}
+        {% else %}
+          {% set cheers = 'um' %}
+        {% endif %}
+        {{ __('cheers.' + cheers) }}! {{ _p("counter.archive_posts", site.posts.length) }} {{ __('keep_on') }}
+      </span>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/11/20/%E5%87%BA%E4%B9%8E%E8%87%AA%E7%84%B6/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-11-20T03:38:11.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/11/20/%E5%87%BA%E4%B9%8E%E8%87%AA%E7%84%B6/">出乎自然</a>
-    </h1>
-  
+      {% for post in page.posts %}
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/11/08/%E5%9F%BA%E7%A1%80-%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-11-08T13:39:18.000Z" itemprop="datePublished">Nov 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/11/08/%E5%9F%BA%E7%A1%80-%E6%9E%B6%E6%9E%84/">基础-架构</a>
-    </h1>
-  
+        {# Show year #}
+        {% set year %}
+        {% set post.year = date(post.date, 'YYYY') %}
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        {% if post.year !== year %}
+          {% set year = post.year %}
+          <div class="collection-title">
+            <{% if theme.seo %}h2{% else %}h1{% endif %} class="archive-year" id="archive-year-{{ year }}">{{ year }}</{% if theme.seo %}h2{% else %}h1{% endif %}>
+          </div>
+        {% endif %}
+        {# endshow #}
 
+        {{ post_template.render(post) }}
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx-linux/" rel="tag">Nginx-linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TS-learn-2/" rel="tag">TS-learn-2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TS-learn-%E8%AF%AD%E6%B3%95%E8%BF%9B%E9%98%B6/" rel="tag">TS-learn-语法进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie-session/" rel="tag">cookie-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E5%8E%9F%E7%90%86/" rel="tag">http原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-%E4%BB%A3%E7%90%86-%E5%9B%9E%E9%A1%BE/" rel="tag">linux-代理-回顾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">linux常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/" rel="tag">linux常用命令-英文全称</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node%E5%B8%B8%E7%94%A8api/" rel="tag">node常用api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/senior-enginer-architect/" rel="tag">senior-enginer-architect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/some-valuable-sentence/" rel="tag">some-valuable-sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-deploy-1/" rel="tag">webpack-deploy-1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-deploy-2/" rel="tag">webpack-deploy-2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-handWrite/" rel="tag">webpack-handWrite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-optimze/" rel="tag">webpack-optimze</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E9%A6%96%E5%B8%AD%E6%9E%B6%E6%9E%84%E5%B8%88/" rel="tag">web前端架构设计--首席架构师</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%94%9F%E7%BB%88%E6%9E%81%E6%9E%B6%E6%9E%84-%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84-%E5%93%81%E8%A1%8C-%E4%BA%BA%E5%93%81/" rel="tag">人生终极架构 - 基础架构 - 品行 - 人品</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" rel="tag">制作命令行工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E7%8E%B0require%E5%8A%9F%E8%83%BD/" rel="tag">实现require功能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%BC%E9%87%87%E9%83%A8%E5%88%86%E8%AF%AD%E5%BD%95/" rel="tag">尼采部分语录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E4%BD%8F%E6%9C%AC%E8%B4%A8/" rel="tag">抓住本质</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0/" rel="tag">新建文章</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-%E7%AC%AC%E4%B8%80%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" rel="tag">珠峰架构课目录-第一版 姜文 张仁阳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95%E7%AC%AC%E4%BA%8C%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" rel="tag">珠峰架构课目录第二版 姜文 张仁阳</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%A7%E6%89%BF-promise-events/" rel="tag">继承 promise events</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E7%84%B6/" rel="tag">自然</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%B4%E5%AF%8C%E5%BF%85%E7%BB%8F%E4%B9%8B%E9%81%93-%E4%BA%A4%E6%98%93/" rel="tag">致富必经之道-交易</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95%E4%B8%8B/" rel="tag">记录下</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A9%AC%E5%85%8B%E6%80%9D/" rel="tag">马克思</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Nginx-linux/" style="font-size: 10px;">Nginx-linux</a> <a href="/tags/TS-learn-2/" style="font-size: 10px;">TS-learn-2</a> <a href="/tags/TS-learn-%E8%AF%AD%E6%B3%95%E8%BF%9B%E9%98%B6/" style="font-size: 10px;">TS-learn-语法进阶</a> <a href="/tags/cookie-session/" style="font-size: 10px;">cookie-session</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/http%E5%8E%9F%E7%90%86/" style="font-size: 10px;">http原理</a> <a href="/tags/linux-%E4%BB%A3%E7%90%86-%E5%9B%9E%E9%A1%BE/" style="font-size: 10px;">linux-代理-回顾</a> <a href="/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">linux常用命令</a> <a href="/tags/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/" style="font-size: 10px;">linux常用命令-英文全称</a> <a href="/tags/node%E5%B8%B8%E7%94%A8api/" style="font-size: 10px;">node常用api</a> <a href="/tags/senior-enginer-architect/" style="font-size: 10px;">senior-enginer-architect</a> <a href="/tags/some-valuable-sentence/" style="font-size: 10px;">some-valuable-sentence</a> <a href="/tags/webpack-deploy-1/" style="font-size: 10px;">webpack-deploy-1</a> <a href="/tags/webpack-deploy-2/" style="font-size: 10px;">webpack-deploy-2</a> <a href="/tags/webpack-handWrite/" style="font-size: 10px;">webpack-handWrite</a> <a href="/tags/webpack-optimze/" style="font-size: 10px;">webpack-optimze</a> <a href="/tags/web%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E9%A6%96%E5%B8%AD%E6%9E%B6%E6%9E%84%E5%B8%88/" style="font-size: 10px;">web前端架构设计--首席架构师</a> <a href="/tags/%E4%BA%BA%E7%94%9F%E7%BB%88%E6%9E%81%E6%9E%B6%E6%9E%84-%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84-%E5%93%81%E8%A1%8C-%E4%BA%BA%E5%93%81/" style="font-size: 10px;">人生终极架构 - 基础架构 - 品行 - 人品</a> <a href="/tags/%E5%88%B6%E4%BD%9C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">制作命令行工具</a> <a href="/tags/%E5%AE%9E%E7%8E%B0require%E5%8A%9F%E8%83%BD/" style="font-size: 10px;">实现require功能</a> <a href="/tags/%E5%B0%BC%E9%87%87%E9%83%A8%E5%88%86%E8%AF%AD%E5%BD%95/" style="font-size: 10px;">尼采部分语录</a> <a href="/tags/%E6%8A%93%E4%BD%8F%E6%9C%AC%E8%B4%A8/" style="font-size: 10px;">抓住本质</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0/" style="font-size: 10px;">新建文章</a> <a href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-%E7%AC%AC%E4%B8%80%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" style="font-size: 10px;">珠峰架构课目录-第一版 姜文 张仁阳</a> <a href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95%E7%AC%AC%E4%BA%8C%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" style="font-size: 10px;">珠峰架构课目录第二版 姜文 张仁阳</a> <a href="/tags/%E7%BB%A7%E6%89%BF-promise-events/" style="font-size: 10px;">继承 promise events</a> <a href="/tags/%E8%87%AA%E7%84%B6/" style="font-size: 10px;">自然</a> <a href="/tags/%E8%87%B4%E5%AF%8C%E5%BF%85%E7%BB%8F%E4%B9%8B%E9%81%93-%E4%BA%A4%E6%98%93/" style="font-size: 10px;">致富必经之道-交易</a> <a href="/tags/%E8%AE%B0%E5%BD%95%E4%B8%8B/" style="font-size: 10px;">记录下</a> <a href="/tags/%E9%A9%AC%E5%85%8B%E6%80%9D/" style="font-size: 10px;">马克思</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/22/%E5%85%B3%E7%B3%BB/">关系</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/20/%E5%87%BA%E4%B9%8E%E8%87%AA%E7%84%B6/">出乎自然</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/08/%E5%9F%BA%E7%A1%80-%E6%9E%B6%E6%9E%84/">基础-架构</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/30/%E8%87%B4%E5%AF%8C%E4%B9%8B%E9%81%93-%E6%8C%96%E6%8E%98%E4%BB%B7%E5%80%BC/">致富之道-挖掘价值</a>
-          </li>
-        
-          <li>
-            <a href="/2021/10/28/senior-enginer-architect/">senior-enginer-architect</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 lixingyang<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+      {% endfor %}
 
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
   </div>
-</body>
-</html>
+  {#########################}
+  {### END ARCHIVE BLOCK ###}
+  {#########################}
+
+  {% include '_partials/pagination.swig' %}
+
+{% endblock %}
+
+{% block sidebar %}
+  {{ sidebar_template.render(false) }}
+{% endblock %}
