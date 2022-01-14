@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/webpack-priciple/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/TS-learn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/15/webpack-priciple/" itemprop="url">webpack-priciple</a></h1>
+                <a class="post-title-link" href="/2021/10/21/TS-learn/" itemprop="url">TS-learn</a></h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-15T21:50:53+08:00">
-                2021-10-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-21T21:56:01+08:00">
+                2021-10-21
               </time>
             
 
@@ -333,7 +333,20 @@
       
         
           
-            
+            <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><blockquote>
+<p>配置文件 tsconfig.json</p>
+</blockquote>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><blockquote>
+<p> 联合类型和类型保护</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> typeUnion &#123;</span><br><span class="line">    <span class="keyword">interface</span> Bird &#123;</span><br><span class="line">        <span class="attr">fly</span>: <span class="built_in">boolean</span>;</span><br><span class="line">        sing: <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> Dog &#123;</span><br><span class="line">        <span class="attr">fly</span>: <span class="built_in">boolean</span>;</span><br><span class="line">        bark: <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trainAnimal</span>(<span class="params">animal: Bird | Dog</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (animal.fly) &#123;</span><br><span class="line">            (animal <span class="keyword">as</span> Bird).sing()</span><br><span class="line">            <span class="comment">//这里使用as断言，用自己的逻辑来梳理类型</span></span><br><span class="line">        &#125;</span><br><span class="line">        (animal <span class="keyword">as</span> Dog).bark()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//in语法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trainAnimal2</span>(<span class="params">animal: Bird | Dog</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&#x27;sing&#x27;</span> <span class="keyword">in</span> animal) &#123;<span class="comment">//这里使用in检索</span></span><br><span class="line">            animal.sing()</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">//这里自动检测成除了Bird的情况</span></span><br><span class="line">            animal.bark()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//typeof语法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first: <span class="built_in">string</span> | <span class="built_in">number</span>, second: <span class="built_in">string</span> | <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> first === <span class="string">&quot;number&quot;</span> &amp;&amp; <span class="keyword">typeof</span> second === <span class="string">&quot;number&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> first + second</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> first + <span class="string">&#x27;&#x27;</span> + second</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>,<span class="string">&#x27;23&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用instanceof来做类型保护，</span></span><br><span class="line">    <span class="comment">//需要用class而不是interface</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NumberObj</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">public</span> count: <span class="built_in">number</span></span>)</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">first: <span class="built_in">object</span> | NumberObj, second: <span class="built_in">object</span> | NumberObj</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (first <span class="keyword">instanceof</span> NumberObj &amp;&amp; second <span class="keyword">instanceof</span> NumberObj) &#123;</span><br><span class="line">            <span class="keyword">return</span> first.count + second.count</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> f:NumberObj=&#123;<span class="attr">count</span>:<span class="number">1</span>&#125;</span><br><span class="line">    <span class="keyword">let</span> s:NumberObj=<span class="keyword">new</span> NumberObj(<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(add2(f,s))<span class="comment">//这样f不行，0</span></span><br><span class="line">    <span class="built_in">console</span>.log(add2(<span class="keyword">new</span> NumberObj(<span class="number">1</span>),s))</span><br><span class="line">    <span class="comment">//这样可以，3,instanceof基于obj的原型链</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><blockquote>
+<p>Enum枚举类型   </p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Enum &#123;</span><br><span class="line">    <span class="keyword">const</span> Status = &#123;</span><br><span class="line">        <span class="attr">OFF</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">ON</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">ERR</span>: <span class="number">2</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上面是js通常用法，可以用enum枚举代替</span></span><br><span class="line">    <span class="comment">//枚举通常从0开始赋值，但是也可以自定义数字，</span></span><br><span class="line">    <span class="comment">//比如OFF=1，就会1，2，3这样枚举</span></span><br><span class="line">    <span class="comment">//也可以ON=2，会变成0，2，3</span></span><br><span class="line">    <span class="built_in">enum</span> StatusEnum &#123;</span><br><span class="line">        OFF, </span><br><span class="line">        ON, </span><br><span class="line">        ERR</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getResult</span>(<span class="params">status: <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (status === StatusEnum.OFF) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;off&#x27;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status === StatusEnum.ON) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;on&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;err&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(getResult(<span class="number">2</span>), getResult(Status.ON), getResult(StatusEnum.OFF))</span><br><span class="line">    <span class="built_in">console</span>.log(StatusEnum)<span class="comment">//&#123; &#x27;0&#x27;: &#x27;OFF&#x27;, &#x27;1&#x27;: &#x27;ON&#x27;, &#x27;2&#x27;: &#x27;ERR&#x27;, OFF: 0, ON: 1, ERR: 2 &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
           
         
       
@@ -372,7 +385,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
   </nav>
 
 
@@ -418,7 +431,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -431,7 +444,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
