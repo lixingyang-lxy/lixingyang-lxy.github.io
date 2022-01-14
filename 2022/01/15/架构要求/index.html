@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="架构梦," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript&#x2F;Typescript, React, NodeJS, Ruby on Rails, and Python.NodeJS，Electron 或者 Chromium前端微服务架构，前端公共组件库 常用类库：jquery mootools Y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="架构要求">
+<meta property="og:url" content="http://example.com/2022/01/15/%E6%9E%B6%E6%9E%84%E8%A6%81%E6%B1%82/index.html">
+<meta property="og:site_name" content="lixingyang">
+<meta property="og:description" content="Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript&#x2F;Typescript, React, NodeJS, Ruby on Rails, and Python.NodeJS，Electron 或者 Chromium前端微服务架构，前端公共组件库 常用类库：jquery mootools Y">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-14T16:03:02.000Z">
+<meta property="article:modified_time" content="2022-01-14T16:14:31.127Z">
+<meta property="article:author" content="lixingyang">
+<meta property="article:tag" content="架构梦">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2022/01/15/架构要求/"/>
+
+
+
+
+
+  <title>架构要求 | lixingyang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lixingyang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/15/%E6%9E%B6%E6%9E%84%E8%A6%81%E6%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lixingyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">架构要求</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-01-15T00:03:02+08:00">
+                2022-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Have-experience-with-some-subset-of-our-primary-tech-stack-HTML-CSS-JavaScript-Typescript-React-NodeJS-Ruby-on-Rails-and-Python"><a href="#Have-experience-with-some-subset-of-our-primary-tech-stack-HTML-CSS-JavaScript-Typescript-React-NodeJS-Ruby-on-Rails-and-Python" class="headerlink" title="Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript/Typescript, React, NodeJS, Ruby on Rails, and Python."></a>Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript/Typescript, React, NodeJS, Ruby on Rails, and Python.</h3><h3 id="NodeJS，Electron-或者-Chromium"><a href="#NodeJS，Electron-或者-Chromium" class="headerlink" title="NodeJS，Electron 或者 Chromium"></a>NodeJS，Electron 或者 Chromium</h3><h3 id="前端微服务架构，前端公共组件库"><a href="#前端微服务架构，前端公共组件库" class="headerlink" title="前端微服务架构，前端公共组件库"></a>前端微服务架构，前端公共组件库</h3><ul>
+<li>常用类库：jquery mootools YUI  </li>
+<li>建工具：gulp/grunt</li>
+<li>require.js/sea.js</li>
+<li>amd(异步)   define定义模块依赖前置 异步定义 回调加载</li>
+<li>es6(异步)   import导入模块 module.exports</li>
+<li>cmd (同步)   define定义模块 require加载依赖 依赖就近 即用即返</li>
+<li>commomjs(同步)   require依赖模块 module.exports导出模块</li>
+<li>react vue angular backbone </li>
+<li>toB(交互相对复杂) toC(性能要求较高)</li>
+<li>js函数传参：基础类型是值的拷贝传递，引用类型是地址值的拷贝传递</li>
+<li>浏览器架构：用户界面&gt;主进程+内核&gt;渲染引擎+js引擎+事件触发线程+网络异步线程+定时器线程    单线程？</li>
+</ul>
+<p>技术架构要求：</p>
+<ol>
+<li>熟悉使用主流框架Vue.js、React**</li>
+<li><strong>熟练的完成复杂专项开发任务</strong>，</li>
+<li>完善<strong>前端工程化体系建设，公共模块、核心组件、关键技术的开发与优化</strong></li>
+<li>改进和优化开发流程、工具和框架，<strong>搭建前端基础设施</strong>，提高开发效率；</li>
+<li>团队成员能力提升以及<strong>前端开发规范管理，监控开发质量</strong>等管理工作</li>
+<li>具有很强的<strong>抽象建模思维，掌握UML、DDD等建模方法论</strong>；</li>
+<li><strong>熟悉nodejs，了解nginx等web服务器配置，熟悉linux命令</strong>；<br><strong>Web前台的性能优化</strong></li>
+</ol>
+<p>几个小问题：</p>
+<ol>
+<li>vue 不分页 dom的即时重建销毁</li>
+<li>vue跟react有什么共同之处和差异，为什么react的性能比vue好</li>
+<li>作为资深人员：个人拿的出手的成绩</li>
+<li>前后端交互的问题与处理，数据接口不及时对应办法：json数据mock或者公司私服怎么做的</li>
+<li>低代码平台：稳健医疗</li>
+<li>即时通讯vue2.0</li>
+<li>keep-alive的实现原理是什么</li>
+<li>pm2原理-内存，进程管理 为什么不用仪表盘 santa/god</li>
+<li>已经上线的项目，如何优化性能</li>
+</ol>
+<p>个人优势：基本功扎实，全场景设计能力，熟知框架差异性，技术方案辨别选型，输出架构方案，打造通用组件，完善基础设施，支撑业务拓展，高可用低耦合，架构能力优秀</p>
+<p>​            1.  调研前沿技术，改善现有开发，运用⾃动化⼯具，规划前端技术</p>
+<ol start="2">
+<li> 协助管理前端技术团队，指导团队进行开发，构建前端开发规范和流程</li>
+<li> 负责需求分析、技术选型、核心代码开发及维护相关工作，发现各类潜在的技术风险</li>
+<li> 负责前端体系解决方案，发觉用户体验机会点</li>
+<li> 优化性能、稳定和兼容性、技术难题攻关</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014247030">webpack4升级完全指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014247030">手摸手，带你优雅的使用 icon</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qq449245884/xiaozhi/issues/42">45个值得收藏的 CSS 形状</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a831f76e5e71">ES6之Proxy 的巧用</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020173404">JS 可选链的好处</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/vickylinj/p/13529926.html">vue源码相关面试题汇总</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/u29422/gulu/244946">语雀</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FrankFang/best-chinese-front-end-blogs">best-chinese-front-end-blogs</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ptbird.cn/list.html">Postbird</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%9E%B6%E6%9E%84%E6%A2%A6/" rel="tag"># 架构梦</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/01/15/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E9%9D%A2%E8%AF%95/" rel="next" title="交互设计面试">
+                <i class="fa fa-chevron-left"></i> 交互设计面试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Have-experience-with-some-subset-of-our-primary-tech-stack-HTML-CSS-JavaScript-Typescript-React-NodeJS-Ruby-on-Rails-and-Python"><span class="nav-number">1.</span> <span class="nav-text">Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript&#x2F;Typescript, React, NodeJS, Ruby on Rails, and Python.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS%EF%BC%8CElectron-%E6%88%96%E8%80%85-Chromium"><span class="nav-number">2.</span> <span class="nav-text">NodeJS，Electron 或者 Chromium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%EF%BC%8C%E5%89%8D%E7%AB%AF%E5%85%AC%E5%85%B1%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">前端微服务架构，前端公共组件库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lixingyang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
