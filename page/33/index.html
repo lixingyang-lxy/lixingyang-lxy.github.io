@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2pm2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/09/20/%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE/" itemprop="url">评论设置</a></h1>
+                <a class="post-title-link" href="/2021/09/20/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2pm2/" itemprop="url">自动部署pm2</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-20T15:00:08+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-20T15:22:11+08:00">
                 2021-09-20
               </time>
             
@@ -343,20 +343,9 @@
       
         
           
-            <h2 id="4-1-Twikoo评论设置"><a href="#4-1-Twikoo评论设置" class="headerlink" title="4.1 Twikoo评论设置"></a>4.1 Twikoo评论设置</h2><p>我最初是想要使用Valine或者MiniValine来做评论系统的，但是不知道什么原因，在本地端口打开网页测试评论功能时一切正常，一旦部署到github pages后就失效了，无法正常访问leancloud。我不想太过麻烦，所以直接使用了twikoo评论系统。我使用的主题Matery也支持twikoo。</p>
-<p>注意：Twikoo<strong>不兼容IE</strong>（但兼容Edge），介意的小伙伴勿选。</p>
-<p>以下是我的配置过程，也可以参考<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">官方文档</a>。</p>
-<h3 id="4-1-1-手动部署"><a href="#4-1-1-手动部署" class="headerlink" title="4.1.1 手动部署"></a>4.1.1 手动部署</h3><p>进入腾讯云<a target="_blank" rel="noopener" href="https://cloud.tencent.com/act/pro/cloudbase01#4">CloudBase</a>，下拉到新用户专享部分，选择免费的基础版1即可（有钱的话当我没说），然后按照提示一步步购买。</p>
-<p>购买成功后，进入环境-&gt;登录授权，开启匿名登陆。然后点击“自定义登录”一行中的“私钥下载”，下载该文件，一会儿要用。</p>
-<p>进入环境-&gt;安全配置，将网站域名加入到“WEB安全域名”。如“qiacuhome.cn”。</p>
-<p>进入云函数界面，新建云函数，函数名称填写twikoo，创建方式选空白函数，运行环境选Nodejs 10.15，函数内存选128MB，然后进入下一步。之后会看到一个输入框，清空里面的内容，填写以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.main = require(&#x27;twikoo-func&#x27;).main</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p>创建完成后，点击“twikoo”进入云函数详情页，进入“函数代码”标签，新建文件，文件名为package.json，填写以下代码，点击<strong>保存并安装依赖</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;dependencies&quot;: &#123; &quot;twikoo-func&quot;: &quot;1.2.0&quot; &#125; &#125;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-1-2-管理面板配置"><a href="#4-1-2-管理面板配置" class="headerlink" title="4.1.2 管理面板配置"></a>4.1.2 管理面板配置</h3><p>在环境-&gt;资源购买页面可以找到自己的环境ID，复制后填入Matery主题的_config.yml文件中。</p>
-<p>然后重新<code>hexo g -d</code>，部署github pages。完成后，进入自己的网站，随便找到一个有评论框的页面进入，在右下角有一个设置，点进入，输入刚才下载的私钥，就可以进入管理界面了。按照提示修改配置即可。</p>
+            <p>自动部署相关：</p>
+<p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4301418/blog/3342820">https://my.oschina.net/u/4301418/blog/3342820</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113228998">https://zhuanlan.zhihu.com/p/113228998</a></p>
 
           
         
@@ -396,7 +385,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/32/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/34/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/32/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/34/">下一页</a>
   </nav>
 
 
@@ -442,7 +431,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -455,7 +444,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/21/node%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/02/%E5%B0%BC%E9%87%87%E8%AF%AD%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/09/21/node%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97/" itemprop="url">node核心模块</a></h1>
+                <a class="post-title-link" href="/2021/10/02/%E5%B0%BC%E9%87%87%E8%AF%AD%E5%BD%95/" itemprop="url">尼采语录</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-21T08:07:56+08:00">
-                2021-09-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-02T14:37:36+08:00">
+                2021-10-02
               </time>
             
 
@@ -343,12 +343,140 @@
       
         
           
-            <h3 id="拷贝-继承-promisify"><a href="#拷贝-继承-promisify" class="headerlink" title="拷贝 继承 promisify"></a>拷贝 继承 promisify</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils.js</span></span><br><span class="line"><span class="comment">// 拷贝 继承 promisify</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我希望将一些模块转化成promise的方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// yarn 其实就是npm替代品</span></span><br><span class="line"><span class="comment">// npm install yarn -g</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ncp 拷贝一个文件</span></span><br><span class="line"><span class="keyword">let</span> ncp = <span class="built_in">require</span>(<span class="string">&#x27;ncp&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> &#123;inherits&#125; = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="comment">// cp -r</span></span><br><span class="line"><span class="keyword">const</span> promisify = <span class="function"><span class="params">fn</span> =&gt;</span> <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        fn(...args,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123; <span class="comment">// 只针对node  因为node是这种error-first的形式</span></span><br><span class="line">            <span class="keyword">if</span>(err) reject(err);</span><br><span class="line">            resolve();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">ncp = promisify(ncp);</span><br><span class="line">(<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line">    <span class="comment">// 文件路径 path.resolve 绝对路径 文件名</span></span><br><span class="line">    <span class="comment">// 拷贝文件 promisify async await + 匿名函数自执行</span></span><br><span class="line">    <span class="keyword">await</span> ncp(path.resolve(__dirname,<span class="string">&#x27;note.md&#x27;</span>),path.resolve(__dirname,<span class="string">&#x27;note1.md&#x27;</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;拷贝成功&#x27;</span>)</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// ncp(path.resolve(__dirname,&#x27;note.md&#x27;),path.resolve(__dirname,&#x27;note1.md&#x27;),(err)=&gt;&#123;</span></span><br><span class="line"><span class="comment">//     console.log(err);</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// inherits node内部不是用es6来写的 实现类的继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Parent.call(<span class="built_in">this</span>);</span><br><span class="line">&#125;   </span><br><span class="line"><span class="comment">// 只继承公共方法</span></span><br><span class="line">Child.prototype.__proto__ = Parent.prototype;</span><br><span class="line"><span class="built_in">Reflect</span>.setPrototypeOf(Child.prototype,Parent.prototype);</span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line"></span><br><span class="line">inherits(Child,Parent); <span class="comment">// 继承公共属性</span></span><br><span class="line"><span class="comment">// 可以显示隐藏属性</span></span><br><span class="line"><span class="built_in">console</span>.log(util.inspect(<span class="built_in">Array</span>.prototype,&#123;<span class="attr">showHidden</span>:<span class="literal">true</span>&#125;));</span><br><span class="line"><span class="built_in">console</span>.log(util.isPrimitive); <span class="comment">// Symbol</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="EventEmitter-发布订阅-取消订阅-一次触发-自制event事件"><a href="#EventEmitter-发布订阅-取消订阅-一次触发-自制event事件" class="headerlink" title="EventEmitter 发布订阅 取消订阅 一次触发 自制event事件"></a>EventEmitter 发布订阅 取消订阅 一次触发 自制event事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// events.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EventEmitter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>._events = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">&#125;</span><br><span class="line">EventEmitter.prototype.on = <span class="function"><span class="keyword">function</span>(<span class="params">eventName,callback</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 不管任何人 调用了on方法 都可以增肌_events</span></span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">this</span>._events) <span class="built_in">this</span>._events = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">    <span class="comment">// 监听绑定的事件 不是newLister就调用newListener</span></span><br><span class="line">    <span class="keyword">if</span>(eventName !== <span class="string">&#x27;newListener&#x27;</span>)&#123;</span><br><span class="line">        <span class="built_in">this</span>.emit(<span class="string">&#x27;newListener&#x27;</span>,eventName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>._events[eventName])&#123;</span><br><span class="line">        <span class="built_in">this</span>._events[eventName].push(callback);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>._events[eventName] = [callback];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EventEmitter.prototype.once = <span class="function"><span class="keyword">function</span>(<span class="params">eventName,callback</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 绑定 执行后 删除</span></span><br><span class="line">    <span class="keyword">let</span> one = <span class="function">()=&gt;</span>&#123; <span class="comment">// 2） 会触发one函数</span></span><br><span class="line">        callback();<span class="comment">// 触发原有的逻辑</span></span><br><span class="line">        <span class="comment">// 删除自己</span></span><br><span class="line">        <span class="built_in">this</span>.off(eventName,one); <span class="comment">// 在将one删除掉</span></span><br><span class="line">    &#125;</span><br><span class="line">    one.l = callback; <span class="comment">// 用自定义属性 保存原有的绑定函数</span></span><br><span class="line">    <span class="built_in">this</span>.on(eventName,one); <span class="comment">// 1）  先绑定</span></span><br><span class="line">&#125;</span><br><span class="line">EventEmitter.prototype.off = <span class="function"><span class="keyword">function</span>(<span class="params">eventName,callback</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>._events[eventName])&#123;</span><br><span class="line">        <span class="built_in">this</span>._events[eventName] = <span class="built_in">this</span>._events[eventName].filter(<span class="function"><span class="params">fn</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> fn != callback &amp;&amp; fn.l !== callback</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &#123;&#x27;女生失恋&#x27;:[fn1,fn2]&#125;</span></span><br><span class="line">EventEmitter.prototype.emit= <span class="function"><span class="keyword">function</span>(<span class="params">eventName,...args</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>._events[eventName])&#123;</span><br><span class="line">        <span class="built_in">this</span>._events[eventName].forEach(<span class="function"><span class="params">fn</span> =&gt;</span> fn(...args));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = EventEmitter;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="newEvent"><a href="#newEvent" class="headerlink" title="newEvent"></a>newEvent</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发布订阅模块  pub / sub</span></span><br><span class="line"><span class="keyword">let</span> EventEmitter = <span class="built_in">require</span>(<span class="string">&quot;events&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Girl</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">util.inherits(Girl,EventEmitter);</span><br><span class="line"><span class="keyword">let</span> girl = <span class="keyword">new</span> Girl;</span><br><span class="line"></span><br><span class="line">girl.on(<span class="string">&#x27;newListener&#x27;</span>,<span class="function">(<span class="params">type</span>)=&gt;</span>&#123; <span class="comment">// 监听到用户做了哪些监听</span></span><br><span class="line">    <span class="built_in">console</span>.log(type)</span><br><span class="line">    <span class="keyword">if</span>(type === <span class="string">&#x27;失恋&#x27;</span>)&#123; <span class="comment">// 1 1</span></span><br><span class="line">        process.nextTick(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            girl.emit(type);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &#123;&#x27;失恋&#x27;:[fn,fn]&#125;</span></span><br><span class="line"><span class="keyword">let</span> fn1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 默认这个方法在调用的时候</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;监听到了 执行&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">girl.once(<span class="string">&#x27;失恋&#x27;</span>,fn1); <span class="comment">// this.on(&#x27;失恋&#x27;,one); one.fn1</span></span><br><span class="line">girl.off(<span class="string">&#x27;失恋&#x27;</span>,fn1);  <span class="comment">// one.fn1 != fn1</span></span><br><span class="line">girl.once(<span class="string">&#x27;失恋&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 默认这个方法在调用的时候</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;监听到了 执行&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">girl.emit(<span class="string">&#x27;失恋&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// let listener1 = (w) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     console.log(&#x27;哭&#x27;+w)</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="comment">// let listener2 = (w) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     console.log(&#x27;逛街&#x27;+w)</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="comment">// girl.on(&quot;女生失恋&quot;, listener1);</span></span><br><span class="line"><span class="comment">// girl.on(&quot;女生失恋&quot;, listener2);</span></span><br><span class="line"><span class="comment">// // on emit =&gt; new Vue() $on $emit $once $on(&#x27;change&#x27;,function())</span></span><br><span class="line"><span class="comment">// girl.emit(&#x27;女生失恋&#x27;,&#x27;我&#x27;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件绑定 核心方法</span></span><br><span class="line"><span class="comment">// on emit once newListener off</span></span><br><span class="line"><span class="comment">// 作业</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// fs 流 http</span></span><br><span class="line"><span class="comment">// koa</span></span><br></pre></td></tr></table></figure>
-
+            <blockquote>
+<p>人必须对自己满意</p>
+</blockquote>
+<blockquote>
+<p>天才即所谓天生自由之鸟</p>
+</blockquote>
+<blockquote>
+<p>自由之人就是不道德的人</p>
+</blockquote>
+<blockquote>
+<p>异端行为更有价值</p>
+</blockquote>
+<blockquote>
+<p>短期习惯乃无价之宝</p>
+</blockquote>
+<blockquote>
+<p>超越自然规律</p>
+</blockquote>
+<blockquote>
+<p>超越自己</p>
+</blockquote>
+<blockquote>
+<p>生活在战斗中</p>
+</blockquote>
+<blockquote>
+<p>人的浅薄无知是明智的</p>
+</blockquote>
+<blockquote>
+<p>我们在哪方面最敏感</p>
+</blockquote>
+<blockquote>
+<p>你知道你想要的是什么吗</p>
+</blockquote>
+<blockquote>
+<p>痛苦带来人类的提升</p>
+</blockquote>
+<blockquote>
+<p>科学的目的是什么</p>
+</blockquote>
+<blockquote>
+<p>施加自己的力量</p>
+</blockquote>
+<blockquote>
+<p>大问题需要大关爱</p>
+</blockquote>
+<blockquote>
+<p>大多数人缺乏理智的良知</p>
+</blockquote>
+<blockquote>
+<p>工作与无聊</p>
+</blockquote>
+<blockquote>
+<p> 诊治痛苦的良方</p>
+</blockquote>
+<blockquote>
+<p>表达细腻感情的艺术</p>
+</blockquote>
+<blockquote>
+<p>学会尊重</p>
+</blockquote>
+<blockquote>
+<p>公正的起源</p>
+</blockquote>
+<blockquote>
+<p>在知识领域冒险</p>
+</blockquote>
+<blockquote>
+<p>必须学会喜爱</p>
+</blockquote>
+<blockquote>
+<p>与人交往三大原则</p>
+</blockquote>
+<blockquote>
+<p>同情是为了什么，摆脱自己的痛苦？</p>
+</blockquote>
+<blockquote>
+<p>被人同情乃奇耻大辱 ？</p>
+</blockquote>
+<blockquote>
+<p>同情使人产生优越感</p>
+</blockquote>
+<blockquote>
+<p>雅量的自私</p>
+</blockquote>
+<blockquote>
+<p>别人不懂你的剧痛</p>
+</blockquote>
+<blockquote>
+<p>爱自己的敌人？</p>
+</blockquote>
+<blockquote>
+<p>男人与女人天生对立</p>
+</blockquote>
+<blockquote>
+<p>哲学家是什么样的人</p>
+</blockquote>
+<blockquote>
+<p>人们之间的区别 </p>
+</blockquote>
+<blockquote>
+<p>是什么使内心痛苦变成家常便饭？</p>
+</blockquote>
+<blockquote>
+<p>所有深奥的东西都喜欢面具</p>
+</blockquote>
+<blockquote>
+<p>每个人都是一座监狱</p>
+</blockquote>
+<blockquote>
+<p>义正词严的好处</p>
+</blockquote>
+<ol>
+<li><p>人生没有目的，只有过程，所谓的终极目的是虚无的。</p>
+</li>
+<li><p>世界弥漫着焦躁不安的气息，因为每一个人都急于从自己的枷锁解放出来。</p>
+</li>
+<li><p>你还要警惕自己内心泛滥的爱，孤独的人总会迫不及待地向与他邂逅的人伸出自己的手。</p>
+</li>
+<li><p>你有你的路，我有我的路。至于适当的路，正确的路和唯一的路，这样的路并不存在。</p>
+<blockquote>
+<p>尼采</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>努力汲取他人的经验，却不要忘记去探寻自己的路。</li>
+<li>年长者最大的修养就是控制住批评年轻人的欲望。 - 毛姆</li>
+<li>任何经验基本不具有普遍性。- 李健</li>
+<li>年轻人该吃的亏就吃，没有什么不好。不需要听任何人的意见。- 俞飞鸿 </li>
+<li>再伟大的作家也不过在书写他个人的片面而已。- 托尔斯泰</li>
+<li>人生，没有完美；幸福，没有满分；前进的道路，并不止眼前这一条。</li>
+<li>静心去发现和寻找、努力思考。愿你这一生，不要做任何人、任何事的奴隶。</li>
+<li>能够明确自己是在走自己的路，而非只是遵循着世俗而已。</li>
+</ul>
 
           
         
@@ -388,7 +516,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/28/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/30/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/28/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/30/">下一页</a>
   </nav>
 
 
@@ -434,7 +562,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -447,7 +575,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
