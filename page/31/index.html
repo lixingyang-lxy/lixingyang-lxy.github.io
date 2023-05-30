@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/10/%E7%8E%B0%E5%AE%9E%E4%B8%BB%E4%B9%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/" itemprop="url">设置动态具体命令</a></h1>
+                <a class="post-title-link" href="/2021/10/10/%E7%8E%B0%E5%AE%9E%E4%B8%BB%E4%B9%89/" itemprop="url">现实主义</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-20T21:12:51+08:00">
-                2021-09-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-10T11:07:03+08:00">
+                2021-10-10
               </time>
             
 
@@ -343,73 +343,13 @@
       
         
           
-            <p>将后面安装的npm全局包动态添加到globel环境中  管理员执行：  set-ExecutionPolicy RemoteSigned</p>
-<blockquote>
-<p>dependencies</p>
-</blockquote>
-<ul>
-<li><p>devDependencies  // 开发依赖</p>
-</li>
-<li><p>peerDependencies // 会提示你安装缺少的模块 默认要求带版本</p>
-</li>
-<li><p>bundleDependencies // 打包依赖  npm pack<br>比如：下面就是打包需要打入一个jquery</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bundleDependencies&quot;</span>: [</span><br><span class="line">	<span class="string">&quot;jquery&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure></li>
-<li><p>optionalDependencies // 可选依赖  如果找不到，不会影响npm的下载  有包就用，可以家条件判断</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;optionalDependencies&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;xxx&quot;</span>: <span class="string">&quot;2.1.1&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>node命令加载步骤：</p>
+            <h3 id="哲学家们只是用不同的方式解释世界，而问题在于改变世界"><a href="#哲学家们只是用不同的方式解释世界，而问题在于改变世界" class="headerlink" title="哲学家们只是用不同的方式解释世界，而问题在于改变世界"></a>哲学家们只是用不同的方式解释世界，而问题在于改变世界</h3><blockquote>
+<p>马克思</p>
 </blockquote>
 <ol>
-<li>查找选项 package.json   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bin&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;lesson-zf&quot;</span>: <span class="string">&quot;./bin/www&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;lz&quot;</span>: <span class="string">&quot;./bin/www&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ^ 锁定大版本</span></span><br><span class="line"><span class="comment">// ~ 锁定中间版本</span></span><br><span class="line"><span class="comment">// npm version patch/minor/major</span></span><br><span class="line"><span class="comment">// git tag</span></span><br><span class="line"><span class="comment">// alpha/beta/rc 内测版本 </span></span><br></pre></td></tr></table></figure>
-lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就去执行bin下面的www文件</li>
+<li>马克思无情的自我批判精神和无比认真的态度，不断地驱策他去做新的探索</li>
+<li>马克思是个不知疲倦的思想家，对于他来说，思维就是最高的享受</li>
 </ol>
-<blockquote>
-<p>package-lock.json</p>
-</blockquote>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.2.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;resolved&quot;</span>: <span class="string">&quot;https://registry.npm.taobao.org/jquery/download/jquery-2.2.0.tgz&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;integrity&quot;</span>: <span class="string">&quot;sha1-0OhOu/GZ2lG/fsOTB/GbNXVOnLo=&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 锁定版本号</span></span><br><span class="line"><span class="comment">// resolved 下载来源</span></span><br><span class="line"><span class="comment">// integrity hash</span></span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>#! /usr/bin/env node<br>// 使用node来执行文件<br>npm pack 可以将此工具打包<blockquote>
-<p>npm link </p>
-</blockquote>
-<ul>
-<li><p>创建快捷方式指向我的文件 </p>
-</li>
-<li><p>可以将此包安装到global</p>
-</li>
-<li><p>/usr/local/bin/http-server -&gt; /usr/local/lib/node_modules/http-server/bin/http-server<br>/usr/local/bin/hs -&gt; /usr/local/lib/node_modules/http-server/bin/http-server  </p>
-</li>
-</ul>
-</li>
-<li>type等同于cat  ~/.npmrc  用户目录下<br>lesson-zf-lz命令就等同于http-server-hs</li>
-</ol>
-<h3 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h3><p>配置运行的脚本 </p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo hello&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;mime&quot;</span>: <span class="string">&quot;mime 1.jpg&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-
-
-<ol>
-<li>执行命令 ‘echo xxx’</li>
-<li>执行node_modules/.bin下的文件</li>
-</ol>
-<p>当执行npm run的时候 他会把当前目录的node_modules/.bin拷贝到当前系统的path中，所以npm run 可以执行.bin下面的文件，但是这是暂时性行为，命令停止，这个栈就清空了</p>
-<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><p>npx mime 1.jpg</p>
-<ol>
-<li>直接执行node_modules/.bin，不需要去配置script</li>
-<li>可自己安装自己销毁依赖包，<em>避免安装全局模块</em> </li>
-<li>npx create-react-app project-name</li>
-</ol>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>type|cat  ~/.npmrc</p>
-<p>发布包的时候 @vue/cli @vue/service</p>
-<p><em>先切换到npm官方上</em></p>
-<p>npm pack 命令行工具项目文件夹打包</p>
-<p>npm install –production 可以只安装dependcies </p>
-<p>nrm nvm npm 源管理/版本管理</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">npm install nrm -g </span><br><span class="line">nrm use npm</span><br><span class="line"></span><br><span class="line">https://docs.npmjs.com/creating-and-publishing-scoped-public-packages</span><br><span class="line">npm init --scope=@my-username</span><br><span class="line">npm publish --access public</span><br></pre></td></tr></table></figure>
-
 
           
         
@@ -449,7 +389,7 @@ lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/30/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/32/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/30/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><a class="extend next" rel="next" href="/page/32/">下一页</a>
   </nav>
 
 
@@ -495,7 +435,7 @@ lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就�
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -508,7 +448,7 @@ lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就�
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -545,7 +485,7 @@ lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/26/linux-%E4%BB%A3%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/30/%E8%87%B4%E5%AF%8C%E4%B9%8B%E9%81%93-%E6%8C%96%E6%8E%98%E4%BB%B7%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/26/linux-%E4%BB%A3%E7%90%86/" itemprop="url">linux-代理</a></h1>
+                <a class="post-title-link" href="/2021/10/30/%E8%87%B4%E5%AF%8C%E4%B9%8B%E9%81%93-%E6%8C%96%E6%8E%98%E4%BB%B7%E5%80%BC/" itemprop="url">致富之道-挖掘价值</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-26T00:11:10+08:00">
-                2021-10-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-30T15:57:22+08:00">
+                2021-10-30
               </time>
             
 
@@ -343,32 +343,12 @@
       
         
           
-            <p>静态代理<br>        1.要求被装饰者和装饰者实现同一个接口或者继承同一个类<br>        2.装饰者中要有被装饰者的引用<br>        3.对需要加强的方法进行增强<br>        4.对不需要加强的方法调用原来的方法<br>    动态代理<br>        在程序运行的时候,动态的创建一个对象,用这个对象去操作方法方法<br>        jdk的中Proxy ,前提:必须实现一个接口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	Object Proxy.newProxyInstance(ClassLoader 被代理对象的类加载器,Class[] 被代理对象实现的所有接口,InvocationHandler 处理方法);	</span><br><span class="line">		InvocationHandler:接口 只需要重写一个方法</span><br><span class="line">			Object invoke(Object 代理对象,Method 当前执行的方法,Object[] 当前方法执行的时候需要的参数) </span><br><span class="line">				返回值就是 当前方法执行之后的返回值</span><br><span class="line"></span><br><span class="line">昨天的情况:</span><br><span class="line">	对所有的service类中的添加方法进行加强</span><br></pre></td></tr></table></figure>
-<p>linux:操作系统 OS<br>首先来了解下unix:<br>    unix是一个多用户,多任务的操作系统,收费的操作系统.<br>linux:<br>    版本:<br>        内核版本<br>        发行版本<br>    centos:开源的免费的os</p>
-<p>安装虚拟机<br>虚拟机:就是一台电脑<br>通过虚拟机软件可以在自己的电脑在安装几个电脑<br>常见的虚拟机软件:<br>    VmWare<br>    virtualBox:oracle 免费的</p>
-<p>linux的目录结构<br>    home:家.用户的家<br>        普通用户的家目录文件在home下 例如:一个用户tom 在home就会存在tom的目录<br>    root:超级管理员root的家<br>    etc:存放配置文件<br>    usr:存放共享的资源</p>
-<p>linux的命令<br>    常用的命令<br>        查看帮助:<br>            man 命令<br>            退出帮助目录:   q<br>        切换目录:cd<br>            cd 目录<br>            cd 目录/目录<br>            cd ..  :上一级目录<br>            cd /     :根目录<br>            cd ~    :回家<br>        创建目录和删除目录<br>            mkdir 创建<br>                mkdir 目录名<br>                mkdir -p a/b/c<br>            rmdir 删除<br>                rmdir 目录名:只能删除一个空目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">展示目录下文件列表(以后使用ll即可)</span><br><span class="line">	ls</span><br><span class="line">	ls:展示的能看见的文件(和目录)的名称</span><br><span class="line">	ls -a:展示所有的文件的名称</span><br><span class="line">		文件前面有<span class="string">&quot;.&quot;</span>代表的是隐藏文件</span><br><span class="line">	ls -l:显示文件的详细信息</span><br><span class="line">		简写的方式: ll(★)</span><br><span class="line">	ll -h:友好的显示</span><br><span class="line">	</span><br><span class="line">浏览文件</span><br><span class="line">	cat:显示文件的所有内容</span><br><span class="line">		cat 文件名</span><br><span class="line">	more:分页显示</span><br><span class="line">		空格:下一页</span><br><span class="line">		回车:下一行</span><br><span class="line">	less:分页显示</span><br><span class="line">		可以通过PgUp PgDn 翻页查看</span><br><span class="line">	tail(★★)</span><br><span class="line">		查看一个文件的后面的内容</span><br><span class="line">		tail -显示后几行 文件名</span><br><span class="line">		tail -f 文件名 </span><br><span class="line">			动态的查看</span><br><span class="line">			例如:</span><br><span class="line">				tail -f catalina.xxx.log</span><br><span class="line">			通过 ctrl+c 结束滚动查看</span><br><span class="line"></span><br><span class="line">文件的操作</span><br><span class="line">	创建一个文件</span><br><span class="line">		touch 文件名		创建一个空白的文件</span><br><span class="line">	复制文件</span><br><span class="line">		cp 文件 目录/文件名</span><br><span class="line">			例如:</span><br><span class="line">				cp 1.txt 2.txt</span><br><span class="line">				cp 1.txt 1/1.txt</span><br><span class="line">	移动文件(重命名)</span><br><span class="line">		mv 文件 目录/文件名</span><br><span class="line">		mv 文件名 新文件名</span><br><span class="line">			</span><br><span class="line">	删除文件 rm</span><br><span class="line">		rm 文件名:带询问删除</span><br><span class="line">		rm -f 文件名:不带询问删除</span><br><span class="line">		rm -r 目录:带询问的递归删除</span><br><span class="line">		rm -rf 目录:不带询问的递归删除(谨慎使用)</span><br><span class="line">		</span><br><span class="line">	tar:打包或解压 一个文件或者目录(★★)</span><br><span class="line">		常用的组合</span><br><span class="line">			-cvf :打包一个文件或者目录</span><br><span class="line">			-zcvf:打包并压缩一个文件或者目录 压缩的格式:gzip</span><br><span class="line">			-xvf:解压或者打开一个tar文件</span><br><span class="line">		格式:</span><br><span class="line">			tar 参数 文件名 要打包|解压的文件目录</span><br><span class="line">		</span><br><span class="line">		例如:</span><br><span class="line">			将当前目录下的所有文件打包成test1.tar</span><br><span class="line">				tar -cvf test1.tar ./*</span><br><span class="line">			将当前目录下的所有文件打包并压缩成test2.tar.gz</span><br><span class="line">				tar -zcvf test2.tar.gz ./*</span><br><span class="line">			将test1.tar解压到当前目录</span><br><span class="line">				tar -xvf test1.tar </span><br><span class="line">			将test1.tar解压到b目录</span><br><span class="line">				tar -xvf test1.tar -C b</span><br></pre></td></tr></table></figure>
-<p>其他的常用命令<br>    grep:查找符合条件的字符串(★)<br>        grep 字符串<br>    pwd:显示当前的工作目录<br>    wget:下载资料<br>        wget 资源路径</p>
-<p>vi和vim编辑器(理解中了解)<br>    编辑普通文件<br>    三种模式：命令行、插入、底行模式。<br>    切换到命令行模式：按Esc键；<br>    切换到插入模式：按 i 、o、a键；<br>        i 在当前位置生前插入<br>        I 在当前行首插入<br>        a 在当前位置后插入<br>        A 在当前行尾插入<br>        o 在当前行之后插入一行<br>        O 在当前行之前插入一行</p>
-<pre><code>切换到底行模式：按 :（冒号）；
-</code></pre>
-<p>管道 | ★<br>    重要的一个概念，其作用是将一个命令的输出用作另一个命令的输入<br>    例如:<br>        在ifconfig的结果里查找 192.168字符串<br>        ifconfig | grep 192.168<br>    以后常用<br>        查找和java相关的进程<br>        ps -ef | grep java<br>        查找和3306相关的信息<br>        ps -ef | grep 3306</p>
-<p>系统管理命令<br>    date 显示或设置系统时间<br>        date  显示当前系统时间<br>        date -s “2014-01-01 10:10:10“  设置系统时间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">clear 清屏</span><br><span class="line">	ctrl+l</span><br><span class="line">	</span><br><span class="line">ps 正在运行的某个进程的状态</span><br><span class="line">	ps –ef  查看所有进程</span><br><span class="line">	★ps –ef | grep ssh 查找某一进程</span><br><span class="line"></span><br><span class="line"><span class="built_in">kill</span> 杀掉某一进程</span><br><span class="line">	<span class="built_in">kill</span> 2868  杀掉2868编号的进程</span><br><span class="line">	★<span class="built_in">kill</span> -9 2868  强制杀死进程</span><br></pre></td></tr></table></figure>
-
-<p>网络管理<br>    ifconfig:查看所有的网络设置<br>        ifconfig 网卡名称 down :禁用网卡<br>        ifconfig 网卡名称 up :启用网卡</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ping:和window中一样</span><br><span class="line">	通过ctrl+c取消</span><br><span class="line">	</span><br><span class="line">netstat 查看网络端口。</span><br><span class="line">	netstat -an | grep 3306 查询3306端口占用情况</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">了解用户管理</span><br><span class="line">	添加</span><br><span class="line">		useradd 用户名:默认会在home目录下给一个用户创建一个目录</span><br><span class="line">		passwd 用户名: 回车输入密码</span><br><span class="line">	</span><br><span class="line">		useradd 用户名 -d /home/目录:创建一个用户然后在指定该用户的家目录</span><br><span class="line">	</span><br><span class="line">	删除</span><br><span class="line">		userdel 用户名:只是删除用户 但是不删除家目录</span><br><span class="line">		userdel -r 用户名:删除用户连带家目录一起删除</span><br><span class="line">		</span><br><span class="line">	切换用户:</span><br><span class="line">		ssh -l 用户名 -p 22 主机</span><br><span class="line">			例如: ssh -l tom -p 22 192.168.17.131</span><br><span class="line">		su - 用户名</span><br><span class="line">		</span><br><span class="line">了解组管理</span><br><span class="line">	添加</span><br><span class="line">		groupadd 组名</span><br><span class="line">		useradd 用户名 -g 组名</span><br><span class="line">	删除</span><br><span class="line">		groupdel 组名</span><br><span class="line">			注意:</span><br><span class="line">				若组下有用户,删除不了</span><br></pre></td></tr></table></figure>
-<p>文件的权限:</p>
-<p>​    普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。<br>​    目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。<br>​    设备文件： Linux系统把每一个设备都看成是一个文件<br>​    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">通过ll展示的列表</span><br><span class="line">	以 d 开始的是目录文件</span><br><span class="line">	以 - 开始的是普通文件</span><br><span class="line">	</span><br><span class="line">文件的权限9个字母 三个三个一组</span><br><span class="line">	第一组代表的是当前用户的权限</span><br><span class="line">	第二组代表的是组的权限</span><br><span class="line">	第三组代表的是其他用户的权限</span><br><span class="line">	</span><br><span class="line">	r:读  	4</span><br><span class="line">	w:写	2</span><br><span class="line">	x:执行	1</span><br><span class="line">	</span><br><span class="line">chmod 变更文件或目录的权限。</span><br><span class="line">	chmod 755 a.txt </span><br><span class="line">	chmod u=rwx,g=rx,o=rx a.txt</span><br><span class="line">	chmod 000 a.txt  / </span><br><span class="line">	★chmod 777 a.txt</span><br><span class="line">	</span><br><span class="line">了解:chown 变更文件或目录改文件所属用户和组</span><br><span class="line">	chown u1:public a.txt	：变更当前的目录或文件的所属用户和组</span><br><span class="line">	chown -R u1:public dir	：变更目录中的所有的子目录及文件的所属用户和组</span><br><span class="line">	格式:</span><br><span class="line">		chown 用户:组 文件</span><br></pre></td></tr></table></figure>
-
-
-<p>​<br>回顾:<br>​    linux :多用户 多任务的操作系统<br>​    常用命令:<br>​        cd 切换目录<br>​            cd /<br>​            cd ~<br>​            cd ..<br>​        ll 展示列表<br>​        mkdir [-p] 目录<br>​        rmdir 目录:删除空目录<br>​<br>​        touch 文件名:创建空白文件<br>​        cp 文件 目录/文件:复制文件<br>​        mv 文件 目录:移动文件<br>​        mv 文件 新文件:文件重命名<br>​        rm -rf 文件|目录:不询问递归删除<br>​        </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tar 打包或者解压</span><br><span class="line">	tar -cvf 文件名称 目录|文件  打包</span><br><span class="line">	tar -zcvf 文件名称 目录|文件  打包并压缩</span><br><span class="line">	tar -xvf 文件名称 解压至当前目录</span><br><span class="line">	tar -xvf 文件名称 -C 目录: 解压至指定目录</span><br><span class="line">	</span><br><span class="line">grep 查找</span><br><span class="line">| 管道</span><br><span class="line"></span><br><span class="line">设置时间</span><br><span class="line">	date -s <span class="string">&quot;时间&quot;</span>:设置时间</span><br><span class="line">	ps -ef :查看所有进程</span><br><span class="line"></span><br><span class="line">ifconfig:查看ip地址</span><br></pre></td></tr></table></figure>
+            <p>贫富差异不仅仅体现在思维模式也就是认知差异上：</p>
+<ol>
+<li>认知视角：所谓横看成岭侧成峰。</li>
+<li>环境背景：价值体搁置的地方不同价值就不同。</li>
+<li>时代差异：一朝天子一朝臣，物件也是一样的道理。</li>
+</ol>
 
           
         
@@ -408,7 +388,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
   </nav>
 
 
@@ -454,7 +434,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -467,7 +447,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -504,7 +484,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

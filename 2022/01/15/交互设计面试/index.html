@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="前端-日常工作流程在新项目开发时，首先是需求评审：  明确需求目的，考虑当前需求设计是否可满足目的。  设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。  确认原型图。  文档与邮件记录，便于问题回溯与闭环。    项目启动  业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通 周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩">
+<meta name="description" content="前端-日常工作流程需求评审 明确需求目的，考虑当前需求设计是否可满足目的。 设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。 确认原型图。 文档与邮件记录，便于问题回溯与闭环。  项目启动业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩埋点需求：提前与产品明确是否需要埋点造数据：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交互设计面试">
 <meta property="og:url" content="http://example.com/2022/01/15/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="lixingyang">
-<meta property="og:description" content="前端-日常工作流程在新项目开发时，首先是需求评审：  明确需求目的，考虑当前需求设计是否可满足目的。  设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。  确认原型图。  文档与邮件记录，便于问题回溯与闭环。    项目启动  业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通 周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩">
+<meta property="og:description" content="前端-日常工作流程需求评审 明确需求目的，考虑当前需求设计是否可满足目的。 设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。 确认原型图。 文档与邮件记录，便于问题回溯与闭环。  项目启动业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩埋点需求：提前与产品明确是否需要埋点造数据：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-14T16:14:33.687Z">
+<meta property="article:modified_time" content="2023-05-28T11:58:37.112Z">
 <meta property="article:author" content="lixingyang">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -340,68 +340,25 @@
       
 
       
-        <h3 id="前端-日常工作流程"><a href="#前端-日常工作流程" class="headerlink" title="前端-日常工作流程"></a>前端-日常工作流程</h3><p>在新项目开发时，首先是需求评审：</p>
-<ol>
-<li><p>明确需求目的，考虑当前需求设计是否可满足目的。</p>
-</li>
-<li><p>设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。</p>
-</li>
-<li><p>确认原型图。</p>
-</li>
-<li><p>文档与邮件记录，便于问题回溯与闭环。</p>
-</li>
+        <h3 id="前端-日常工作流程"><a href="#前端-日常工作流程" class="headerlink" title="前端-日常工作流程"></a>前端-日常工作流程</h3><h4 id="需求评审"><a href="#需求评审" class="headerlink" title="需求评审"></a>需求评审</h4><ol>
+<li>明确需求目的，考虑当前需求设计是否可满足目的。</li>
+<li>设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。</li>
+<li>确认原型图。</li>
+<li>文档与邮件记录，便于问题回溯与闭环。</li>
 </ol>
-<blockquote>
-<p><strong>项目启动</strong></p>
-</blockquote>
-<p>业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通</p>
-<p>周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩</p>
-<p>埋点需求：提前与产品明确是否需要埋点</p>
-<p>造数据：提前了解测试数据制造的困难程度，预估测试时间—&gt;有些场景下的测试数据非常难造</p>
-<p>并发量：后端机器是否能够承担新需求下的并发量，如果无法承担的话必须给出后续方案</p>
-<p>自测：由于开发人员不予提供线上账号，因此自测也需要一名测试人员做线上回归测试</p>
-<p>兼容范围：pc端需明确要兼容哪些浏览器，移动端需明确android与ios兼容版本以及哪些移动端浏览器</p>
-<blockquote>
-<p><strong>开发</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>评审</strong></p>
-</blockquote>
-<ol>
-<li><strong>原型图评审</strong></li>
+<h4 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h4><p>业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通<br>周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩<br>埋点需求：提前与产品明确是否需要埋点<br>造数据：提前了解测试数据制造的困难程度，预估测试时间—&gt;有些场景下的测试数据非常难造<br>并发量：后端机器是否能够承担新需求下的并发量，如果无法承担的话必须给出后续方案<br>自测：由于开发人员不予提供线上账号，因此自测也需要一名测试人员做线上回归测试<br>兼容范围：pc端需明确要兼容哪些浏览器，移动端需明确android与ios兼容版本以及哪些移动端浏览器</p>
+<h4 id="开发评审"><a href="#开发评审" class="headerlink" title="开发评审"></a>开发评审</h4><ol>
+<li>原型图评审<br>向产品明确原型图在应用中所处位置以及入口的显示条件，确认原型图的正确性</li>
+<li>设计稿评审<br>观察线上应用设计风格与当前设计稿风格是否一致(色调，字号，行高，对齐方式)是否一致<br>观察设计稿中哪些部分需要切图<br>判断设计稿中组件是否开发过，避免重复造轮子</li>
+<li>技术实现评审<br>如存在不易实现的功能，第一时间与产品沟通其他降级的实现方案</li>
 </ol>
-<p>向产品明确原型图在应用中所处位置以及入口的显示条件，确认原型图的正确性</p>
-<ol start="2">
-<li><strong>设计稿评审</strong></li>
-</ol>
-<p>观察线上应用设计风格与当前设计稿风格是否一致(色调，字号，行高，对齐方式)是否一致</p>
-<p>观察设计稿中哪些部分需要切图</p>
-<p>判断设计稿中组件是否开发过，避免重复造轮子</p>
-<ol start="3">
-<li><strong>技术实现评审</strong></li>
-</ol>
-<p>如存在不易实现的功能，第一时间与产品沟通其他降级的实现方案</p>
-<blockquote>
-<p><strong>排期</strong></p>
-</blockquote>
-<p>商讨需求实现细节，明确产出接口格式时间与接口联调时间。</p>
-<p>代码管理：如设计多人合作开发，需要考虑代码合并及冲突。</p>
+<h4 id="排期"><a href="#排期" class="headerlink" title="排期"></a>排期</h4><p>商讨需求实现细节，明确产出接口格式时间与接口联调时间。<br>代码管理：如设计多人合作开发，需要考虑代码合并及冲突。</p>
 <ol>
 <li>还原静态页面 </li>
 <li>与后端进行接口联调。</li>
 </ol>
-<blockquote>
-<p><strong>自测</strong></p>
-</blockquote>
-<p>自测环节与环境数据关联很大，需要前后端共同完成，如果自测所需数据涉及范围较广，则需要找齐相关人员协助上线。</p>
-<blockquote>
-<p><strong>提测</strong></p>
-</blockquote>
-<p>真实环境测试</p>
-<blockquote>
-<p><strong>bug反馈</strong><br><strong>部署上线</strong></p>
-</blockquote>
-<p>经典小问题：产品中有哪些特色，有哪些突出自己优势的地方，访问量是多少，数据量怎么样？</p>
+<h4 id="自测与提测"><a href="#自测与提测" class="headerlink" title="自测与提测"></a>自测与提测</h4><p>自测环节与环境数据关联很大，需要前后端共同完成，如果自测所需数据涉及范围较广，则需要找齐相关人员协助上线。<br>真实环境测试</p>
+<h4 id="bug反馈"><a href="#bug反馈" class="headerlink" title="bug反馈"></a>bug反馈</h4><h4 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h4><h3 id="经典面试问题"><a href="#经典面试问题" class="headerlink" title="经典面试问题"></a>经典面试问题</h3><p>产品中有哪些<em>特色</em>，有哪些突出自己<em>优势</em>的地方，<em>访问量</em>是多少？</p>
 
       
     </div>
@@ -521,7 +478,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -534,7 +491,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -567,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">前端-日常工作流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">前端-日常工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%AF%84%E5%AE%A1"><span class="nav-number">1.1.</span> <span class="nav-text">需求评审</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">项目启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%AF%84%E5%AE%A1"><span class="nav-number">1.3.</span> <span class="nav-text">开发评审</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E6%9C%9F"><span class="nav-number">1.4.</span> <span class="nav-text">排期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E6%B5%8B%E4%B8%8E%E6%8F%90%E6%B5%8B"><span class="nav-number">1.5.</span> <span class="nav-text">自测与提测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bug%E5%8F%8D%E9%A6%88"><span class="nav-number">1.6.</span> <span class="nav-text">bug反馈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%8A%E7%BA%BF"><span class="nav-number">1.7.</span> <span class="nav-text">部署上线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">经典面试问题</span></a></li></ol></div>
             
 
           </div>
@@ -587,7 +544,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
