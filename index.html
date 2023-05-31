@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/test/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/test%E9%A1%B5%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/05/31/test/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2023/05/31/test%E9%A1%B5%E9%9D%A2/" itemprop="url">test页面</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-31T10:11:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-31T15:57:47+08:00">
                 2023-05-31
               </time>
             
@@ -343,8 +343,21 @@
       
         
           
-            <!DOCTYPE html>
-  <div>test area</div>
+            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h5>直接html页面修改办法</h5>
+  <div>1. 添加layout: false在md文件头部</div>
+  <div>2. {% raw %}html代码{% endraw %}</div>
+</body>
+</html>
 
           
         
@@ -443,7 +456,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
