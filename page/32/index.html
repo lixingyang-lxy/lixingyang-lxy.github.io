@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/10/09%E5%A4%A9http%E5%8E%9F%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-lixingyang/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/10/09%E5%A4%A9http%E5%8E%9F%E7%90%86/" itemprop="url">http原理</a></h1>
+                <a class="post-title-link" href="/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-lixingyang/" itemprop="url">珠峰架构课目录-lixingyang</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-10T22:02:21+08:00">
-                2021-10-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-13T22:30:16+08:00">
+                2021-10-13
               </time>
             
 
@@ -343,382 +343,146 @@
       
         
           
-            <h1 id="09天"><a href="#09天" class="headerlink" title="09天"></a>09天</h1><h2 id="Header-规范"><a href="#Header-规范" class="headerlink" title="Header 规范"></a>Header 规范</h2><h2 id="Http-状态码"><a href="#Http-状态码" class="headerlink" title="Http 状态码"></a>Http 状态码</h2><ul>
-<li>101 webscoket 双向通信</li>
-<li>200 成功 204 没有响应体 206 断点续传</li>
-<li>301(永久重定向) 302(临时重向) 304（缓存）只能服务端设置</li>
-<li>401 （没有权限） 403 （登录了没权限） 404  405（请求方法不存在、不支持）</li>
-<li>502 负载均衡 </li>
-</ul>
-<h2 id="请求方法-RestfulApi"><a href="#请求方法-RestfulApi" class="headerlink" title="请求方法 RestfulApi"></a>请求方法 RestfulApi</h2><p>根据不同的动作 做对应的处理</p>
-<ul>
-<li>get 获取资源 </li>
-<li>post 新增资源 </li>
-<li>put 上传文件  修改</li>
-<li>delete  删除资源</li>
-<li>options 跨域出现 （复杂请求时出现） 只是get / post 都是简单请求 + 自定义的header</li>
-</ul>
-<h2 id="传输数据"><a href="#传输数据" class="headerlink" title="传输数据"></a>传输数据</h2><ul>
-<li>请求行 url</li>
-<li>请求头 自定header</li>
-<li>请求体 提交的数据</li>
-<li>响应行 状态码</li>
-<li>响应头 可以自定义</li>
-<li>响应体 返还给浏览器的结果</li>
-</ul>
-<h2 id="websocket-第一次通信是通过http-tcp"><a href="#websocket-第一次通信是通过http-tcp" class="headerlink" title="websocket 第一次通信是通过http + tcp"></a>websocket 第一次通信是通过http + tcp</h2><h1 id="10天-1"><a href="#10天-1" class="headerlink" title="10天-1"></a>10天-1</h1><h1 id="HTTP核心概念"><a href="#HTTP核心概念" class="headerlink" title="HTTP核心概念"></a>HTTP核心概念</h1><h2 id="一-课程主题："><a href="#一-课程主题：" class="headerlink" title="一.课程主题："></a>一.课程主题：</h2><ol>
-<li><p>掌握HTTP中必备的概念</p>
-</li>
-<li><p>掌握node中的http服务的创建及应用</p>
-</li>
-</ol>
-<ul>
-<li><p>url模块的使用</p>
-</li>
-<li><p>客户端和服务端的创建</p>
-</li>
-<li><p>http静态服务封装</p>
-</li>
-</ul>
-<h2 id="二-课程内容："><a href="#二-课程内容：" class="headerlink" title="二.课程内容："></a>二.课程内容：</h2><h3 id="1）什么是HTTP-应用层"><a href="#1）什么是HTTP-应用层" class="headerlink" title="1）什么是HTTP?应用层"></a>1）什么是HTTP?应用层</h3><p>通常的网络是在TCP/IP协议族的基础上来运作的，HTTP是一个子集。</p>
-<h3 id="2）TCP-IP协议族-HTTP应用层协议-在传输层的基础上增加了一些自己的内容"><a href="#2）TCP-IP协议族-HTTP应用层协议-在传输层的基础上增加了一些自己的内容" class="headerlink" title="2）TCP/IP协议族 (HTTP应用层协议 在传输层的基础上增加了一些自己的内容)"></a>2）TCP/IP协议族 (HTTP应用层协议 在传输层的基础上增加了一些自己的内容)</h3><p>协议简单来说就是通信的规则，例如：通信时谁先发起请求，怎样结束，如何进行通信。把互联网相关的协议统称起来称为TCP/IP</p>
-<h3 id="3）协议分层-OSI协议分层"><a href="#3）协议分层-OSI协议分层" class="headerlink" title="3）协议分层(OSI协议分层)"></a>3）协议分层(OSI协议分层)</h3><p>(物，数)，网，传，(会，表，应)</p>
-<ul>
-<li>应用层 HTTP,FTP,DNS (与其他计算机进行通讯的一个应用服务，向用户提供应用服务时的通信活动)</li>
-<li>传输层 TCP（可靠） UDP 数据传输 (HTTP -&gt; TCP  DNS-&gt;UDP)</li>
-<li>网络层 IP 选择传输路线 (通过ip地址和mac地址)(使用ARP协议凭借mac地址进行通信)</li>
-<li>链路层 网络连接的硬件部分 </li>
-</ul>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/tpchttp.png"></p>
-<h3 id="4-HTTP特点"><a href="#4-HTTP特点" class="headerlink" title="4) HTTP特点"></a>4) HTTP特点</h3><ul>
-<li>http是不保存状态的协议，使用cookie来管理状态 (登录 先给你cookie 我可以看一下你有没有cookie)</li>
-<li>为了防止每次请求都会造成无谓的tcp链接建立和断开，所以采用保持链接的方式  keep-alive</li>
-<li>以前发送请求后需要等待并收到响应，才能发下一个，现在都是管线化的方式 (js css 可以并发请求 6 2) cdn</li>
-</ul>
-<h3 id="5-HTTP缺点"><a href="#5-HTTP缺点" class="headerlink" title="5) HTTP缺点"></a>5) HTTP缺点</h3><p>通信采用明文</p>
-<p>不验证通信方的身份</p>
-<p>无法验证内容的完整性 (内容可能被篡改) </p>
-<blockquote>
-<p>通过SSL（安全套阶层）建立安全通信线路 HTTPS (超文本传输安全协议)</p>
-</blockquote>
-<h3 id="6-HTTP方法-get-post-简单请求-Resful风格"><a href="#6-HTTP方法-get-post-简单请求-Resful风格" class="headerlink" title="6) HTTP方法 (get post  简单请求) Resful风格"></a>6) HTTP方法 (get post  简单请求) Resful风格</h3><ul>
-<li><p>GET:获取资源   /user？</p>
-</li>
-<li><p>POST:传输实体主体 请求体中</p>
-</li>
-<li><p>PUT：来传输文件</p>
-</li>
-<li><p>HEAD: 获取报文首</p>
-</li>
-<li><p>DELETE: 删除文件</p>
-</li>
-<li><p>OPTIONS:询问支持的方法   跨域 如果默认发送的是get/post 不会发送options的 “”复杂请求””</p>
-<p>get /post (a:1) headers:{a:1}   put / delete 复杂的请求 </p>
-</li>
-</ul>
-<p><strong>REST API</strong> Resful风格 根据路径和不同的方法 就能确定对资源进行什么操作  </p>
-<p>跨域是浏览器之前的 服务器之间没有跨域问题 反向代理 、后端设置cors</p>
-<p>c.com-&gt; d.com  OPTIONS 非简单请求会发送options (options 直接返回ok就可以了)</p>
-<h3 id="7-HTTP状态码-发请求-命令行-curl命令-服务端"><a href="#7-HTTP状态码-发请求-命令行-curl命令-服务端" class="headerlink" title="7) HTTP状态码 (发请求 命令行 curl命令) 服务端"></a>7) HTTP状态码 (发请求 命令行 curl命令) 服务端</h3><p>curl命令行工具  postman</p>
-<p>1xx 信息性状态码  websocket upgrade</p>
-<p>2xx 成功状态码  200 204(没有响应体) 206(范围请求 暂停继续下载) 获取网页的部分请求</p>
-<p>3xx 重定向状态码 301 302 303 post -&gt; get  304(删除报文主体 在次发送请求) 307 (不会从POST转为GET)</p>
-<p>4xx 客户端错误状态码 400 401 403 404  405 方法不允许</p>
-<p>5xx 服务端错误状态码 500 503</p>
-<h3 id="8-http客户端和服务端通信"><a href="#8-http客户端和服务端通信" class="headerlink" title="8) http客户端和服务端通信"></a>8) http客户端和服务端通信</h3><p>Http报文，http交互的信息称之为http报文</p>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/requestheader.png"></p>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/response.png" alt="response"></p>
-<p>通用首部字段：请求和响应报文都有的首部</p>
-<p>实体首部字段：描述实体部分的字段</p>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/request.png"></p>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/response.png" alt="response"></p>
-<h3 id="9-URI和URL"><a href="#9-URI和URL" class="headerlink" title="9) URI和URL"></a>9) URI和URL</h3><h4 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h4><p>URI(Uniform Resource Identifier)是统一资源标识符,在某个规则下能把这个资源独一无二标示出来，比如人的身份证号</p>
-<ul>
-<li>Uniform 不用根据上下文来识别资源指定的访问方式</li>
-<li>Resource 可以标识的任何东西</li>
-<li>Identifier 表示可标识的对象</li>
-</ul>
-<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p>统一资源定位符，表示资源的地点，URL时使用浏览器访问WEB页面时需要输入的网页地址</p>
-<ul>
-<li>Uniform 不用根据上下文来识别资源指定的访问方式</li>
-<li>Resource 可以标识的任何东西</li>
-<li>Location 定位</li>
-</ul>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/urlformat.png"></p>
-<h3 id="10-报文应用"><a href="#10-报文应用" class="headerlink" title="10) 报文应用"></a>10) 报文应用</h3><p>Content-Encoding : gzip压缩                  form-data: 多部分对象集合  上传文件</p>
-<p>range: 范围请求    206                             accept-language：内容协商   前端控制  后端控制</p>
-<p>host：单主机多域名                                 304 http缓存</p>
-<p>referer:访问来源      防盗链                     proxy:代理、网关和隧道</p>
-<p>user-agent:用户内核                                安全相关的头: X-Frame-Options、X-XSS-Protection (安全 csrf xss https 加密)</p>
-<h1 id="10天-2"><a href="#10天-2" class="headerlink" title="10天-2"></a>10天-2</h1><h1 id="HTTP中Header的应用"><a href="#HTTP中Header的应用" class="headerlink" title="HTTP中Header的应用"></a>HTTP中Header的应用</h1><h2 id="一-课程主题：-1"><a href="#一-课程主题：-1" class="headerlink" title="一.课程主题："></a>一.课程主题：</h2><ol>
-<li><p>HTTP中静态服务的编写</p>
-</li>
-<li><p>ajax的使用和跨域问题</p>
-</li>
-<li><p>http缓存(强制缓存和对比缓存)</p>
-</li>
-<li><p>压缩问题 zlib 转化流</p>
-</li>
-<li><p>多语言切换</p>
-</li>
-</ol>
-<h2 id="二-课程内容"><a href="#二-课程内容" class="headerlink" title="二.课程内容"></a>二.课程内容</h2><h3 id="1-实现静态服务"><a href="#1-实现静态服务" class="headerlink" title="1.实现静态服务"></a>1.实现静态服务</h3><ul>
-<li>mime模块处理请求文件类型</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mime -g</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> &#123;pathname&#125; = url.parse(req.url);</span><br><span class="line">    <span class="comment">// 根据请求路径查找文件 </span></span><br><span class="line">    <span class="keyword">let</span> absFilePath = path.join(__dirname,pathname);</span><br><span class="line">    fs.stat(absFilePath,<span class="function">(<span class="params">err,stat</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            <span class="keyword">return</span> res.end(<span class="string">`Not Found`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stat.isDirectory())&#123; </span><br><span class="line">            <span class="comment">// 尝试查找index.html</span></span><br><span class="line">            absFilePath = path.join(absFilePath,<span class="string">&#x27;index.html&#x27;</span>);</span><br><span class="line">            fs.access(absFilePath,(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                    res.end(<span class="string">`Not Found`</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">let</span> type = mime.getType(absFilePath);   </span><br><span class="line">                    res.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>,type+<span class="string">&#x27;;charset=utf-8&#x27;</span>);</span><br><span class="line">                    fs.createReadStream(absFilePath).pipe(res);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">            <span class="keyword">let</span> type = mime.getType(absFilePath);   </span><br><span class="line">            res.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>,type+<span class="string">&#x27;;charset=utf-8&#x27;</span>);</span><br><span class="line">            fs.createReadStream(absFilePath).pipe(res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-通过类改写静态服务"><a href="#2-通过类改写静态服务" class="headerlink" title="2.通过类改写静态服务"></a>2.通过类改写静态服务</h3><p>通过async和await改写主体流程</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>).promises;</span><br><span class="line"><span class="keyword">let</span> &#123;createReadStream&#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> mime = <span class="built_in">require</span>(<span class="string">&#x27;mime&#x27;</span>);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Server</span></span>&#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="title">handleServer</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> &#123;pathname&#125; = url.parse(req.url);</span><br><span class="line">        <span class="keyword">let</span> absFilePath = path.join(__dirname,pathname);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> statObj = <span class="keyword">await</span> fs.stat(absFilePath);</span><br><span class="line">            <span class="keyword">if</span>(statObj.isDirectory())&#123;</span><br><span class="line">                absFilePath = path.join(absFilePath,<span class="string">&#x27;index.html&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.sendFile(req,res,absFilePath,statObj);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(err)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(err);</span><br><span class="line">            <span class="built_in">this</span>.sendError(req,res);            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">sendFile</span>(<span class="params">req,res,absFilePath,statObj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> type = mime.getType(absFilePath);   </span><br><span class="line">        res.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>,type+<span class="string">&#x27;;charset=utf-8&#x27;</span>);</span><br><span class="line">        createReadStream(absFilePath).pipe(res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">sendError</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">        res.statusCode = <span class="number">404</span>;</span><br><span class="line">        res.end(<span class="string">`Not Found`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">start</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> server = http.createServer(<span class="built_in">this</span>.handleServer.bind(<span class="built_in">this</span>));</span><br><span class="line">        server.listen(...arguments);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> Server();</span><br><span class="line">server.start(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-ajax跨域问题"><a href="#3-ajax跨域问题" class="headerlink" title="3.ajax跨域问题"></a>3.ajax跨域问题</h3><p>cors解决跨域问题</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>,<span class="string">&#x27;http://a.zf.cn:5000&#x27;</span> <span class="comment">// 允许某个域访问</span></span><br><span class="line"><span class="string">&#x27;Access-Control-Allow-Credentials&#x27;</span>,<span class="string">&#x27;true&#x27;</span>           <span class="comment">// 允许携带cookie</span></span><br><span class="line"><span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>,<span class="string">&#x27;a&#x27;</span>                  <span class="comment">// 允许携带的header</span></span><br><span class="line"><span class="string">&#x27;Access-Control-Max-Age&#x27;</span>,<span class="string">&#x27;3600&#x27;</span>                     <span class="comment">// 设置options的请求发送时长</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;http://localhost:5000/user&#x27;</span>,<span class="literal">true</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;1&#x27;</span>); <span class="comment">// 设置请求头</span></span><br><span class="line"></span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">	<span class="built_in">console</span>.log(xhr.responseText); </span><br><span class="line">&#125;</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>; <span class="comment">// 设置强制携带cookie</span></span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
-
-
-
-<p>跨域配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>,<span class="string">&#x27;http://a.zf.cn:5000&#x27;</span>);</span><br><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Allow-Credentials&#x27;</span>,<span class="string">&#x27;true&#x27;</span>)</span><br><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Max-Age&#x27;</span>,<span class="number">3600</span>);</span><br><span class="line">res.setHeader(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>,<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(req.method === <span class="string">&#x27;OPTIONS&#x27;</span>)&#123; <span class="comment">// options请求直接结束即可</span></span><br><span class="line">	<span class="keyword">return</span> res.end()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-http缓存问题"><a href="#4-http缓存问题" class="headerlink" title="4.http缓存问题"></a>4.http缓存问题</h3><ul>
-<li><p>强制缓存 (Cache-Control &amp;&amp; Expires)</p>
-<p>Cache-Control:</p>
-<ul>
-<li>private 客户端可以缓存</li>
-<li>public 客户端和代理服务器都可以缓存</li>
-<li>max-age=60 缓存内容将在60秒后失效</li>
-<li>no-cache 需要使用对比缓存验证数据,强制向源服务器再次验证  (没有强制缓存)</li>
-<li>no-store 所有内容都不会缓存，强制缓存和对比缓存都不会触发 (不缓存)</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/cache2.png"></p>
-<ul>
-<li><p>对比缓存 </p>
-<p>​    Last-Modified &amp; If-Modified-Since</p>
-<p>​    ETag &amp; <em>If-None-Match</em></p>
-</li>
-</ul>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/cache4.png"></p>
-<h3 id="5-压缩与解压缩处理-accept-encoding"><a href="#5-压缩与解压缩处理-accept-encoding" class="headerlink" title="5.压缩与解压缩处理(accept-encoding)"></a>5.压缩与解压缩处理(accept-encoding)</h3><p>使用GZIP / DEFLATE 实现解压</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> zlib = <span class="built_in">require</span>(<span class="string">&#x27;zlib&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> raw = fs.createReadStream(<span class="string">&#x27;.&#x27;</span> + request.url);</span><br><span class="line">    <span class="keyword">var</span> acceptEncoding = request.headers[<span class="string">&#x27;accept-encoding&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span> (!acceptEncoding) &#123;</span><br><span class="line">        acceptEncoding = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (acceptEncoding.match(<span class="regexp">/\bdeflate\b/</span>)) &#123;</span><br><span class="line">        response.setHeader(<span class="string">&#x27;Content-Encoding&#x27;</span>,<span class="string">&#x27;deflate&#x27;</span>);</span><br><span class="line">        raw.pipe(zlib.createDeflate()).pipe(response);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (acceptEncoding.match(<span class="regexp">/\bgzip\b/</span>)) &#123;</span><br><span class="line">        response.setHeader(<span class="string">&#x27;Content-Encoding&#x27;</span>,<span class="string">&#x27;gzip&#x27;</span>);</span><br><span class="line">        raw.pipe(zlib.createGzip()).pipe(response);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        raw.pipe(response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(<span class="number">9090</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-多语言-accept-language"><a href="#6-多语言-accept-language" class="headerlink" title="6.多语言 (accept-language)"></a>6.多语言 (accept-language)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> pack = &#123;</span><br><span class="line">    <span class="attr">en</span>: &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">cn</span>: &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;欢迎&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> acceptLangulage = req.headers[<span class="string">&#x27;accept-language&#x27;</span>];</span><br><span class="line">    <span class="keyword">let</span> lan = <span class="string">&#x27;en&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (acceptLangulage) &#123;</span><br><span class="line">        lan = acceptLangulage.split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> values = item.split(<span class="string">&#x27;;&#x27;</span>);</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                <span class="attr">name</span>: values[<span class="number">0</span>].split(<span class="string">&#x27;-&#x27;</span>)[<span class="number">0</span>],</span><br><span class="line">                <span class="attr">q</span>: <span class="built_in">isNaN</span>(values[<span class="number">1</span>]) ? <span class="number">1</span> : <span class="built_in">parseInt</span>(values[<span class="number">1</span>])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).sort(<span class="function">(<span class="params">lan1, lan2</span>) =&gt;</span> lan1.q - lan2.q).shift().name;</span><br><span class="line">    &#125;</span><br><span class="line">    res.end(pack[lan] ? pack[lan].title : pack[<span class="string">&#x27;en&#x27;</span>].title);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> server = http.createServer();</span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, request);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="10天-3"><a href="#10天-3" class="headerlink" title="10天-3"></a>10天-3</h1><h1 id="HTTP回顾"><a href="#HTTP回顾" class="headerlink" title="HTTP回顾"></a>HTTP回顾</h1><h2 id="1-在浏览器地址栏输入URL-按下回车后究竟发生了什么"><a href="#1-在浏览器地址栏输入URL-按下回车后究竟发生了什么" class="headerlink" title="1.在浏览器地址栏输入URL,按下回车后究竟发生了什么?"></a>1.在浏览器<em>地址</em>栏<em>输入URL</em>,按下回车后究竟发生了什么?</h2><p>1). 浏览器通过DNS将url地址解析为ip (如果有缓存直接返回缓存,否则递归解析)  </p>
-<p>2).通过DNS解析得到了目标服务器的IP地址后，与服务器建立TCP连接。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- ip协议： 选择传输路线,负责找到</span><br><span class="line">- tcp协议： 三次握手，分片，可靠传输，重新发送的机制</span><br></pre></td></tr></table></figure>
-
-<p>3).浏览器通过http协议发送请求 (增加http的报文信息) 头 体 行</p>
-<p>4).服务器接受请求后，查库，读文件，拼接好返回的http响应 </p>
-<p>5).浏览器收到html，开始渲染</p>
-<p>6).解析html为dom，解析css为css-tree,最终生成render-tree 阻塞渲染</p>
-<p>7).遍历渲染树开始布局，计算每个节点的位置大小信息</p>
-<p>8).将渲染树每个节点绘制到屏幕</p>
-<p>9).加载js文件,运行js脚本</p>
-<p>10).reflow (样式)与repaint(位置)</p>
-<p><img src="/images/09%E5%A4%A9http%E5%8E%9F%E7%90%86/domrender.jpg"></p>
-<h2 id="2-页面的性能优化"><a href="#2-页面的性能优化" class="headerlink" title="2.页面的性能优化"></a>2.页面的性能优化</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562322737439&di=6940a8a49d168d9690f3732794b01a4e&imgtype=0&src=http://img2018.cnblogs.com/blog/1555757/201812/1555757-20181210173358459-380857182.png" alt="img"></p>
-<h2 id="3-常见的优化"><a href="#3-常见的优化" class="headerlink" title="3.常见的优化"></a>3.常见的优化</h2><ul>
-<li><p>缓存</p>
-<p>HTTP中缓存 强制缓存和对比缓存的应用(304)  memory  disk</p>
-<p>service worker 和 cache api (离线缓存   HTTPS)  pwa</p>
-<p>Push Cache 推送缓存 HTTP/2中的内容</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control / Expires</span><br><span class="line">If-modified-since / Last-modified</span><br><span class="line">Etag / <span class="keyword">if</span>-none-match</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li><p>压缩</p>
-<p>gzip 压缩，找重复出现的字符串，临时替换，让整个文件变小，重复率越高压缩率越高 zlib模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">accept-encoding:gzip</span><br></pre></td></tr></table></figure></li>
-<li><p>本地存储</p>
-<p>localStorage,sessionStorage,session,cookie,indexDB,cacheApi</p>
+            <blockquote>
+<h3 id="更新课"><a href="#更新课" class="headerlink" title="更新课"></a>更新课</h3></blockquote>
 <ol>
-<li><p>cookie 不支持跨域 合理使用cookie否则会导致流量浪费 </p>
-</li>
-<li><p>localStorage / sessionStorage 不会发送给服务器</p>
-</li>
-<li><p>IndexDB 浏览器中的非关系型数据库</p>
-</li>
+<li>实战训练营</li>
+<li>vue3.0</li>
+<li>webpack5</li>
+<li>react17</li>
+<li>前端编译原理</li>
+<li>其他重磅更新</li>
 </ol>
-<p> <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/indexeddb.html">http://www.ruanyifeng.com/blog/2018/07/indexeddb.html</a></p>
-<ol start="4">
-<li>cacheApi 离线缓存</li>
+<blockquote>
+<h3 id="核心课"><a href="#核心课" class="headerlink" title="核心课"></a>核心课</h3></blockquote>
+<h6 id="vue-js全家桶"><a href="#vue-js全家桶" class="headerlink" title="vue.js全家桶"></a>vue.js全家桶</h6><ol>
+<li>vue@2源码</li>
+<li>vue@3源码</li>
+<li>vue路由源码</li>
+<li>vuex源码</li>
+<li>vuessr原理</li>
+<li>vue@3实战</li>
+<li>组件化开发</li>
+<li>从零封装专业级的Vue3.0组件库</li>
+<li>路由篇</li>
+<li>vue ssr服务端渲染</li>
+<li>项目优化</li>
+<li>vue@2 &amp;vue3核心应用进阶篇</li>
+<li>vue3.0 + TS全家桶项目</li>
+<li>vue2.0 + elementUI管理系统全栈项目</li>
+<li>vue面试进阶</li>
 </ol>
-</li>
-<li><p>CDN</p>
-<p>内容分发网络 负载均衡 就近返回内容</p>
-</li>
-<li><p>defer &amp; async ／ preload &amp; prefetch</p>
-<ul>
-<li>defer 和 async 在网络读取的过程中都是异步解析</li>
-<li>defer是有顺序依赖的，async只要脚本加载完后就会执行</li>
-<li>preload 可以对当前页面所需的脚本、样式等资源进行预加载</li>
-<li>prefetch 加载的资源一般不是用于当前页面的，是未来很可能用到的这样一些资源</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-HTTP状态码"><a href="#4-HTTP状态码" class="headerlink" title="4.HTTP状态码"></a>4.HTTP状态码</h2><p>1xx 信息性状态码  websocket upgrade</p>
-<p>2xx 成功状态码  200 204(没有响应体) 206(范围请求 暂停继续下载)</p>
-<p>3xx 重定向状态码 301 302 303  304 307  </p>
-<p>4xx 客户端错误状态码 400 401 403 404 405</p>
-<p>5xx 服务端错误状态码 500 503</p>
-<h2 id="5-HTTP服务创建"><a href="#5-HTTP服务创建" class="headerlink" title="5. HTTP服务创建"></a>5. HTTP服务创建</h2><ul>
-<li><p>url模块的使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let &#123;pathname,query&#125; = url.parse(str,true);</span><br></pre></td></tr></table></figure></li>
-<li><p>创建服务接受请求</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">()=&gt;</span>&#123;&#125;);</span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>);</span><br><span class="line">server.listen();</span><br><span class="line">server.on(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line"></span><br><span class="line">req.method <span class="comment">// 请求方法</span></span><br><span class="line">req.url <span class="comment">// 请求路径</span></span><br><span class="line">req.headers <span class="comment">// 请求头</span></span><br><span class="line"></span><br><span class="line">req.on(<span class="string">&#x27;data&#x27;</span>) <span class="comment">// 获取相应体 </span></span><br><span class="line">req.on(<span class="string">&#x27;end&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// -------------------------</span></span><br><span class="line">res.statusCode <span class="comment">// 响应状态码</span></span><br><span class="line">res.setHeader() <span class="comment">// 设置响应头</span></span><br><span class="line">res.write() <span class="comment">// 写响应体</span></span><br><span class="line">res.end() <span class="comment">// 结束响应体</span></span><br></pre></td></tr></table></figure></li>
-<li><p>客户端发送请求</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.request()</span><br><span class="line">http.get()</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="6-Http-其他header的应用"><a href="#6-Http-其他header的应用" class="headerlink" title="6.Http 其他header的应用"></a>6.Http 其他header的应用</h2><p>用户内核：跳转不同网站</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user-agent</span><br></pre></td></tr></table></figure>
-
-<p>内容类型: 请求体解析/文件上传</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">content-type:multipart/form-data</span><br><span class="line">content-type:application/x-www-form-urlencoded</span><br><span class="line">content-type:application/json</span><br></pre></td></tr></table></figure>
-
-<p>语言类型: 多语言</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accept-language:zh-CN,zh;q=<span class="number">0.9</span>,en;q=<span class="number">0.8</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>来源header: 防盗链</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">referer / referrer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>host主机: 反向代理</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">host:a.zhufeng.cn:<span class="number">81</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h6 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h6><ol>
+<li>node.js核心模块</li>
+<li>Node框架</li>
+<li>分片断点文件上传</li>
+</ol>
+<h6 id="webpack5工程化"><a href="#webpack5工程化" class="headerlink" title="webpack5工程化"></a>webpack5工程化</h6><h6 id="React-全家桶"><a href="#React-全家桶" class="headerlink" title="React 全家桶"></a>React 全家桶</h6><ol>
+<li>实战篇</li>
+<li>源码篇</li>
+<li>优化篇</li>
+<li>路由篇</li>
+<li>Redux篇</li>
+<li>手写React服务器端渲染SSR</li>
+</ol>
+<h6 id="Next-js实战"><a href="#Next-js实战" class="headerlink" title="Next.js实战"></a>Next.js实战</h6><ol>
+<li>mobx篇</li>
+<li>React状态管理</li>
+<li>从零封装自己的React组件库</li>
+<li>Typescript + React工程化实战</li>
+</ol>
+<blockquote>
+<h3 id="专题课"><a href="#专题课" class="headerlink" title="专题课"></a>专题课</h3></blockquote>
+<h6 id="专题课-1"><a href="#专题课-1" class="headerlink" title="专题课"></a>专题课</h6><ol>
+<li>实现immer不可变数据</li>
+<li>实现css-loader</li>
+<li>实现UMI3.0</li>
+<li>实现webpack5中的模块联邦</li>
+<li>实现React性能优化</li>
+<li>实现JSX转换模块</li>
+<li>实现使用的ReactHooks</li>
+<li>实现@vue/cli脚手架4.0</li>
+<li>实现create-react-app</li>
+<li>实现react-scripts</li>
+<li>实现rollup和tree-shaking</li>
+<li>实现px2rem-loader</li>
+<li>实现React的keepalive组件</li>
+<li>前端人的健康之路</li>
+<li>V8内存管理</li>
+<li>前端编译原理</li>
+<li>sourcemap</li>
+<li>前端二进制应用实战</li>
+<li>手写Nest.js版的IOC容器</li>
+<li>Typescript</li>
+<li>PWA</li>
+<li>从零实现vue-cli</li>
+<li>前端监控和埋点系统</li>
+<li>serverless云开发</li>
+<li>微前端实战与原理</li>
+<li>graphQL</li>
+<li>GraphQL + Next.js微服务开发</li>
+<li>flutter</li>
+<li>electron</li>
+<li>uni-app</li>
+<li>ReactNative</li>
+<li>阿里企业级开发框架 egg.js</li>
+<li>网络安全</li>
+<li>前端性能优化</li>
+<li>计算机网络</li>
+<li>网络协议实现</li>
+<li>Linux</li>
+<li>Nginx</li>
+<li>Docker</li>
+<li>CI/CD 持续集成</li>
+<li>Mongdb</li>
+<li>Mysql</li>
+<li>Redis</li>
+<li>express + mongoose 多人博客</li>
+<li>Typescript + React + Redux 网校课堂</li>
+<li>Egg.js + AntDesignPro + Mysql 开发企业级管理系统</li>
+<li>React + Mongdb + websocket 开发多人聊天室</li>
+<li>cheerio + mysql + nodemailer 开发个性化新闻爬虫</li>
+<li>使用canvas开发flappy brid</li>
+<li>使用three.js开发微信小游戏跳跳</li>
+<li>Nest.js 实战</li>
+</ol>
+<h6 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h6><ol>
+<li>UML模型图</li>
+<li>面向对象</li>
+<li>设计原则</li>
+<li>创建型模型</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ol>
+<h6 id="前端数据结构和算法"><a href="#前端数据结构和算法" class="headerlink" title="前端数据结构和算法"></a>前端数据结构和算法</h6><ol>
+<li>算法的基础知识</li>
+<li>算法的衡量和优化</li>
+<li>排序算法</li>
+<li>递归</li>
+<li>数据结构</li>
+<li>进阶算法</li>
+<li>BAT面试真题</li>
+</ol>
+<blockquote>
+<h3 id="项目实战训练营"><a href="#项目实战训练营" class="headerlink" title="项目实战训练营"></a>项目实战训练营</h3></blockquote>
+<h6 id="项目实战训练营-1"><a href="#项目实战训练营-1" class="headerlink" title="项目实战训练营"></a>项目实战训练营</h6><ol>
+<li>vue3 + TS中台管理系统</li>
+<li>nest-serverless-graphql实战</li>
+<li>持续集成CI/CD</li>
+<li>Kubernetes核心和项目实战</li>
+<li>Egg.js源码和实战训练营</li>
+<li>vue专业后台管理系统</li>
+<li>typescriot + ReactHooks实现珠峰课堂</li>
+<li>微信小程序实战</li>
+<li>Antv/G6实现思维导图实战</li>
+<li>从零实现脚手架cli实战</li>
+<li>nestjs基础到实战项目实战</li>
+<li>Typescript + React组件库实战</li>
+<li>Vue3 + ts组件库实战</li>
+<li>前端全链路监控实战</li>
+<li>就业与面试指导</li>
+<li>软技能</li>
+</ol>
 
           
         
@@ -758,7 +522,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/31/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/33/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/31/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/33/">下一页</a>
   </nav>
 
 
@@ -804,7 +568,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -817,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

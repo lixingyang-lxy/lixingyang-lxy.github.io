@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/15/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E9%9D%A2%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/15/%E6%9E%B6%E6%9E%84%E8%A6%81%E6%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/01/15/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E9%9D%A2%E8%AF%95/" itemprop="url">交互设计面试</a></h1>
+                <a class="post-title-link" href="/2022/01/15/%E6%9E%B6%E6%9E%84%E8%A6%81%E6%B1%82/" itemprop="url">架构要求</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-01-15T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-01-15T00:03:02+08:00">
                 2022-01-15
               </time>
             
@@ -343,25 +343,58 @@
       
         
           
-            <h3 id="前端-日常工作流程"><a href="#前端-日常工作流程" class="headerlink" title="前端-日常工作流程"></a>前端-日常工作流程</h3><h4 id="需求评审"><a href="#需求评审" class="headerlink" title="需求评审"></a>需求评审</h4><ol>
-<li>明确需求目的，考虑当前需求设计是否可满足目的。</li>
-<li>设计UI，后端开发，产品，测试共同把需求过一遍，了解你需要完成哪些部分。</li>
-<li>确认原型图。</li>
-<li>文档与邮件记录，便于问题回溯与闭环。</li>
-</ol>
-<h4 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h4><p>业务流程同步：评审后重新梳理流程，存在疑问处及时找产品沟通<br>周边需求依赖：评审功能与依赖功能并行开发，由于前置需求未完成导致当前需求时间成本被压缩<br>埋点需求：提前与产品明确是否需要埋点<br>造数据：提前了解测试数据制造的困难程度，预估测试时间—&gt;有些场景下的测试数据非常难造<br>并发量：后端机器是否能够承担新需求下的并发量，如果无法承担的话必须给出后续方案<br>自测：由于开发人员不予提供线上账号，因此自测也需要一名测试人员做线上回归测试<br>兼容范围：pc端需明确要兼容哪些浏览器，移动端需明确android与ios兼容版本以及哪些移动端浏览器</p>
-<h4 id="开发评审"><a href="#开发评审" class="headerlink" title="开发评审"></a>开发评审</h4><ol>
-<li>原型图评审<br>向产品明确原型图在应用中所处位置以及入口的显示条件，确认原型图的正确性</li>
-<li>设计稿评审<br>观察线上应用设计风格与当前设计稿风格是否一致(色调，字号，行高，对齐方式)是否一致<br>观察设计稿中哪些部分需要切图<br>判断设计稿中组件是否开发过，避免重复造轮子</li>
-<li>技术实现评审<br>如存在不易实现的功能，第一时间与产品沟通其他降级的实现方案</li>
-</ol>
-<h4 id="排期"><a href="#排期" class="headerlink" title="排期"></a>排期</h4><p>商讨需求实现细节，明确产出接口格式时间与接口联调时间。<br>代码管理：如设计多人合作开发，需要考虑代码合并及冲突。</p>
+            <h3 id="Have-experience-with-some-subset-of-our-primary-tech-stack-HTML-CSS-JavaScript-Typescript-React-NodeJS-Ruby-on-Rails-and-Python"><a href="#Have-experience-with-some-subset-of-our-primary-tech-stack-HTML-CSS-JavaScript-Typescript-React-NodeJS-Ruby-on-Rails-and-Python" class="headerlink" title="Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript/Typescript, React, NodeJS, Ruby on Rails, and Python."></a>Have experience with some subset of our primary tech stack: HTML, CSS, JavaScript/Typescript, React, NodeJS, Ruby on Rails, and Python.</h3><h3 id="NodeJS，Electron-或者-Chromium"><a href="#NodeJS，Electron-或者-Chromium" class="headerlink" title="NodeJS，Electron 或者 Chromium"></a>NodeJS，Electron 或者 Chromium</h3><h3 id="前端微服务架构，前端公共组件库"><a href="#前端微服务架构，前端公共组件库" class="headerlink" title="前端微服务架构，前端公共组件库"></a>前端微服务架构，前端公共组件库</h3><ul>
+<li>常用类库：jquery mootools YUI  </li>
+<li>建工具：gulp/grunt</li>
+<li>require.js/sea.js</li>
+<li>amd(异步)   define定义模块依赖前置 异步定义 回调加载</li>
+<li>es6(异步)   import导入模块 module.exports</li>
+<li>cmd (同步)   define定义模块 require加载依赖 依赖就近 即用即返</li>
+<li>commomjs(同步)   require依赖模块 module.exports导出模块</li>
+<li>react vue angular backbone </li>
+<li>toB(交互相对复杂) toC(性能要求较高)</li>
+<li>js函数传参：基础类型是值的拷贝传递，引用类型是地址值的拷贝传递</li>
+<li>浏览器架构：用户界面&gt;主进程+内核&gt;渲染引擎+js引擎+事件触发线程+网络异步线程+定时器线程    单线程？</li>
+</ul>
+<p>技术架构要求：</p>
 <ol>
-<li>还原静态页面 </li>
-<li>与后端进行接口联调。</li>
+<li>熟悉使用主流框架Vue.js、React**</li>
+<li><strong>熟练的完成复杂专项开发任务</strong>，</li>
+<li>完善<strong>前端工程化体系建设，公共模块、核心组件、关键技术的开发与优化</strong></li>
+<li>改进和优化开发流程、工具和框架，<strong>搭建前端基础设施</strong>，提高开发效率；</li>
+<li>团队成员能力提升以及<strong>前端开发规范管理，监控开发质量</strong>等管理工作</li>
+<li>具有很强的<strong>抽象建模思维，掌握UML、DDD等建模方法论</strong>；</li>
+<li><strong>熟悉nodejs，了解nginx等web服务器配置，熟悉linux命令</strong>；<br><strong>Web前台的性能优化</strong></li>
 </ol>
-<h4 id="自测与提测"><a href="#自测与提测" class="headerlink" title="自测与提测"></a>自测与提测</h4><p>自测环节与环境数据关联很大，需要前后端共同完成，如果自测所需数据涉及范围较广，则需要找齐相关人员协助上线。<br>真实环境测试</p>
-<h4 id="bug反馈"><a href="#bug反馈" class="headerlink" title="bug反馈"></a>bug反馈</h4><h4 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h4><h3 id="经典面试问题"><a href="#经典面试问题" class="headerlink" title="经典面试问题"></a>经典面试问题</h3><p>产品中有哪些<em>特色</em>，有哪些突出自己<em>优势</em>的地方，<em>访问量</em>是多少？</p>
+<p>几个小问题：</p>
+<ol>
+<li>vue 不分页 dom的即时重建销毁</li>
+<li>vue跟react有什么共同之处和差异，为什么react的性能比vue好</li>
+<li>作为资深人员：个人拿的出手的成绩</li>
+<li>前后端交互的问题与处理，数据接口不及时对应办法：json数据mock或者公司私服怎么做的</li>
+<li>低代码平台：稳健医疗</li>
+<li>即时通讯vue2.0</li>
+<li>keep-alive的实现原理是什么</li>
+<li>pm2原理-内存，进程管理 为什么不用仪表盘 santa/god</li>
+<li>已经上线的项目，如何优化性能</li>
+</ol>
+<p>个人优势：基本功扎实，全场景设计能力，熟知框架差异性，技术方案辨别选型，输出架构方案，打造通用组件，完善基础设施，支撑业务拓展，高可用低耦合，架构能力优秀</p>
+<p>​            1.  调研前沿技术，改善现有开发，运用⾃动化⼯具，规划前端技术</p>
+<ol start="2">
+<li> 协助管理前端技术团队，指导团队进行开发，构建前端开发规范和流程</li>
+<li> 负责需求分析、技术选型、核心代码开发及维护相关工作，发现各类潜在的技术风险</li>
+<li> 负责前端体系解决方案，发觉用户体验机会点</li>
+<li> 优化性能、稳定和兼容性、技术难题攻关</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014247030">webpack4升级完全指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014247030">手摸手，带你优雅的使用 icon</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qq449245884/xiaozhi/issues/42">45个值得收藏的 CSS 形状</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a831f76e5e71">ES6之Proxy 的巧用</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020173404">JS 可选链的好处</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/vickylinj/p/13529926.html">vue源码相关面试题汇总</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/u29422/gulu/244946">语雀</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FrankFang/best-chinese-front-end-blogs">best-chinese-front-end-blogs</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ptbird.cn/list.html">Postbird</a></p>
 
           
         
@@ -401,7 +434,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/10/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/8/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/10/">下一页</a>
   </nav>
 
 
@@ -447,7 +480,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -460,7 +493,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
