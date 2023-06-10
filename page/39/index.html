@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/" itemprop="url">模拟一个加载模块的函数-require</a></h1>
+                <a class="post-title-link" href="/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/" itemprop="url">设置动态具体命令</a></h1>
         
 
         <div class="post-meta">
@@ -303,7 +303,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-20T15:27:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-09-20T21:12:51+08:00">
                 2021-09-20
               </time>
             
@@ -343,16 +343,74 @@
       
         
           
-            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// module 模块</span><br><span class="line">// node中js文件就是一个模块</span><br><span class="line">// 为什么出现模块的概念 防止命名冲突，可以把同样的功能封装到一起</span><br><span class="line">// esModule commonjs规范</span><br><span class="line">// 一个文件是一个模块</span><br><span class="line">// module.exports 导出给别人使用</span><br><span class="line">// require 来引用别人的模块</span><br><span class="line"></span><br><span class="line">// 1) node模块 会按照后缀名查找 .js 文件是否存在 .json文件</span><br><span class="line">const path = require(&quot;path&quot;);</span><br><span class="line">const fs = require(&quot;fs&quot;);</span><br><span class="line">const vm = require(&quot;vm&quot;);</span><br><span class="line">function Module(id) &#123;</span><br><span class="line">  this.id = id;</span><br><span class="line">  this.exports = &#123;&#125;; // 模块的结果</span><br><span class="line">&#125;</span><br><span class="line">Module.wrapper = [</span><br><span class="line">  &quot;(function(module,exports,require,__filename,__dirname)&#123;&quot;,</span><br><span class="line">  &quot;&#125;)&quot;</span><br><span class="line">];</span><br><span class="line">Module.extensions = &#123;</span><br><span class="line">  &quot;.js&quot;(module) &#123;</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    let fnStr = Module.wrapper[0] + script + Module.wrapper[1];</span><br><span class="line">    let fn = vm.runInThisContext(fnStr); // 让字符串变成js代码</span><br><span class="line">    // 第一个参数是改变this指向  module  module.exports</span><br><span class="line">    fn.call(</span><br><span class="line">      module.exports,</span><br><span class="line">      module,</span><br><span class="line">      module.exports,</span><br><span class="line">      req,</span><br><span class="line">      module.id,</span><br><span class="line">      path.dirname(module.id)</span><br><span class="line">    );</span><br><span class="line">    // exports 已经让用户更改了</span><br><span class="line">  &#125;, // js需要将exports 传入给用户 用户自己赋值</span><br><span class="line">  &quot;.json&quot;(module) &#123;</span><br><span class="line">    // 解析后 node默认会赋值</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    module.exports = JSON.parse(script);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">// 给你一个相对路径 解析成绝对路径</span><br><span class="line">Module.resolveFileName = function(filename) &#123;</span><br><span class="line">  // 1) 把相对路径转化成绝对路口 默认会先判断一下是否是绝对路径</span><br><span class="line">  let absPath = path.resolve(__dirname, filename);</span><br><span class="line">  let flag = fs.existsSync(absPath); // 判断文件是否存在 异步方法被废弃</span><br><span class="line">  let current = absPath; // 默认是当前路径</span><br><span class="line">  if (!flag) &#123;</span><br><span class="line">    let keys = Object.keys(Module.extensions);</span><br><span class="line">    for (let i = 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">      current = absPath + keys[i]; // 当前找到的文件路径</span><br><span class="line">      let flag = fs.existsSync(current);</span><br><span class="line">      if (flag) &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        current = null;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!current) &#123;</span><br><span class="line">    // 如果没有 说明加了后缀文件还是不存在</span><br><span class="line">    throw new Error(&quot;文件不存在&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return current; // 返回文件的路径</span><br><span class="line">&#125;;</span><br><span class="line">Module.prototype.load = function() &#123;</span><br><span class="line">  // 模块加载就是读取文件的内容</span><br><span class="line">  let ext = path.extname(this.id);</span><br><span class="line">  Module.extensions[ext](this); // 根据不同的后缀 调用不同的处理方法</span><br><span class="line">&#125;;</span><br><span class="line">Module.cache = &#123;&#125;;</span><br><span class="line">function req(filename) &#123;</span><br><span class="line">  // 自己实现了一个require方法</span><br><span class="line">  let current = Module.resolveFileName(filename);</span><br><span class="line">  if (Module.cache[current]) &#123;</span><br><span class="line">    return Module.cache[current].exports;</span><br><span class="line">  &#125;</span><br><span class="line">  let module = new Module(current); // 产生一个module</span><br><span class="line">   Module.cache[current] = module;</span><br><span class="line">  module.load();</span><br><span class="line"></span><br><span class="line">  return module.exports; // 默认导出module.exports对象</span><br><span class="line">&#125;</span><br><span class="line">let json = require(&quot;./a1&quot;);</span><br><span class="line">json = require(&quot;./a1&quot;);</span><br><span class="line">console.log(json);</span><br><span class="line"></span><br><span class="line">// node中的模块 3类 文件模块  第三方模块 需要安装 内置模块 fs</span><br><span class="line">// 模块的查找路径</span><br><span class="line"></span><br><span class="line">// 先找文件，找不到的话 找文件夹  </span><br><span class="line">// 第三方模块查找</span><br><span class="line"></span><br><span class="line">require(&#x27;commander&#x27;); // 找不到会像上级查找node_module 直到根目录如果跟目录找不到则报错, 会先找main 对应的字段如果有直接查找，如果没有main 会找index.js / index.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// vue store.js  store</span><br><span class="line"></span><br><span class="line">// npm + buffer 的使用fs </span><br><span class="line">// 流 http</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <p>将后面安装的npm全局包动态添加到globel环境中  管理员执行：  set-ExecutionPolicy RemoteSigned</p>
+<blockquote>
+<p>dependencies</p>
+</blockquote>
+<ul>
+<li><p>devDependencies  // 开发依赖</p>
+</li>
+<li><p>peerDependencies // 会提示你安装缺少的模块 默认要求带版本</p>
+</li>
+<li><p>bundleDependencies // 打包依赖  npm pack<br>比如：下面就是打包需要打入一个jquery</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bundleDependencies&quot;</span>: [</span><br><span class="line">	<span class="string">&quot;jquery&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure></li>
+<li><p>optionalDependencies // 可选依赖  如果找不到，不会影响npm的下载  有包就用，可以家条件判断</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;optionalDependencies&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;xxx&quot;</span>: <span class="string">&quot;2.1.1&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>node命令加载步骤：</p>
+</blockquote>
+<ol>
+<li>查找选项 package.json   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bin&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;lesson-zf&quot;</span>: <span class="string">&quot;./bin/www&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;lz&quot;</span>: <span class="string">&quot;./bin/www&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ^ 锁定大版本</span></span><br><span class="line"><span class="comment">// ~ 锁定中间版本</span></span><br><span class="line"><span class="comment">// npm version patch/minor/major</span></span><br><span class="line"><span class="comment">// git tag</span></span><br><span class="line"><span class="comment">// alpha/beta/rc 内测版本 </span></span><br></pre></td></tr></table></figure>
+lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就去执行bin下面的www文件</li>
+</ol>
+<blockquote>
+<p>package-lock.json</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.2.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;resolved&quot;</span>: <span class="string">&quot;https://registry.npm.taobao.org/jquery/download/jquery-2.2.0.tgz&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;integrity&quot;</span>: <span class="string">&quot;sha1-0OhOu/GZ2lG/fsOTB/GbNXVOnLo=&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 锁定版本号</span></span><br><span class="line"><span class="comment">// resolved 下载来源</span></span><br><span class="line"><span class="comment">// integrity hash</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// a1.js</span><br><span class="line">// module.exports = &#x27;hello&#x27;;</span><br><span class="line">// exports = &#x27;hello&#x27;</span><br><span class="line">// console.log(module.exports == exports)</span><br><span class="line"></span><br><span class="line">// module.exports  ==  exports ????</span><br><span class="line"></span><br><span class="line">// let exports = module.exports = &#123;&#125;</span><br><span class="line">exports.a = &#x27;hello&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// index.js 查看arguments 跟 process</span><br><span class="line">console.log(arguments)</span><br><span class="line">console.log(process.argv)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 需要实现的功能即：require部分</span><br><span class="line">Arguments: &#123;</span><br><span class="line">    module,</span><br><span class="line">    exports,</span><br><span class="line">    require,</span><br><span class="line">    __filename,</span><br><span class="line">    __dirname</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 类似于</span><br><span class="line">(function() &#123;</span><br><span class="line">  console.log(arguments)&#125;  //  [1, 2, 3]</span><br><span class="line">)(1, 2, 3)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>#! /usr/bin/env node<br>// 使用node来执行文件<br>npm pack 可以将此工具打包<blockquote>
+<p>npm link </p>
+</blockquote>
+<ul>
+<li><p>创建快捷方式指向我的文件 </p>
+</li>
+<li><p>可以将此包安装到global</p>
+</li>
+<li><p>/usr/local/bin/http-server -&gt; /usr/local/lib/node_modules/http-server/bin/http-server<br>/usr/local/bin/hs -&gt; /usr/local/lib/node_modules/http-server/bin/http-server  </p>
+</li>
+</ul>
+</li>
+<li>type等同于cat  ~/.npmrc  用户目录下<br>lesson-zf-lz命令就等同于http-server-hs</li>
+</ol>
+<h3 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h3><p>配置运行的脚本 </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo hello&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;mime&quot;</span>: <span class="string">&quot;mime 1.jpg&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">[Arguments] &#123;</span><br><span class="line">  &#x27;0&#x27;: &#123;&#125;,</span><br><span class="line">  &#x27;1&#x27;: [Function: require] &#123;</span><br><span class="line">    resolve: [Function: resolve] &#123; paths: [Function: paths] &#125;,</span><br><span class="line">    main: Module &#123;</span><br><span class="line">      id: &#x27;.&#x27;,</span><br><span class="line">      path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">      exports: &#123;&#125;,</span><br><span class="line">      parent: null,</span><br><span class="line">      filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">      loaded: false,</span><br><span class="line">      children: [],</span><br><span class="line">      paths: [Array]</span><br><span class="line">    &#125;,</span><br><span class="line">    extensions: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;.js&#x27;: [Function],</span><br><span class="line">      &#x27;.json&#x27;: [Function],</span><br><span class="line">      &#x27;.node&#x27;: [Function]</span><br><span class="line">    &#125;,</span><br><span class="line">    cache: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;: [Module]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;2&#x27;: Module &#123;</span><br><span class="line">    id: &#x27;.&#x27;,</span><br><span class="line">    path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">    exports: &#123;&#125;,</span><br><span class="line">    parent: null,</span><br><span class="line">    filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">    loaded: false,</span><br><span class="line">    children: [],</span><br><span class="line">    paths: [</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\node_modules&#x27;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;3&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;4&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a&#x27;</span><br><span class="line">&#125;</span><br><span class="line">[</span><br><span class="line">  &#x27;D:\\soft\\node-v12.21.0-win-x64\\node.exe&#x27;,</span><br><span class="line">  &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;--port&#x27;,</span><br><span class="line">  &#x27;3003&#x27;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>执行命令 ‘echo xxx’</li>
+<li>执行node_modules/.bin下的文件</li>
+</ol>
+<p>当执行npm run的时候 他会把当前目录的node_modules/.bin拷贝到当前系统的path中，所以npm run 可以执行.bin下面的文件，但是这是暂时性行为，命令停止，这个栈就清空了</p>
+<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><p>npx mime 1.jpg</p>
+<ol>
+<li>直接执行node_modules/.bin，不需要去配置script</li>
+<li>可自己安装自己销毁依赖包，<em>避免安装全局模块</em> </li>
+<li>npx create-react-app project-name</li>
+</ol>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>type|cat  ~/.npmrc</p>
+<p>发布包的时候 @vue/cli @vue/service</p>
+<p><em>先切换到npm官方上</em></p>
+<p>npm pack 命令行工具项目文件夹打包</p>
+<p>npm install –production 可以只安装dependcies </p>
+<p>nrm nvm npm 源管理/版本管理</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">npm install nrm -g </span><br><span class="line">nrm use npm</span><br><span class="line"></span><br><span class="line">https://docs.npmjs.com/creating-and-publishing-scoped-public-packages</span><br><span class="line">npm init --scope=@my-username</span><br><span class="line">npm publish --access public</span><br></pre></td></tr></table></figure>
+
+
           
         
       
@@ -391,7 +449,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/38/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/40/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/38/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/40/">下一页</a>
   </nav>
 
 
@@ -437,7 +495,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -450,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
