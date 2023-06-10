@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/25/linux%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/26/linux-%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/10/25/linux%E5%91%BD%E4%BB%A4-%E8%8B%B1%E6%96%87%E5%85%A8%E7%A7%B0/" itemprop="url">linux命令-英文全称</a></h1>
+                <a class="post-title-link" href="/2021/10/26/linux-%E4%BB%A3%E7%90%86/" itemprop="url">linux-代理</a></h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-25T23:13:14+08:00">
-                2021-10-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-26T00:11:10+08:00">
+                2021-10-26
               </time>
             
 
@@ -343,102 +343,32 @@
       
         
           
-            <p>alias：给命令起别名</p>
-<p>awk = “Aho Weiberger and Kernighan” ，三个作者的姓的第一个字母</p>
-<p>bash：GNU Bourne-Again Shell，大多Linux的默认shell</p>
-<p>bc = Basic Calculator，基础计算器，scale设定小数位，quit退出</p>
-<p>bg = BackGround，后台运行任务</p>
-<p>bye = bye，用于在FTP时退出FTP执行</p>
-<p>cal = calendar，日历，后跟月份数、年份数可显示指定月日历</p>
-<p>cat = catenate，连续，输出文件内容，-n显示行号，-b不显示空行，有意思的是tac则从后向前输出</p>
-<p>cd = Change Directory，切换目录</p>
-<p>chgrp = Change group，改变文件归属用户组</p>
-<p>clear = clear，清屏</p>
-<p>chmod = Change mode，改变读写权限，-R递归更改，a默认所有用户u本用户g本群组o其他用户，+-rwx增减读写执行权限，rwx421</p>
-<p>chown = Change owner，改变所有者</p>
-<p>cp = copy，复制</p>
-<p>crontab = Chronos，希腊文时间，定时执行工具，* * * * <em>分别为分时日月星期，</em>代表所有，”-“为范围”,”为多值”/“为频率，-u指定用户，-l查看任务，-r删除任务，-e编辑任务。</p>
-<p>cut = cut，从文件中的每行文本中剪出指定字符，功能类似grep，-b以字节为单位，-c以字符为单位，-d自定义分隔符默认制表符</p>
-<p>date = date，日期时间，date “+option”，-d显示指定时间，-r显示文件最后修改时间，-s修改时间，%x日期，%X时间，%F日期，%D月日年，%Y4位年份，%y2位年份，%m月份，%d日，%H24制时，%I12制时，%M分，%S秒</p>
-<p>declare = declare，用于声明shell变量，-a数组，-i指定整数型</p>
-<p>df = Disk Free，剩余磁盘空间，-h以适阅读单位显示，后跟文件则显示其所在挂载点磁盘剩余空间</p>
-<p>dirs = directories，从目录栈中读取，功能类似于一个数组，先显示本目录再显示目录栈，-c删除目录栈中所有记录，-p每行显示一个（默认连续显示），-v每行显示一个并加编号，+N显示第N个目录（数字从0开始），-N显示倒数第N个目录</p>
-<p>du = Disk Usage，磁盘使用情况，统计文件大小，-h以适阅读单位显示，-s不迭代仅合计统计，–max-depth n指定统计深度</p>
-<p>egrep = Extended GREP，可使用扩展正则的grep</p>
-<p>exec =execute，执行 ，内部命令</p>
-<p>find = find，查找，find PATH -OPTION [-print] [-exec cmd] {} ;，PATH为查找数据若为当前目录下则为“.”，-name文件名，-mtime +/- N N天前或内更改的文件，-ctime +/-N N天前或内创建的文件，-type文件类型d为目录f为文件，-size 大于指定字节的文件，</p>
-<p>fg = ForeGround，前台运行任务</p>
-<p>fmt = format，简单的文本格式化</p>
-<p>ftp = File Transfer Protocol，文件传输，后跟IP地址，get从远程FTP机下载到本机，mget批量下载，put将本机文件上传到远程FTP机，mput批量上传</p>
-<p>free = free，内存使用情况，-s间隔N秒查询一次，-m -k -b以M、KB、Byte为单位显示</p>
-<p>gawk = GNU AWK</p>
-<p>grep = global regular expression print，全局正则表达式打印，强大的文本搜索工具，-c只输出计数，-i忽略大小写，-n输出行号，-v取反，-h多文件时不显文件名，-r递归搜索</p>
-<p>head = head，查看前n行</p>
-<p>iostat = in out status，IO及CPU状态</p>
-<p>iostat = in out status，IO及CPU状态</p>
-<p>less = less，分页展示文件内容</p>
-<p>logname = loginname，显示当前登录用户名</p>
-<p>ln = link，建立链接，-s建立软链接（默认硬链接）</p>
-<p>locate = locate，查找文件地址，并不查硬盘，而是在/var/lib/slocate/slocate.db中查看，速度快省资源</p>
-<p>ls = list，列出文件，-l详细信息，-h合适单位显示，-S大小排序，-t时间排序</p>
-<p>lsof = List Open Files，列出当前系统打开的文件，ROOT权限，-c某进程打开的文件，-p某进程打开的文件，-u某用户打开的文件，跟目录为目录下打开的文件，跟文件为文件相关打开信息，-i某端口或IP打开的文件</p>
-<p>man = Manual意思是手册，可以用这个命令查询其他命令的用法。</p>
-<p>mkdir = Makedirectory，创建目录，-p指定路径，-m指定权限</p>
-<p>mv = Move，移动文件，同目录下则为重命名，-i询问试覆盖，-f同名强制覆盖，-b备份旧文件（文件名后加~），-u若本文件较新则覆盖旧文件</p>
-<p>more = more，分页显示</p>
-<p>nl = Number of Lines，计算文件行号，类似cat，-b a 计算空行（默认不计算），-n rz以6位数字显示行号前补0，-w指定占位数（默认6）</p>
-<p>passwd = PassWord</p>
-<p>pg = pager，分页显示文件内容</p>
-<p>ping = Packet InterNet Grouper，测试网络，-c指定次数，-i指定间隔秒数</p>
-<p>printf = Print Format</p>
-<p>ps = Processes Status，进程状态 ，命令执行时刻进程信息，-a同终端进程，-A所有进程，-u指定用户，-e同-A，-f展示所有信息，aux查看进程详细信息类似-ef，-C可跟搜索词，–sort=-pcpu,+pmem按cpu降序按mem内存升序排序</p>
-<p>pushd = push Directory，当目录放入目录栈，+/-N将正数/倒数第N个目录移到栈顶并切换到该目录，-n在切目录栈时不切目录</p>
-<p>popd = pop Directory，从目录栈弹出目录，+/-N将正数/倒数第N个目录从目录栈中移除</p>
-<p>pwd = print working Directory，打印工作目录</p>
-<p>rcp = remote copy，远程拷贝，-r递归，-p保留修改时间和权限，将远程文件拷贝到本机，限制条件较多</p>
-<p>rm = ReMove，删除文件，-r递归，-f不询问强制删除</p>
-<p>rmdir = Remove directory，删除目录</p>
-<p>rlogin = remote login，-l指定登录用户名，rlogin IP/主机名</p>
-<p>rsh = remote shell，远程执行shell，-l指定用户</p>
-<p>rmp = RedHat Package Manager，RedHat软件包管理工具，类似Windows里面的“添加/删除程序”，-a查询所有，-e卸载，-h显示进度，-i显示相关信息，-l列出软件所有文件名，-q查询，-p软件包内文件，-v显示执行过程；常用参数：-ivh安装并显示进度，-qpl查看软件包内文件，-qa查询一个软件是否安装过，–relocate指定安装目录，–rebuild编译+打包，–recompile编译+打包+安装</p>
-<p>reboot=Restart your computer，重启</p>
-<p>scp = secure copy，用于Linux间复制，基于ssh远程复制，-p保留修改时间权限，-r递归，-P指定端口，-v显示进度，</p>
-<p>sed = Stream Editor，流编辑器，本身即先查，在CMD中匹配字符两侧要有//，sed -OPTION ‘CMD’ file，选项：-n安静模式，-i直接修改不屏幕输出，-r支持扩展正则，-e多命令，-f文件指定动作；命令：a增，d删除，i插，c改，s正则查，p屏幕输出，g获取内存缓冲区内容并替代当前模板块中文字，G获取内容追加，h内容拷贝到内存，H内容追加到内存</p>
-<p>set = set，主要作用是显示系统中已经存在的shell变量，以及设置shell变量的新变量值，不能够定义新的shell变量，定义新的变量使用declare命令。</p>
-<p>shutdown，关机，-t设定延迟时间，-k通知所有用户，-r重启，-h关机后停机，-c取消关机，-f强制关机，time设定关机时间</p>
-<p>sleep = sleep，动作延迟</p>
-<p>sort = sort，排序，-b忽略行首空格，-r反向，-n以数值，-o排序结果输出文件，-t指定列分隔符，-k指定排序列，-f忽略大小定</p>
-<p>split = split，将大文件分割成小文件，-N每N行分割成一个文件，-bN每N字节分割成一个文件，-C按字节分割保证完整性</p>
-<p>ssh = Secure Shell，远程登录Linux，-l指定用户，-p指定端口</p>
-<p>sshpass，一款ssh免密码输入软件</p>
-<p>su = switch user，切换用户，root切任何用户不需要密码，但其他用户之间切换需要密码，- user表示切换到用户user并将用户环境一并切换，-c执行命令再退回原用户</p>
-<p>sudo = super user do，受限制的su</p>
-<p>svn = SubVersioN</p>
-<p>sync = 强制将内存写入硬盘</p>
-<p>tar = tape archive，打包归档文件，-c创建create，-x提取extract，-t查看list，-f指定归档文件，-m解压时不变更文件更改时间，-p解压时原权限不变，-v显示执行详情，-r向归档文件中追加，-u更新归档文件中文件</p>
-<p>tail = tail，查看尾部n行</p>
-<p>touch = touch，创建，修改文件或者目录的时间属性，若文件不存在，系统会建立一个新的文件，更改文件权限再结合chmod</p>
-<p>top = top，实时显示系统中各个进程的资源占用状况，该命令可以按CPU使用、内存使用和执行时间对任务进行排序</p>
-<p>umount = Unmount 卸载，可以通过设备名卸载或挂载点卸载</p>
-<p>unset = unset，用于删除变量或函数</p>
-<p>useradd、userdel、usermod，新增用户、删除用户、修改用户</p>
-<p>w = who，显示目前登入系统的用户信息</p>
-<p>xargs = eXtended ARGuments，给命令传递参数的一个过滤器，也是组合多个命令的一个工具，它把一个数据流分割为一些足够小的块，以方便过滤器和命令进行处理</p>
-<p>wc = Word Count，计算文件的Byte数、字数、或是列数，-c只显示字节数，-l只显示行数，-w只统计单词数</p>
-<p>who = who，显示当前系统所有使用者等信息</p>
-<p>whoami = whoami，命令用于显示自身用户名称。</p>
-<p>which = which，命令用于查找文件</p>
-<p>whereis = where is，查看文件</p>
-<p>ls：list(列出目录内容)<br> cd：Change Directory（改变目录）<br> su:switch user 切换用户<br> rpm:redhat package manager 红帽子打包管理器<br> pwd:print work directory 打印当前目录 显示出当前工作目录的绝对路径<br> ps: process status(进程状态，类似于windows的任务管理器) 常用参数：－auxf<br> ps -auxf 显示进程状态  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> df: disk free其功能是显示磁盘可用空间数目信息及空间结点信息。换句话说，就是报告在任何安装的设备或目录中，还剩多少自由的空间。<br> rpm： 即RedHat Package Management，是RedHat的发明之一</p>
-<p>rmdir：Remove Directory（删除目录）<br> rm：Remove（删除目录或文件）<br> cat: concatenate连锁 cat file1file2&gt;&gt;file3把文件1和文件2的内容联合起来放到file3中<br> insmod: install module,载入模块<br> ln -s : link -soft 创建一个软链接，相当于创建一个快捷方式<br> mkdir：Make Directory(创建目录<br> touch<br> man: Manual<br> pwd：Print working directory<br> su：Swith user<br> cd：Change directory<br> ls：List files<br> ps：Process Status<br> mkdir：Make directory<br> rmdir：Remove directory<br> mkfs: Make file system<br> fsck：File system check<br> cat: Concatenate</p>
-<p>uname: Unix name<br> df: Disk free<br> du: Disk usage<br> lsmod: List modules<br> mv: Move file<br> rm: Remove file<br> cp: Copy file<br> ln: Link files<br> fg: Foreground<br> bg: Background<br> chown: Change owner<br> chgrp: Change group<br> chmod: Change mode<br> umount: Unmount</p>
-<p>dd: 本来应根据其功能描述“Convert an copy”命名为“cc”，但“cc”已经被用以代表“CComplier”，所以命名为“dd”  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> tar：Tape archive<br> ldd：List dynamic dependencies<br> insmod：Install module<br> rmmod：Remove module<br> lsmod：List module<br> 文件结尾的”rc”（如.bashrc、.xinitrc等）：Resource configuration<br> Knnxxx /Snnxxx（位于rcx.d目录下）：K（Kill）；S(Service)；nn（执行顺序号）；xxx（服务标识）<br> .a（扩展名a）：Archive，static library<br> .so（扩展名so）：Shared object，dynamically linked library<br> .o（扩展名o）：Object file，complied result of C/C++ source file<br> RPM：Red hat package manager<br> dpkg：Debian package manager<br> apt：Advanced package tool（Debian或基于Debian的发行版中提供）<br> 部分<a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/os/linux/">Linux</a>命令缩写  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a></p>
-<p>bin = BINaries<br> /dev = DEVices<br> /etc = ETCetera<br> /lib = LIBrary<br> /proc = PROCesses<br> /sbin = Superuser BINaries<br> /tmp = TeMPorary<br> /usr = Unix Shared Resources<br> /var = VARiable ?<br> FIFO = First In, First Out<br> GRUB = GRand Unified Bootloader<br> IFS = Internal Field Seperators<br> LILO = LInux LOader</p>
-<p>MySQL = My是最初作者女儿的名字，SQL = Structured QueryLanguage<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/kf/web/php/">PHP</a> = Personal Home Page Tools = PHP HypertextPreprocessor<br> PS = Prompt String  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> Perl = “Pratical Extraction and Report Language” =”Pathologically Eclectic Rubbish Lister”<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com/kf/web/Python/">Python</a> 得名于电视剧Monty Python’s Flying Circus<br> Tcl = Tool Command Language<br> Tk = ToolKit<br> VT = Video Terminal<br> YaST = Yet Another Setup Tool<br> apache = “a patchy” server<br> apt = Advanced Packaging Tool<br> ar = archiver<br> as = assembler</p>
-<p>awk = “Aho Weiberger and Kernighan”三个作者的姓的第一个字母<br> bash = Bourne Again SHell<br> bc = Basic (Better) Calculator<br> bg = BackGround<br> biff = 作者HeidiStettner在U.C.Berkely养的一条狗,喜欢对邮递员汪汪叫。<br> cal = CALendar<br> cat = CATenate<br> cd = Change Directory<br> chgrp = CHange GRouP<br> chmod = CHange MODe<br> chown = CHange OWNer<br> chsh = CHange SHell<br> cmp = compare<br> cobra = Common Object Request BrokerArchitecture<br> comm = common<br> cp = CoPy<br> cpio = CoPy In and Out<br> cpp = C Pre Processor<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> cron = Chronos 希腊文时间<br> cups = Common Unix Printing System<br> cvs = Current Version System<br> daemon = Disk And Execution MONitor<br> dc = Desk Calculator<br> dd = Disk Dump<br> df = Disk Free<br> diff = DIFFerence<br> dmesg = diagnostic message<br> du = Disk Usage<br> ed = editor<br> egrep = Extended GREP<br> elf = Extensible Linking Format<br> elm = ELectronic Mail<br> emacs = Editor MACroS<br> eval = EVALuate<br> ex = EXtended<br> exec = EXECute<br> fd = file descriptors<br> fg = ForeGround<br> fgrep = Fixed GREP<br> fmt = format<br> fsck = File System ChecK<br> fstab = FileSystem TABle<br> fvwm = F*** Virtual Window Manager<br> gawk = GNU AWK<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> gpg = GNU Privacy Guard<br> groff = GNU troff<br> hal = Hardware Abstraction Layer<br> joe = Joe’s Own Editor<br> ksh = Korn SHell<br> lame = Lame Ain’t an MP3 Encoder<br> lex = LEXical analyser<br> lisp = LISt Processing = Lots of IrritatingSuperfluous Parentheses<br> ln = LiNk<br> lpr = Line PRint<br> ls = list<br> lsof = LiSt Open Files<br> m4 = Macro processor Version 4<br> man = MANual pages<br> mawk = Mike Brennan’s AWK<br> mc = Midnight Commander<br> mkfs = MaKe FileSystem<br> mknod = MaKe NODe<br> motd = Message of The Day<br> mozilla = MOsaic GodZILLa<br> mtab = Mount TABle<br> mv = MoVe</p>
-<p>nano = Nano’s ANOther editor<br> nawk = New AWK<br> nl = Number of Lines<br> nm = names<br> nohup = No HangUP<br> nroff = New ROFF<br> od = Octal Dump<br> passwd = PASSWorD<br> pg = pager<br> pico = PIne’s message COmposition editor<br> pine = “Program for Internet News &amp;Email” = “Pine is not Elm”<br> ping = 拟声 又 = Packet InterNet Grouper<br> pirntcap = PRINTer CAPability<br> popd = POP Directory<br> pr = pre</p>
-<p>printf = PRINT Formatted<br> ps = Processes Status<br> pty = pseudo tty<br> pushd = PUSH Directory<br> pwd = Print Working Directory<br> rc = runcom = run command, rc还是plan9的shell<br> rev = REVerse<br> rm = ReMove<br> rn = Read News<br> roff = RunOFF<br> rpm = RPM Package Manager = RedHat PackageManager<br> rsh, rlogin, rvim中的r = Remote<br> rxvt = ouR XVT<br> seamoneky = 我<br> sed = Stream EDitor<br> seq = SEQuence<br> shar = SHell ARchive<br> slrn = S-Lang rn<br> ssh = Secure SHell<br> <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> ssl = Secure Sockets Layer<br> stty = Set TTY<br> su = Substitute User<br> svn = SubVersioN<br> tar = Tape ARchive<br> tcsh = TENEX C shell<br> tee = T (T形水管接口)<br> telnet = TEminaL over Network<br> termcap = terminal capability<br> terminfo = terminal information<br> tex = τέχνη的缩写，希腊文art<br> tr = traslate<br> troff = Typesetter new ROFF<br> tsort = Topological SORT<br> tty = TeleTypewriter<br> twm = Tom’s Window Manager<br> tz = TimeZone</p>
-<p>udev = Userspace DEV<br> ulimit = User’s LIMIT<br> umask = User’s MASK<br> uniq = UNIQue<br> vi = VIsual = Very Inconvenient<br> vim = Vi IMproved<br> wall = write all<br> wc = Word Count  <a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=http://www.2cto.com">www.2cto.com</a><br> wine = WINE Is Not an Emulator<br> xargs = eXtended ARGuments<br> xdm = X Display Manager<br> xlfd = X Logical Font Description<br> xmms = X Multimedia System<br> xrdb = X Resources DataBase<br> xwd = X Window Dump<br> yacc = yet another compiler compiler<br> Fish = the Friendly Interactive SHell<br> su = Switch User<br> MIME = Multipurpose Internet Mail Extensions<br> ECMA = European Computer ManufacturersAssociation</p>
+            <p>静态代理<br>        1.要求被装饰者和装饰者实现同一个接口或者继承同一个类<br>        2.装饰者中要有被装饰者的引用<br>        3.对需要加强的方法进行增强<br>        4.对不需要加强的方法调用原来的方法<br>    动态代理<br>        在程序运行的时候,动态的创建一个对象,用这个对象去操作方法方法<br>        jdk的中Proxy ,前提:必须实现一个接口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	Object Proxy.newProxyInstance(ClassLoader 被代理对象的类加载器,Class[] 被代理对象实现的所有接口,InvocationHandler 处理方法);	</span><br><span class="line">		InvocationHandler:接口 只需要重写一个方法</span><br><span class="line">			Object invoke(Object 代理对象,Method 当前执行的方法,Object[] 当前方法执行的时候需要的参数) </span><br><span class="line">				返回值就是 当前方法执行之后的返回值</span><br><span class="line"></span><br><span class="line">昨天的情况:</span><br><span class="line">	对所有的service类中的添加方法进行加强</span><br></pre></td></tr></table></figure>
+<p>linux:操作系统 OS<br>首先来了解下unix:<br>    unix是一个多用户,多任务的操作系统,收费的操作系统.<br>linux:<br>    版本:<br>        内核版本<br>        发行版本<br>    centos:开源的免费的os</p>
+<p>安装虚拟机<br>虚拟机:就是一台电脑<br>通过虚拟机软件可以在自己的电脑在安装几个电脑<br>常见的虚拟机软件:<br>    VmWare<br>    virtualBox:oracle 免费的</p>
+<p>linux的目录结构<br>    home:家.用户的家<br>        普通用户的家目录文件在home下 例如:一个用户tom 在home就会存在tom的目录<br>    root:超级管理员root的家<br>    etc:存放配置文件<br>    usr:存放共享的资源</p>
+<p>linux的命令<br>    常用的命令<br>        查看帮助:<br>            man 命令<br>            退出帮助目录:   q<br>        切换目录:cd<br>            cd 目录<br>            cd 目录/目录<br>            cd ..  :上一级目录<br>            cd /     :根目录<br>            cd ~    :回家<br>        创建目录和删除目录<br>            mkdir 创建<br>                mkdir 目录名<br>                mkdir -p a/b/c<br>            rmdir 删除<br>                rmdir 目录名:只能删除一个空目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">展示目录下文件列表(以后使用ll即可)</span><br><span class="line">	ls</span><br><span class="line">	ls:展示的能看见的文件(和目录)的名称</span><br><span class="line">	ls -a:展示所有的文件的名称</span><br><span class="line">		文件前面有<span class="string">&quot;.&quot;</span>代表的是隐藏文件</span><br><span class="line">	ls -l:显示文件的详细信息</span><br><span class="line">		简写的方式: ll(★)</span><br><span class="line">	ll -h:友好的显示</span><br><span class="line">	</span><br><span class="line">浏览文件</span><br><span class="line">	cat:显示文件的所有内容</span><br><span class="line">		cat 文件名</span><br><span class="line">	more:分页显示</span><br><span class="line">		空格:下一页</span><br><span class="line">		回车:下一行</span><br><span class="line">	less:分页显示</span><br><span class="line">		可以通过PgUp PgDn 翻页查看</span><br><span class="line">	tail(★★)</span><br><span class="line">		查看一个文件的后面的内容</span><br><span class="line">		tail -显示后几行 文件名</span><br><span class="line">		tail -f 文件名 </span><br><span class="line">			动态的查看</span><br><span class="line">			例如:</span><br><span class="line">				tail -f catalina.xxx.log</span><br><span class="line">			通过 ctrl+c 结束滚动查看</span><br><span class="line"></span><br><span class="line">文件的操作</span><br><span class="line">	创建一个文件</span><br><span class="line">		touch 文件名		创建一个空白的文件</span><br><span class="line">	复制文件</span><br><span class="line">		cp 文件 目录/文件名</span><br><span class="line">			例如:</span><br><span class="line">				cp 1.txt 2.txt</span><br><span class="line">				cp 1.txt 1/1.txt</span><br><span class="line">	移动文件(重命名)</span><br><span class="line">		mv 文件 目录/文件名</span><br><span class="line">		mv 文件名 新文件名</span><br><span class="line">			</span><br><span class="line">	删除文件 rm</span><br><span class="line">		rm 文件名:带询问删除</span><br><span class="line">		rm -f 文件名:不带询问删除</span><br><span class="line">		rm -r 目录:带询问的递归删除</span><br><span class="line">		rm -rf 目录:不带询问的递归删除(谨慎使用)</span><br><span class="line">		</span><br><span class="line">	tar:打包或解压 一个文件或者目录(★★)</span><br><span class="line">		常用的组合</span><br><span class="line">			-cvf :打包一个文件或者目录</span><br><span class="line">			-zcvf:打包并压缩一个文件或者目录 压缩的格式:gzip</span><br><span class="line">			-xvf:解压或者打开一个tar文件</span><br><span class="line">		格式:</span><br><span class="line">			tar 参数 文件名 要打包|解压的文件目录</span><br><span class="line">		</span><br><span class="line">		例如:</span><br><span class="line">			将当前目录下的所有文件打包成test1.tar</span><br><span class="line">				tar -cvf test1.tar ./*</span><br><span class="line">			将当前目录下的所有文件打包并压缩成test2.tar.gz</span><br><span class="line">				tar -zcvf test2.tar.gz ./*</span><br><span class="line">			将test1.tar解压到当前目录</span><br><span class="line">				tar -xvf test1.tar </span><br><span class="line">			将test1.tar解压到b目录</span><br><span class="line">				tar -xvf test1.tar -C b</span><br></pre></td></tr></table></figure>
+<p>其他的常用命令<br>    grep:查找符合条件的字符串(★)<br>        grep 字符串<br>    pwd:显示当前的工作目录<br>    wget:下载资料<br>        wget 资源路径</p>
+<p>vi和vim编辑器(理解中了解)<br>    编辑普通文件<br>    三种模式：命令行、插入、底行模式。<br>    切换到命令行模式：按Esc键；<br>    切换到插入模式：按 i 、o、a键；<br>        i 在当前位置生前插入<br>        I 在当前行首插入<br>        a 在当前位置后插入<br>        A 在当前行尾插入<br>        o 在当前行之后插入一行<br>        O 在当前行之前插入一行</p>
+<pre><code>切换到底行模式：按 :（冒号）；
+</code></pre>
+<p>管道 | ★<br>    重要的一个概念，其作用是将一个命令的输出用作另一个命令的输入<br>    例如:<br>        在ifconfig的结果里查找 192.168字符串<br>        ifconfig | grep 192.168<br>    以后常用<br>        查找和java相关的进程<br>        ps -ef | grep java<br>        查找和3306相关的信息<br>        ps -ef | grep 3306</p>
+<p>系统管理命令<br>    date 显示或设置系统时间<br>        date  显示当前系统时间<br>        date -s “2014-01-01 10:10:10“  设置系统时间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">clear 清屏</span><br><span class="line">	ctrl+l</span><br><span class="line">	</span><br><span class="line">ps 正在运行的某个进程的状态</span><br><span class="line">	ps –ef  查看所有进程</span><br><span class="line">	★ps –ef | grep ssh 查找某一进程</span><br><span class="line"></span><br><span class="line"><span class="built_in">kill</span> 杀掉某一进程</span><br><span class="line">	<span class="built_in">kill</span> 2868  杀掉2868编号的进程</span><br><span class="line">	★<span class="built_in">kill</span> -9 2868  强制杀死进程</span><br></pre></td></tr></table></figure>
+
+<p>网络管理<br>    ifconfig:查看所有的网络设置<br>        ifconfig 网卡名称 down :禁用网卡<br>        ifconfig 网卡名称 up :启用网卡</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ping:和window中一样</span><br><span class="line">	通过ctrl+c取消</span><br><span class="line">	</span><br><span class="line">netstat 查看网络端口。</span><br><span class="line">	netstat -an | grep 3306 查询3306端口占用情况</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">了解用户管理</span><br><span class="line">	添加</span><br><span class="line">		useradd 用户名:默认会在home目录下给一个用户创建一个目录</span><br><span class="line">		passwd 用户名: 回车输入密码</span><br><span class="line">	</span><br><span class="line">		useradd 用户名 -d /home/目录:创建一个用户然后在指定该用户的家目录</span><br><span class="line">	</span><br><span class="line">	删除</span><br><span class="line">		userdel 用户名:只是删除用户 但是不删除家目录</span><br><span class="line">		userdel -r 用户名:删除用户连带家目录一起删除</span><br><span class="line">		</span><br><span class="line">	切换用户:</span><br><span class="line">		ssh -l 用户名 -p 22 主机</span><br><span class="line">			例如: ssh -l tom -p 22 192.168.17.131</span><br><span class="line">		su - 用户名</span><br><span class="line">		</span><br><span class="line">了解组管理</span><br><span class="line">	添加</span><br><span class="line">		groupadd 组名</span><br><span class="line">		useradd 用户名 -g 组名</span><br><span class="line">	删除</span><br><span class="line">		groupdel 组名</span><br><span class="line">			注意:</span><br><span class="line">				若组下有用户,删除不了</span><br></pre></td></tr></table></figure>
+<p>文件的权限:</p>
+<p>​    普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。<br>​    目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。<br>​    设备文件： Linux系统把每一个设备都看成是一个文件<br>​    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">通过ll展示的列表</span><br><span class="line">	以 d 开始的是目录文件</span><br><span class="line">	以 - 开始的是普通文件</span><br><span class="line">	</span><br><span class="line">文件的权限9个字母 三个三个一组</span><br><span class="line">	第一组代表的是当前用户的权限</span><br><span class="line">	第二组代表的是组的权限</span><br><span class="line">	第三组代表的是其他用户的权限</span><br><span class="line">	</span><br><span class="line">	r:读  	4</span><br><span class="line">	w:写	2</span><br><span class="line">	x:执行	1</span><br><span class="line">	</span><br><span class="line">chmod 变更文件或目录的权限。</span><br><span class="line">	chmod 755 a.txt </span><br><span class="line">	chmod u=rwx,g=rx,o=rx a.txt</span><br><span class="line">	chmod 000 a.txt  / </span><br><span class="line">	★chmod 777 a.txt</span><br><span class="line">	</span><br><span class="line">了解:chown 变更文件或目录改文件所属用户和组</span><br><span class="line">	chown u1:public a.txt	：变更当前的目录或文件的所属用户和组</span><br><span class="line">	chown -R u1:public dir	：变更目录中的所有的子目录及文件的所属用户和组</span><br><span class="line">	格式:</span><br><span class="line">		chown 用户:组 文件</span><br></pre></td></tr></table></figure>
+
+
+<p>​<br>回顾:<br>​    linux :多用户 多任务的操作系统<br>​    常用命令:<br>​        cd 切换目录<br>​            cd /<br>​            cd ~<br>​            cd ..<br>​        ll 展示列表<br>​        mkdir [-p] 目录<br>​        rmdir 目录:删除空目录<br>​<br>​        touch 文件名:创建空白文件<br>​        cp 文件 目录/文件:复制文件<br>​        mv 文件 目录:移动文件<br>​        mv 文件 新文件:文件重命名<br>​        rm -rf 文件|目录:不询问递归删除<br>​        </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tar 打包或者解压</span><br><span class="line">	tar -cvf 文件名称 目录|文件  打包</span><br><span class="line">	tar -zcvf 文件名称 目录|文件  打包并压缩</span><br><span class="line">	tar -xvf 文件名称 解压至当前目录</span><br><span class="line">	tar -xvf 文件名称 -C 目录: 解压至指定目录</span><br><span class="line">	</span><br><span class="line">grep 查找</span><br><span class="line">| 管道</span><br><span class="line"></span><br><span class="line">设置时间</span><br><span class="line">	date -s <span class="string">&quot;时间&quot;</span>:设置时间</span><br><span class="line">	ps -ef :查看所有进程</span><br><span class="line"></span><br><span class="line">ifconfig:查看ip地址</span><br></pre></td></tr></table></figure>
 
           
         
@@ -478,7 +408,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/19/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/21/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/19/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/21/">下一页</a>
   </nav>
 
 
@@ -524,7 +454,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -537,7 +467,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
