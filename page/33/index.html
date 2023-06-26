@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="private blog by lixingyang">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lixingyang">
+<meta property="og:url" content="http://example.com/page/33/index.html">
+<meta property="og:site_name" content="lixingyang">
+<meta property="og:description" content="private blog by lixingyang">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="lixingyang">
+<meta property="article:tag" content="lixingyang leexingyang lxy web-front-development technology">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/page/33/"/>
+
+
+
+
+
+  <title>lixingyang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lixingyang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/15/cookie-session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lixingyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/10/15/cookie-session/" itemprop="url">cookie-session</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-15T21:20:01+08:00">
+                2021-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Promise中await的问题"><a href="#1-Promise中await的问题" class="headerlink" title="1.Promise中await的问题"></a>1.Promise中await的问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">        resolve([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">await</span> fn(); </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">getData();</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-编码问题"><a href="#2-编码问题" class="headerlink" title="2.编码问题"></a>2.编码问题</h2><ul>
+<li>ASCII -&gt; ANSI(GB2312) -&gt; GBK -&gt; GB18030 -&gt; Unicode -&gt; UTF-8</li>
+<li>base64编码  缺点比以前大</li>
+<li>编码问题</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconv = <span class="built_in">require</span>(<span class="string">&#x27;iconv-lite&#x27;</span>); <span class="comment">// node中的编码转化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readGBKText</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bin = fs.readFileSync(pathname);</span><br><span class="line">    <span class="keyword">return</span> iconv.decode(bin, <span class="string">&#x27;gbk&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Buffer方法"><a href="#3-Buffer方法" class="headerlink" title="3.Buffer方法"></a>3.Buffer方法</h2><ul>
+<li>分配方法 alloc 、from</li>
+<li>slice toString concat isBuffer length(split)</li>
+</ul>
+<h2 id="4-核心模块-fs-、event、-path、stream"><a href="#4-核心模块-fs-、event、-path、stream" class="headerlink" title="4.核心模块 fs 、event、 path、stream"></a>4.核心模块 fs 、event、 path、stream</h2><p>fs:</p>
+<ul>
+<li>readFile writeFile</li>
+<li>(open read write)</li>
+<li>mkdir access <em>stat</em> unlink</li>
+<li>createReadStream  createWriteStream (pipe用法)</li>
+</ul>
+<p>event:</p>
+<ul>
+<li>on emit off once (newListener)</li>
+</ul>
+<p>path:</p>
+<ul>
+<li><p>join  resolve  extname  dirname  <code>__dirname</code> <code> __filename</code></p>
+<p>流的类型:</p>
+</li>
+<li><p>1)可读(on(‘data’)，on(‘end’))   req</p>
+</li>
+<li><p>2)可写 write.end    res</p>
+</li>
+<li><p>3)双工  </p>
+</li>
+<li><p>4)转化流 lib createGzip</p>
+</li>
+</ul>
+<h2 id="5-HTTP-tcp用法"><a href="#5-HTTP-tcp用法" class="headerlink" title="5.HTTP (tcp用法)"></a>5.HTTP (tcp用法)</h2><h3 id="1-一个页面从输入url到页面加载完成显示，这个过程做了什么？"><a href="#1-一个页面从输入url到页面加载完成显示，这个过程做了什么？" class="headerlink" title="1).一个页面从输入url到页面加载完成显示，这个过程做了什么？"></a>1).一个页面从输入url到页面加载完成显示，这个过程做了什么？</h3><ul>
+<li>1). 浏览器通过DNS将url地址解析为ip (如果有缓存直接返回缓存,否则递归解析)    </li>
+<li>2). 通过DNS解析得到了目标服务器的IP地址后，与服务器建立TCP连接。  <ul>
+<li>ip协议： 选择传输路线,负责找到  </li>
+<li>tcp协议： 三次握手，分片，可靠传输，重新发送的机制  (tcp)  </li>
+</ul>
+</li>
+<li>3).浏览器通过http协议发送请求 (增加http的报文信息)  </li>
+<li>4).服务器接受请求后，查库，读文件，拼接好返回的http响应   </li>
+<li>5).浏览器收到html，开始渲染    (浏览器的渲染原理)</li>
+<li>6).解析html为dom，解析css为css-tree,最终生成render-tree 阻塞渲染  </li>
+<li>7).遍历渲染树开始布局，计算每个节点的位置大小信息   </li>
+<li>8).将渲染树每个节点绘制到屏幕  </li>
+<li>9).加载js文件,运行js脚本  </li>
+<li>10).reflow (样式)与repaint(位置)  </li>
+</ul>
+<blockquote>
+<p>OSI协议分层: </p>
+<ul>
+<li>应用层 HTTP,FTP,DNS (与其他计算机进行通讯的一个应用服务，向用户提供应用服务时的通信活动)</li>
+<li>传输层 TCP（可靠） UDP 数据传输 (HTTP -&gt; TCP  DNS-&gt;UDP)</li>
+<li>网络层 IP 选择传输路线 (通过ip地址和mac地址)(使用ARP协议凭借mac地址进行通信)</li>
+<li>链路层 网络连接的硬件部分 </li>
+</ul>
+</blockquote>
+<h3 id="2-Http与Https的区别："><a href="#2-Http与Https的区别：" class="headerlink" title="2).Http与Https的区别："></a>2).Http与Https的区别：</h3><p>缺陷：<br>    - 1).Http本身不具备加密的功能,HTTP 报文使用明文方式发送<br>    - 2).无法确认你发送到的服务器就是真正的目标服务器<br>    - 3).无法阻止海量请求下的 DoS 攻击<br>    - 4).内容被篡改</p>
+<ul>
+<li>HTTPS 是 HTTP 建立在 SSL/TLS 安全协议上的。 （信息加密，完整校验,身份验证）</li>
+</ul>
+<h3 id="3-URI和URL的区别"><a href="#3-URI和URL的区别" class="headerlink" title="3).URI和URL的区别"></a>3).URI和URL的区别</h3><ul>
+<li>URI(Uniform Resource Identifier)是统一资源标识符,在某个规则下能把这个资源独一无二标示出来</li>
+<li>URL(Uniform Resource Locator) 统一资源定位符，表示资源的地点</li>
+</ul>
+<h3 id="4-HTTP1-1版本特性"><a href="#4-HTTP1-1版本特性" class="headerlink" title="4).HTTP1.1版本特性"></a>4).HTTP1.1版本特性</h3><ul>
+<li>长链接:建立链接后可以发送多次请求</li>
+<li>管线化:不用等待可以直接发送下一个请求</li>
+<li>断点续传:206  bytes</li>
+</ul>
+<h3 id="5-常见的http状态码"><a href="#5-常见的http状态码" class="headerlink" title="5).常见的http状态码"></a>5).常见的http状态码</h3><ul>
+<li>200、204、206、301、302、304、400、401、403、404、500、503</li>
+</ul>
+<h3 id="6-常用的http方法有哪些"><a href="#6-常用的http方法有哪些" class="headerlink" title="6).常用的http方法有哪些"></a>6).常用的http方法有哪些</h3><ul>
+<li>GET 获取资源</li>
+<li>POST 向服务器端发送数据，传输实体主体</li>
+<li>PUT 传输文件</li>
+<li>HEAD 获取报文首部</li>
+<li>DELETE 删除文件</li>
+<li>OPTIONS 询问支持的方法</li>
+</ul>
+<h3 id="7-Jsonp的原理-不符合规范的"><a href="#7-Jsonp的原理-不符合规范的" class="headerlink" title="7).Jsonp的原理 (不符合规范的)"></a>7).Jsonp的原理 (不符合规范的)</h3><h3 id="8-页面的性能优化"><a href="#8-页面的性能优化" class="headerlink" title="8).页面的性能优化"></a>8).页面的性能优化</h3><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1562322737439&di=6940a8a49d168d9690f3732794b01a4e&imgtype=0&src=http://img2018.cnblogs.com/blog/1555757/201812/1555757-20181210173358459-380857182.png" alt="img"></p>
+<ul>
+<li><p>缓存<br>强制缓存 &amp; 对比缓存</p>
+<blockquote>
+<p>from memory cache 和 from disk cache<br>查找优先级:</p>
+<ul>
+<li>Service Worker (PWA)  cacheApi 离线缓存 </li>
+</ul>
+</blockquote>
+<ul>
+<li>Memory Cache 网页关闭则失效 （几乎所有的请求资源）</li>
+<li>DiskCache</li>
+<li>网络请求<br>对于大文件来说，大概率是不存储在内存中的,当前系统内存使用率高的话，文件优先存储进硬盘</li>
+</ul>
+</li>
+<li><p>gzip压缩 重复率越高 压缩越高</p>
+</li>
+<li><p>本地存储:localStorage,sessionStorage,session,cookie,indexDB,cacheApi</p>
+</li>
+<li><p>CDN: 内容分发网络,实现负载均衡，并且就近返回内容</p>
+</li>
+<li><p>defer &amp; async ／ preload &amp; prefetch</p>
+<ul>
+<li>defer 和 async 在网络读取的过程中都是异步解析</li>
+<li>defer是有顺序依赖的，async只要脚本加载完后就会执行</li>
+<li>preload 可以对当前页面所需的脚本、样式等资源进行预加载  vue 路由懒加载</li>
+<li>prefetch 加载的资源一般不是用于当前页面的，是未来很可能用到的这样一些资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTP相关Header内容"><a href="#HTTP相关Header内容" class="headerlink" title="HTTP相关Header内容"></a>HTTP相关Header内容</h3><ul>
+<li>缓存Header <ul>
+<li>强:Cache-Control &amp;&amp; Expires<ul>
+<li>private 客户端可以缓存</li>
+<li>public 客户端和代理服务器都可以缓存</li>
+<li>max-age=60 缓存内容将在60秒后失效</li>
+<li>no-cache 需要使用对比缓存验证数据,强制向源服务器再次验证  (没有强制缓存)</li>
+<li>no-store 所有内容都不会缓存，强制缓存和对比缓存都不会触发 (不缓存)</li>
+</ul>
+</li>
+<li>对比:Last-Modified &amp; If-Modified-Since  /  ETag &amp; <em>If-None-Match</em></li>
+</ul>
+</li>
+<li>跨域:Access-Control</li>
+<li>压缩:Content-Encoding : gzip</li>
+<li>范围请求:range</li>
+<li>防盗链:referer  (防止盗用链接)</li>
+<li>用户内核:user-agent</li>
+<li>单主机多域名:host</li>
+<li>多语言:accept-language</li>
+<li>文件上传:Content-Type:multipart/form-data</li>
+<li>文件下载:Content-Description</li>
+</ul>
+<h2 id="6-KOA"><a href="#6-KOA" class="headerlink" title="6.KOA"></a>6.KOA</h2><ul>
+<li>compose应用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="built_in">this</span>.arr.reduce(<span class="function">(<span class="params">a, b, index</span>) =&gt;</span> <span class="function">(<span class="params">...args</span>) =&gt;</span></span><br><span class="line">    <span class="built_in">Promise</span>.resolve(a(<span class="function">() =&gt;</span> b(...args)))</span><br><span class="line">)(<span class="function">() =&gt;</span> &#123;&#125;).then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;ok&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>async + await</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> dispatch = <span class="keyword">async</span> (index) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(index === <span class="built_in">this</span>.arr.length) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.arr[index](<span class="function">()=&gt;</span>dispatch(index+<span class="number">1</span>));</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">return</span> dispatch(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下周 1-4 webpack训练营 周六flutter 两个周六</p>
+<p>node进程</p>
+<h2 id="HTTP无状态的"><a href="#HTTP无状态的" class="headerlink" title="HTTP无状态的"></a>HTTP无状态的</h2><p>不知道每次谁来了</p>
+<ul>
+<li>cookie 是存放到 浏览器上的 ,服务器可以设置，每此请求时会带上cookie</li>
+<li>cookie 不安全 不能存放敏感信息 </li>
+</ul>
+<ul>
+<li>session 服务端（基于cookie） 服务器的内存中，-》 redis 数据库 (get set)</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/32/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/34/">下一页</a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lixingyang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
