@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="珠峰架构课目录第二版 姜文 张仁阳," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、珠峰高级全栈架构课基础部分  ES6&#x2F;ES7语法和原理实现 异步发展过程：callback、promise、generator、co、async&#x2F;await等异步流程控制(async和await的实现原理)  promise设计模式原理及在es6中的应用，手写一个符合promise A+规范的promise实现  Node基础与实战  Node事件原理和发布定阅设计模式  函数式编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="珠峰架构课目录-leesir">
+<meta property="og:url" content="http://example.com/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-leesir/index.html">
+<meta property="og:site_name" content="lixingyang">
+<meta property="og:description" content="一、珠峰高级全栈架构课基础部分  ES6&#x2F;ES7语法和原理实现 异步发展过程：callback、promise、generator、co、async&#x2F;await等异步流程控制(async和await的实现原理)  promise设计模式原理及在es6中的应用，手写一个符合promise A+规范的promise实现  Node基础与实战  Node事件原理和发布定阅设计模式  函数式编程">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-13T14:31:56.000Z">
+<meta property="article:modified_time" content="2021-10-13T15:57:51.962Z">
+<meta property="article:author" content="lixingyang">
+<meta property="article:tag" content="珠峰架构课目录第二版 姜文 张仁阳">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/10/13/珠峰架构课目录-leesir/"/>
+
+
+
+
+
+  <title>珠峰架构课目录-leesir | lixingyang</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lixingyang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-leesir/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lixingyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">珠峰架构课目录-leesir</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-13T22:31:56+08:00">
+                2021-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h3 id="一、珠峰高级全栈架构课基础部分"><a href="#一、珠峰高级全栈架构课基础部分" class="headerlink" title="一、珠峰高级全栈架构课基础部分"></a>一、珠峰高级全栈架构课基础部分</h3></blockquote>
+<ol>
+<li>ES6/ES7语法和原理实现</li>
+<li>异步发展过程：callback、promise、generator、co、async/await等异步流程控制(async和await的实现原理) </li>
+<li>promise设计模式原理及在es6中的应用，手写一个符合promise A+规范的promise实现 </li>
+<li>Node基础与实战 </li>
+<li>Node事件原理和发布定阅设计模式 </li>
+<li>函数式编程 </li>
+</ol>
+<blockquote>
+<h3 id="二、模块化的演进"><a href="#二、模块化的演进" class="headerlink" title="二、模块化的演进"></a>二、模块化的演进</h3></blockquote>
+<ol>
+<li>JavaScript模块化发展的演进历史 CommonJS、AMD、CMD、ES6模块的演进历史</li>
+<li>目前最主流的模块化实现方案: CommonJS 到 ES Module</li>
+<li>手写 CommonJS 的简单实现</li>
+</ol>
+<blockquote>
+<h3 id="三、前端工程化构建工具"><a href="#三、前端工程化构建工具" class="headerlink" title="三、前端工程化构建工具"></a>三、前端工程化构建工具</h3></blockquote>
+<ol>
+<li>gulp的基本用法以及实现原理 </li>
+<li>常用插件(压缩、合并、编译、预览服务、自动注入) </li>
+<li>node.js中自定义流的高级用法 </li>
+<li>实现自定义插件(auto-prefixer) </li>
+<li>webpack基本用法以及运行原理 </li>
+<li>常见的loader以及plugin(DllPlugin等) </li>
+<li>Webpack工作原理分析 </li>
+<li>编写自定义Loader、编写自定义Plugin </li>
+<li>webpack优化(resolve、模块热替换、压缩、代码分割、可视化工具)</li>
+</ol>
+<blockquote>
+<h3 id="四-React全家桶"><a href="#四-React全家桶" class="headerlink" title="四.React全家桶"></a>四.React全家桶</h3></blockquote>
+<h4 id="1-react基础"><a href="#1-react基础" class="headerlink" title="1.react基础"></a>1.react基础</h4><ol>
+<li>为什么采用组件化的方式</li>
+<li>react环境搭建</li>
+<li>JSX语法的使用(createElement,render的原理实现)</li>
+<li>JSX表达式的用法</li>
+<li>JSX的属性(className,htmlFor,style,dangerouslyInnerHTML)</li>
+<li>组件使用(类声明,函数声明)</li>
+<li>组件的属性和状态(属性的检验以及setState详解)</li>
+<li>复合组件</li>
+<li>组件的声明周期</li>
+<li>受控组件 非受控组件</li>
+<li>children属性的使用</li>
+<li>项目实战留言板</li>
+</ol>
+<h4 id="2-redux"><a href="#2-redux" class="headerlink" title="2.redux"></a>2.redux</h4><ol>
+<li>手写redux库(getState,createStore,dispatch,subscribe,applyMiddlewar e,combineReducer,compose,bindActionCreators)</li>
+</ol>
+<h4 id="3-react­redux"><a href="#3-react­redux" class="headerlink" title="3.react­redux"></a>3.react­redux</h4><ol>
+<li>高阶组件的原理和使用</li>
+<li>react高级属性context上下文</li>
+<li>react-redux实现todoList</li>
+<li>手写react-redux(Provider和connect原理解析)</li>
+</ol>
+<h4 id="4-中间件"><a href="#4-中间件" class="headerlink" title="4.中间件"></a>4.中间件</h4><ol>
+<li>手写applyMiddle和compose(中间件原理)</li>
+<li>手写redux-logger,redux-thunk,redux-promise</li>
+<li>手写自定义本地缓存中间件</li>
+</ol>
+<h4 id="5-react­router­dom"><a href="#5-react­router­dom" class="headerlink" title="5.react­router­dom"></a>5.react­router­dom</h4><ol>
+<li>HashRouter,BrowserRouter的区别</li>
+<li>Link,NavLink的使用(extact绝对匹配,state带参数跳转)</li>
+<li>Route组件三种渲染方式(component,render,children)</li>
+<li>路由参数以及子路由的使用(params)</li>
+<li>withRouter,PrivateRouter的用法</li>
+<li>Prompt组件阻止跳转</li>
+<li>重定向(Redirect组件)</li>
+<li>手写HashRouter Route等常用组件</li>
+</ol>
+<h4 id="6-React­Transition­group"><a href="#6-React­Transition­group" class="headerlink" title="6.React­Transition­group"></a>6.React­Transition­group</h4><ol>
+<li>react动画的实现原理 2.使用React-Transition-group库开发todo动画应用</li>
+</ol>
+<h4 id="7-项目实战React珠峰课堂1-0项目"><a href="#7-项目实战React珠峰课堂1-0项目" class="headerlink" title="7.项目实战React珠峰课堂1.0项目"></a>7.项目实战React珠峰课堂1.0项目</h4><h4 id="8-源码级Vue-React深度解析与实现"><a href="#8-源码级Vue-React深度解析与实现" class="headerlink" title="8.源码级Vue+React深度解析与实现"></a>8.源码级Vue+React深度解析与实现</h4><ol>
+<li>手写Vue双向绑定实现</li>
+<li>Vue虚拟DOM和React虚拟DOM的区别</li>
+<li>如何实现一个 Virtual DOM 算法</li>
+<li>通过源码彻底搞明白setState的更新机制</li>
+<li>手写包含虚拟DOM、事件监听、基本组件生命周期等功能的React库</li>
+</ol>
+<h3 id="五-node高级"><a href="#五-node高级" class="headerlink" title="五.node高级"></a>五.node高级</h3><h4 id="1-http深入和tcp详解"><a href="#1-http深入和tcp详解" class="headerlink" title="1.http深入和tcp详解"></a>1.http深入和tcp详解</h4><h4 id="2-express"><a href="#2-express" class="headerlink" title="2.express"></a>2.express</h4><ol>
+<li>手写express框架</li>
+<li>中间件的实现原理、bodyParser、cookie-parser、static、模板原理</li>
+</ol>
+<h4 id="3-Koa"><a href="#3-Koa" class="headerlink" title="3.Koa"></a>3.Koa</h4><ol>
+<li>手写Koa框</li>
+<li>中间件的实现原理、bodyParser、cookie-parser、static、模板原理</li>
+</ol>
+<h4 id="4-Linux"><a href="#4-Linux" class="headerlink" title="4.Linux"></a>4.Linux</h4><h4 id="5-Mongodb"><a href="#5-Mongodb" class="headerlink" title="5.Mongodb"></a>5.Mongodb</h4><h4 id="6-珠峰博客-express-mongodb-mongodb"><a href="#6-珠峰博客-express-mongodb-mongodb" class="headerlink" title="6.珠峰博客(express+mongodb+mongodb)"></a>6.珠峰博客(express+mongodb+mongodb)</h4><p>  基于bootstrap+express+mongodb实现一个包括用户管理、文章管理、多看留言、分页查询、 搜索、文件上传、pv留言统计等功能完整的博客系统。使用了express的路由、ejs模板和serve-favicon、morgan、cookie-parser、body-parser、express-session、connect-mongo、connect-flash、uuid、async等内置各种中间件以及其它发路径保护等自定义中间件，并扩展了富文本编辑器、markdown和heroku云布署等功能。</p>
+<h4 id="7-珠峰聊天室项目实战-react-socket-io-mongodb"><a href="#7-珠峰聊天室项目实战-react-socket-io-mongodb" class="headerlink" title="7.珠峰聊天室项目实战(react+socket.io+mongodb)"></a>7.珠峰聊天室项目实战(react+socket.io+mongodb)</h4><h4 id="8-MySQL"><a href="#8-MySQL" class="headerlink" title="8.MySQL"></a>8.MySQL</h4><h4 id="9-珠峰爬虫-cheerio-request-mysql"><a href="#9-珠峰爬虫-cheerio-request-mysql" class="headerlink" title="9.珠峰爬虫(cheerio+request+mysql)"></a>9.珠峰爬虫(cheerio+request+mysql)</h4><h4 id="10-Redis"><a href="#10-Redis" class="headerlink" title="10.Redis"></a>10.Redis</h4><h4 id="11-Nginx"><a href="#11-Nginx" class="headerlink" title="11.Nginx"></a>11.Nginx</h4><h4 id="12-Docker"><a href="#12-Docker" class="headerlink" title="12.Docker"></a>12.Docker</h4><h4 id="13-单元测试"><a href="#13-单元测试" class="headerlink" title="13.单元测试"></a>13.单元测试</h4><h4 id="14-集群和负载均衡"><a href="#14-集群和负载均衡" class="headerlink" title="14.集群和负载均衡"></a>14.集群和负载均衡</h4><h4 id="15-前端性能监控与性能优化、行为监控与安全防范"><a href="#15-前端性能监控与性能优化、行为监控与安全防范" class="headerlink" title="15.前端性能监控与性能优化、行为监控与安全防范"></a>15.前端性能监控与性能优化、行为监控与安全防范</h4><h4 id="16-项目部署"><a href="#16-项目部署" class="headerlink" title="16.项目部署"></a>16.项目部署</h4><h4 id="17-安全"><a href="#17-安全" class="headerlink" title="17.安全"></a>17.安全</h4><h4 id="18-功能测试与性能测试"><a href="#18-功能测试与性能测试" class="headerlink" title="18.功能测试与性能测试"></a>18.功能测试与性能测试</h4><h4 id="19-全链路优化"><a href="#19-全链路优化" class="headerlink" title="19.全链路优化"></a>19.全链路优化</h4><h3 id="六、前端设计模式-选讲"><a href="#六、前端设计模式-选讲" class="headerlink" title="六、前端设计模式(选讲)"></a>六、前端设计模式(选讲)</h3><h4 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="创建型设计模式"></a>创建型设计模式</h4><h4 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a>结构型设计模式</h4><h4 id="行为型设计模式"><a href="#行为型设计模式" class="headerlink" title="行为型设计模式"></a>行为型设计模式</h4><h3 id="七、算法-amp-数据结构-选讲"><a href="#七、算法-amp-数据结构-选讲" class="headerlink" title="七、算法&amp;数据结构(选讲)"></a>七、算法&amp;数据结构(选讲)</h3><ol>
+<li>时间复杂度</li>
+<li>空间复杂度</li>
+<li>常见排序算法</li>
+<li>冒泡排序、优化</li>
+<li>选择排序</li>
+<li>插入排序</li>
+<li>归并排序</li>
+<li>快速排序式</li>
+<li>计数排序</li>
+<li>桶排序</li>
+<li>基数排序</li>
+<li>链表(链表反转、链表是否有环)</li>
+<li>树(高度、前序、中序、后序、广度优先算法、反转)</li>
+<li>二叉树搜索算法</li>
+<li>青蛙跳台阶问题动态规划算法</li>
+<li>React虚拟DOM Diff算法实现</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95%E7%AC%AC%E4%BA%8C%E7%89%88-%E5%A7%9C%E6%96%87-%E5%BC%A0%E4%BB%81%E9%98%B3/" rel="tag"># 珠峰架构课目录第二版 姜文 张仁阳</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-lixingyang/" rel="next" title="珠峰架构课目录-lixingyang">
+                <i class="fa fa-chevron-left"></i> 珠峰架构课目录-lixingyang
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/15/cookie-session/" rel="prev" title="cookie-session">
+                cookie-session <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8F%A0%E5%B3%B0%E9%AB%98%E7%BA%A7%E5%85%A8%E6%A0%88%E6%9E%B6%E6%9E%84%E8%AF%BE%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">一、珠峰高级全栈架构课基础部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="nav-number">2.</span> <span class="nav-text">二、模块化的演进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">三、前端工程化构建工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B-React%E5%85%A8%E5%AE%B6%E6%A1%B6"><span class="nav-number">4.</span> <span class="nav-text">四.React全家桶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-react%E5%9F%BA%E7%A1%80"><span class="nav-number">4.1.</span> <span class="nav-text">1.react基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-redux"><span class="nav-number">4.2.</span> <span class="nav-text">2.redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-react%C2%ADredux"><span class="nav-number">4.3.</span> <span class="nav-text">3.react­redux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">4.4.</span> <span class="nav-text">4.中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-react%C2%ADrouter%C2%ADdom"><span class="nav-number">4.5.</span> <span class="nav-text">5.react­router­dom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-React%C2%ADTransition%C2%ADgroup"><span class="nav-number">4.6.</span> <span class="nav-text">6.React­Transition­group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98React%E7%8F%A0%E5%B3%B0%E8%AF%BE%E5%A0%821-0%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.7.</span> <span class="nav-text">7.项目实战React珠峰课堂1.0项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%BA%90%E7%A0%81%E7%BA%A7Vue-React%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.8.</span> <span class="nav-text">8.源码级Vue+React深度解析与实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94-node%E9%AB%98%E7%BA%A7"><span class="nav-number">5.</span> <span class="nav-text">五.node高级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-http%E6%B7%B1%E5%85%A5%E5%92%8Ctcp%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.1.</span> <span class="nav-text">1.http深入和tcp详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-express"><span class="nav-number">5.2.</span> <span class="nav-text">2.express</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Koa"><span class="nav-number">5.3.</span> <span class="nav-text">3.Koa</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Linux"><span class="nav-number">5.4.</span> <span class="nav-text">4.Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Mongodb"><span class="nav-number">5.5.</span> <span class="nav-text">5.Mongodb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%8F%A0%E5%B3%B0%E5%8D%9A%E5%AE%A2-express-mongodb-mongodb"><span class="nav-number">5.6.</span> <span class="nav-text">6.珠峰博客(express+mongodb+mongodb)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E7%8F%A0%E5%B3%B0%E8%81%8A%E5%A4%A9%E5%AE%A4%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-react-socket-io-mongodb"><span class="nav-number">5.7.</span> <span class="nav-text">7.珠峰聊天室项目实战(react+socket.io+mongodb)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-MySQL"><span class="nav-number">5.8.</span> <span class="nav-text">8.MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E7%8F%A0%E5%B3%B0%E7%88%AC%E8%99%AB-cheerio-request-mysql"><span class="nav-number">5.9.</span> <span class="nav-text">9.珠峰爬虫(cheerio+request+mysql)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Redis"><span class="nav-number">5.10.</span> <span class="nav-text">10.Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-Nginx"><span class="nav-number">5.11.</span> <span class="nav-text">11.Nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-Docker"><span class="nav-number">5.12.</span> <span class="nav-text">12.Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">5.13.</span> <span class="nav-text">13.单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E9%9B%86%E7%BE%A4%E5%92%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-number">5.14.</span> <span class="nav-text">14.集群和负载均衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E3%80%81%E8%A1%8C%E4%B8%BA%E7%9B%91%E6%8E%A7%E4%B8%8E%E5%AE%89%E5%85%A8%E9%98%B2%E8%8C%83"><span class="nav-number">5.15.</span> <span class="nav-text">15.前端性能监控与性能优化、行为监控与安全防范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="nav-number">5.16.</span> <span class="nav-text">16.项目部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E5%AE%89%E5%85%A8"><span class="nav-number">5.17.</span> <span class="nav-text">17.安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">5.18.</span> <span class="nav-text">18.功能测试与性能测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96"><span class="nav-number">5.19.</span> <span class="nav-text">19.全链路优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%80%89%E8%AE%B2"><span class="nav-number">6.</span> <span class="nav-text">六、前端设计模式(选讲)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">创建型设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.2.</span> <span class="nav-text">结构型设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.3.</span> <span class="nav-text">行为型设计模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E7%AE%97%E6%B3%95-amp-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%80%89%E8%AE%B2"><span class="nav-number">7.</span> <span class="nav-text">七、算法&amp;数据结构(选讲)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lixingyang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
