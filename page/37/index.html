@@ -148,7 +148,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-lixingyang/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -162,7 +162,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/20/%E6%A8%A1%E6%8B%9F%E4%B8%80%E4%B8%AA%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%E5%87%BD%E6%95%B0require/" class="post-title-link" itemprop="url">模拟一个加载模块的函数-require</a>
+            <a href="/2021/10/13/%E7%8F%A0%E5%B3%B0%E6%9E%B6%E6%9E%84%E8%AF%BE%E7%9B%AE%E5%BD%95-lixingyang/" class="post-title-link" itemprop="url">珠峰架构课目录-lixingyang</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-20 15:27:23" itemprop="dateCreated datePublished" datetime="2021-09-20T15:27:23+08:00">2021-09-20</time>
+              <time title="Created: 2021-10-13 22:30:16" itemprop="dateCreated datePublished" datetime="2021-10-13T22:30:16+08:00">2021-10-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -193,16 +193,147 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// module 模块</span><br><span class="line">// node中js文件就是一个模块</span><br><span class="line">// 为什么出现模块的概念 防止命名冲突，可以把同样的功能封装到一起</span><br><span class="line">// esModule commonjs规范</span><br><span class="line">// 一个文件是一个模块</span><br><span class="line">// module.exports 导出给别人使用</span><br><span class="line">// require 来引用别人的模块</span><br><span class="line"></span><br><span class="line">// 1) node模块 会按照后缀名查找 .js 文件是否存在 .json文件</span><br><span class="line">const path = require(&quot;path&quot;);</span><br><span class="line">const fs = require(&quot;fs&quot;);</span><br><span class="line">const vm = require(&quot;vm&quot;);</span><br><span class="line">function Module(id) &#123;</span><br><span class="line">  this.id = id;</span><br><span class="line">  this.exports = &#123;&#125;; // 模块的结果</span><br><span class="line">&#125;</span><br><span class="line">Module.wrapper = [</span><br><span class="line">  &quot;(function(module,exports,require,__filename,__dirname)&#123;&quot;,</span><br><span class="line">  &quot;&#125;)&quot;</span><br><span class="line">];</span><br><span class="line">Module.extensions = &#123;</span><br><span class="line">  &quot;.js&quot;(module) &#123;</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    let fnStr = Module.wrapper[0] + script + Module.wrapper[1];</span><br><span class="line">    let fn = vm.runInThisContext(fnStr); // 让字符串变成js代码</span><br><span class="line">    // 第一个参数是改变this指向  module  module.exports</span><br><span class="line">    fn.call(</span><br><span class="line">      module.exports,</span><br><span class="line">      module,</span><br><span class="line">      module.exports,</span><br><span class="line">      req,</span><br><span class="line">      module.id,</span><br><span class="line">      path.dirname(module.id)</span><br><span class="line">    );</span><br><span class="line">    // exports 已经让用户更改了</span><br><span class="line">  &#125;, // js需要将exports 传入给用户 用户自己赋值</span><br><span class="line">  &quot;.json&quot;(module) &#123;</span><br><span class="line">    // 解析后 node默认会赋值</span><br><span class="line">    let script = fs.readFileSync(module.id, &quot;utf8&quot;);</span><br><span class="line">    module.exports = JSON.parse(script);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">// 给你一个相对路径 解析成绝对路径</span><br><span class="line">Module.resolveFileName = function(filename) &#123;</span><br><span class="line">  // 1) 把相对路径转化成绝对路口 默认会先判断一下是否是绝对路径</span><br><span class="line">  let absPath = path.resolve(__dirname, filename);</span><br><span class="line">  let flag = fs.existsSync(absPath); // 判断文件是否存在 异步方法被废弃</span><br><span class="line">  let current = absPath; // 默认是当前路径</span><br><span class="line">  if (!flag) &#123;</span><br><span class="line">    let keys = Object.keys(Module.extensions);</span><br><span class="line">    for (let i = 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">      current = absPath + keys[i]; // 当前找到的文件路径</span><br><span class="line">      let flag = fs.existsSync(current);</span><br><span class="line">      if (flag) &#123;</span><br><span class="line">        break;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        current = null;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!current) &#123;</span><br><span class="line">    // 如果没有 说明加了后缀文件还是不存在</span><br><span class="line">    throw new Error(&quot;文件不存在&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return current; // 返回文件的路径</span><br><span class="line">&#125;;</span><br><span class="line">Module.prototype.load = function() &#123;</span><br><span class="line">  // 模块加载就是读取文件的内容</span><br><span class="line">  let ext = path.extname(this.id);</span><br><span class="line">  Module.extensions[ext](this); // 根据不同的后缀 调用不同的处理方法</span><br><span class="line">&#125;;</span><br><span class="line">Module.cache = &#123;&#125;;</span><br><span class="line">function req(filename) &#123;</span><br><span class="line">  // 自己实现了一个require方法</span><br><span class="line">  let current = Module.resolveFileName(filename);</span><br><span class="line">  if (Module.cache[current]) &#123;</span><br><span class="line">    return Module.cache[current].exports;</span><br><span class="line">  &#125;</span><br><span class="line">  let module = new Module(current); // 产生一个module</span><br><span class="line">   Module.cache[current] = module;</span><br><span class="line">  module.load();</span><br><span class="line"></span><br><span class="line">  return module.exports; // 默认导出module.exports对象</span><br><span class="line">&#125;</span><br><span class="line">let json = require(&quot;./a1&quot;);</span><br><span class="line">json = require(&quot;./a1&quot;);</span><br><span class="line">console.log(json);</span><br><span class="line"></span><br><span class="line">// node中的模块 3类 文件模块  第三方模块 需要安装 内置模块 fs</span><br><span class="line">// 模块的查找路径</span><br><span class="line"></span><br><span class="line">// 先找文件，找不到的话 找文件夹  </span><br><span class="line">// 第三方模块查找</span><br><span class="line"></span><br><span class="line">require(&#x27;commander&#x27;); // 找不到会像上级查找node_module 直到根目录如果跟目录找不到则报错, 会先找main 对应的字段如果有直接查找，如果没有main 会找index.js / index.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// vue store.js  store</span><br><span class="line"></span><br><span class="line">// npm + buffer 的使用fs </span><br><span class="line">// 流 http</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <blockquote>
+<h3 id="更新课"><a href="#更新课" class="headerlink" title="更新课"></a>更新课</h3></blockquote>
+<ol>
+<li>实战训练营</li>
+<li>vue3.0</li>
+<li>webpack5</li>
+<li>react17</li>
+<li>前端编译原理</li>
+<li>其他重磅更新</li>
+</ol>
+<blockquote>
+<h3 id="核心课"><a href="#核心课" class="headerlink" title="核心课"></a>核心课</h3></blockquote>
+<h6 id="vue-js全家桶"><a href="#vue-js全家桶" class="headerlink" title="vue.js全家桶"></a>vue.js全家桶</h6><ol>
+<li>vue@2源码</li>
+<li>vue@3源码</li>
+<li>vue路由源码</li>
+<li>vuex源码</li>
+<li>vuessr原理</li>
+<li>vue@3实战</li>
+<li>组件化开发</li>
+<li>从零封装专业级的Vue3.0组件库</li>
+<li>路由篇</li>
+<li>vue ssr服务端渲染</li>
+<li>项目优化</li>
+<li>vue@2 &amp;vue3核心应用进阶篇</li>
+<li>vue3.0 + TS全家桶项目</li>
+<li>vue2.0 + elementUI管理系统全栈项目</li>
+<li>vue面试进阶</li>
+</ol>
+<h6 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h6><ol>
+<li>node.js核心模块</li>
+<li>Node框架</li>
+<li>分片断点文件上传</li>
+</ol>
+<h6 id="webpack5工程化"><a href="#webpack5工程化" class="headerlink" title="webpack5工程化"></a>webpack5工程化</h6><h6 id="React-全家桶"><a href="#React-全家桶" class="headerlink" title="React 全家桶"></a>React 全家桶</h6><ol>
+<li>实战篇</li>
+<li>源码篇</li>
+<li>优化篇</li>
+<li>路由篇</li>
+<li>Redux篇</li>
+<li>手写React服务器端渲染SSR</li>
+</ol>
+<h6 id="Next-js实战"><a href="#Next-js实战" class="headerlink" title="Next.js实战"></a>Next.js实战</h6><ol>
+<li>mobx篇</li>
+<li>React状态管理</li>
+<li>从零封装自己的React组件库</li>
+<li>Typescript + React工程化实战</li>
+</ol>
+<blockquote>
+<h3 id="专题课"><a href="#专题课" class="headerlink" title="专题课"></a>专题课</h3></blockquote>
+<h6 id="专题课-1"><a href="#专题课-1" class="headerlink" title="专题课"></a>专题课</h6><ol>
+<li>实现immer不可变数据</li>
+<li>实现css-loader</li>
+<li>实现UMI3.0</li>
+<li>实现webpack5中的模块联邦</li>
+<li>实现React性能优化</li>
+<li>实现JSX转换模块</li>
+<li>实现使用的ReactHooks</li>
+<li>实现@vue/cli脚手架4.0</li>
+<li>实现create-react-app</li>
+<li>实现react-scripts</li>
+<li>实现rollup和tree-shaking</li>
+<li>实现px2rem-loader</li>
+<li>实现React的keepalive组件</li>
+<li>前端人的健康之路</li>
+<li>V8内存管理</li>
+<li>前端编译原理</li>
+<li>sourcemap</li>
+<li>前端二进制应用实战</li>
+<li>手写Nest.js版的IOC容器</li>
+<li>Typescript</li>
+<li>PWA</li>
+<li>从零实现vue-cli</li>
+<li>前端监控和埋点系统</li>
+<li>serverless云开发</li>
+<li>微前端实战与原理</li>
+<li>graphQL</li>
+<li>GraphQL + Next.js微服务开发</li>
+<li>flutter</li>
+<li>electron</li>
+<li>uni-app</li>
+<li>ReactNative</li>
+<li>阿里企业级开发框架 egg.js</li>
+<li>网络安全</li>
+<li>前端性能优化</li>
+<li>计算机网络</li>
+<li>网络协议实现</li>
+<li>Linux</li>
+<li>Nginx</li>
+<li>Docker</li>
+<li>CI/CD 持续集成</li>
+<li>Mongdb</li>
+<li>Mysql</li>
+<li>Redis</li>
+<li>express + mongoose 多人博客</li>
+<li>Typescript + React + Redux 网校课堂</li>
+<li>Egg.js + AntDesignPro + Mysql 开发企业级管理系统</li>
+<li>React + Mongdb + websocket 开发多人聊天室</li>
+<li>cheerio + mysql + nodemailer 开发个性化新闻爬虫</li>
+<li>使用canvas开发flappy brid</li>
+<li>使用three.js开发微信小游戏跳跳</li>
+<li>Nest.js 实战</li>
+</ol>
+<h6 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h6><ol>
+<li>UML模型图</li>
+<li>面向对象</li>
+<li>设计原则</li>
+<li>创建型模型</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ol>
+<h6 id="前端数据结构和算法"><a href="#前端数据结构和算法" class="headerlink" title="前端数据结构和算法"></a>前端数据结构和算法</h6><ol>
+<li>算法的基础知识</li>
+<li>算法的衡量和优化</li>
+<li>排序算法</li>
+<li>递归</li>
+<li>数据结构</li>
+<li>进阶算法</li>
+<li>BAT面试真题</li>
+</ol>
+<blockquote>
+<h3 id="项目实战训练营"><a href="#项目实战训练营" class="headerlink" title="项目实战训练营"></a>项目实战训练营</h3></blockquote>
+<h6 id="项目实战训练营-1"><a href="#项目实战训练营-1" class="headerlink" title="项目实战训练营"></a>项目实战训练营</h6><ol>
+<li>vue3 + TS中台管理系统</li>
+<li>nest-serverless-graphql实战</li>
+<li>持续集成CI/CD</li>
+<li>Kubernetes核心和项目实战</li>
+<li>Egg.js源码和实战训练营</li>
+<li>vue专业后台管理系统</li>
+<li>typescriot + ReactHooks实现珠峰课堂</li>
+<li>微信小程序实战</li>
+<li>Antv/G6实现思维导图实战</li>
+<li>从零实现脚手架cli实战</li>
+<li>nestjs基础到实战项目实战</li>
+<li>Typescript + React组件库实战</li>
+<li>Vue3 + ts组件库实战</li>
+<li>前端全链路监控实战</li>
+<li>就业与面试指导</li>
+<li>软技能</li>
+</ol>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// a1.js</span><br><span class="line">// module.exports = &#x27;hello&#x27;;</span><br><span class="line">// exports = &#x27;hello&#x27;</span><br><span class="line">// console.log(module.exports == exports)</span><br><span class="line"></span><br><span class="line">// module.exports  ==  exports ????</span><br><span class="line"></span><br><span class="line">// let exports = module.exports = &#123;&#125;</span><br><span class="line">exports.a = &#x27;hello&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// index.js 查看arguments 跟 process</span><br><span class="line">console.log(arguments)</span><br><span class="line">console.log(process.argv)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 需要实现的功能即：require部分</span><br><span class="line">Arguments: &#123;</span><br><span class="line">    module,</span><br><span class="line">    exports,</span><br><span class="line">    require,</span><br><span class="line">    __filename,</span><br><span class="line">    __dirname</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 类似于</span><br><span class="line">(function() &#123;</span><br><span class="line">  console.log(arguments)&#125;  //  [1, 2, 3]</span><br><span class="line">)(1, 2, 3)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">[Arguments] &#123;</span><br><span class="line">  &#x27;0&#x27;: &#123;&#125;,</span><br><span class="line">  &#x27;1&#x27;: [Function: require] &#123;</span><br><span class="line">    resolve: [Function: resolve] &#123; paths: [Function: paths] &#125;,</span><br><span class="line">    main: Module &#123;</span><br><span class="line">      id: &#x27;.&#x27;,</span><br><span class="line">      path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">      exports: &#123;&#125;,</span><br><span class="line">      parent: null,</span><br><span class="line">      filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">      loaded: false,</span><br><span class="line">      children: [],</span><br><span class="line">      paths: [Array]</span><br><span class="line">    &#125;,</span><br><span class="line">    extensions: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;.js&#x27;: [Function],</span><br><span class="line">      &#x27;.json&#x27;: [Function],</span><br><span class="line">      &#x27;.node&#x27;: [Function]</span><br><span class="line">    &#125;,</span><br><span class="line">    cache: [Object: null prototype] &#123;</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;: [Module]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;2&#x27;: Module &#123;</span><br><span class="line">    id: &#x27;.&#x27;,</span><br><span class="line">    path: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a&#x27;,</span><br><span class="line">    exports: &#123;&#125;,</span><br><span class="line">    parent: null,</span><br><span class="line">    filename: &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">    loaded: false,</span><br><span class="line">    children: [],</span><br><span class="line">    paths: [</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\Desktop\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\miclx\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\Users\\node_modules&#x27;,</span><br><span class="line">      &#x27;C:\\node_modules&#x27;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#x27;3&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;4&#x27;: &#x27;C:\\Users\\miclx\\Desktop\\xxxxnode\\a&#x27;</span><br><span class="line">&#125;</span><br><span class="line">[</span><br><span class="line">  &#x27;D:\\soft\\node-v12.21.0-win-x64\\node.exe&#x27;,</span><br><span class="line">  &#x27;C:\\Users\\miclx\\Desktop\\xxxnode\\a\\index.js&#x27;,</span><br><span class="line">  &#x27;--port&#x27;,</span><br><span class="line">  &#x27;3003&#x27;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -227,28 +358,6 @@
 
           </div>
           
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
         </div>
           
