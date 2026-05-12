@@ -148,7 +148,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/29/%E8%AE%B0%E8%93%9D%E6%80%9D%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -162,7 +162,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/20/%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%85%B7%E4%BD%93%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">设置动态具体命令</a>
+            <a href="/2023/05/29/%E8%AE%B0%E8%93%9D%E6%80%9D%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">记蓝思流水线工作日志</a>
         </h2>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-20 21:12:51" itemprop="dateCreated datePublished" datetime="2021-09-20T21:12:51+08:00">2021-09-20</time>
+              <time title="Created: 2023-05-29 19:13:09" itemprop="dateCreated datePublished" datetime="2023-05-29T19:13:09+08:00">2023-05-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -193,73 +193,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>将后面安装的npm全局包动态添加到globel环境中  管理员执行：  set-ExecutionPolicy RemoteSigned</p>
-<blockquote>
-<p>dependencies</p>
-</blockquote>
-<ul>
-<li><p>devDependencies  // 开发依赖</p>
-</li>
-<li><p>peerDependencies // 会提示你安装缺少的模块 默认要求带版本</p>
-</li>
-<li><p>bundleDependencies // 打包依赖  npm pack<br>比如：下面就是打包需要打入一个jquery</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bundleDependencies&quot;</span>: [</span><br><span class="line">	<span class="string">&quot;jquery&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure></li>
-<li><p>optionalDependencies // 可选依赖  如果找不到，不会影响npm的下载  有包就用，可以家条件判断</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;optionalDependencies&quot;</span>: &#123;</span><br><span class="line">	<span class="string">&quot;xxx&quot;</span>: <span class="string">&quot;2.1.1&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+          <ul>
+<li>毕业后第二次入工厂</li>
 </ul>
-<blockquote>
-<p>node命令加载步骤：</p>
-</blockquote>
+<p>粗鲁嘈杂，暗无天日，戾气甚重，同处底层，内卷未减丝毫或更甚于中高层群体(大妈跟你抢表现，好似一辈子没见过钱似的)，人心之复杂丑陋毫无顾忌地尽情展放(以前认为的底层更善良原来只是伪装而已—人性的丑陋跟阶层关系没那么密切啊) </p>
 <ol>
-<li>查找选项 package.json   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bin&quot;</span>: &#123;</span><br><span class="line">  <span class="attr">&quot;lesson-zf&quot;</span>: <span class="string">&quot;./bin/www&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;lz&quot;</span>: <span class="string">&quot;./bin/www&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ^ 锁定大版本</span></span><br><span class="line"><span class="comment">// ~ 锁定中间版本</span></span><br><span class="line"><span class="comment">// npm version patch/minor/major</span></span><br><span class="line"><span class="comment">// git tag</span></span><br><span class="line"><span class="comment">// alpha/beta/rc 内测版本 </span></span><br></pre></td></tr></table></figure>
-lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就去执行bin下面的www文件</li>
+<li>流水线恶劣之环境</li>
+<li>黑天白日的倒班</li>
+<li>随时面临主管同事的威胁</li>
 </ol>
-<blockquote>
-<p>package-lock.json</p>
-</blockquote>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.2.0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;resolved&quot;</span>: <span class="string">&quot;https://registry.npm.taobao.org/jquery/download/jquery-2.2.0.tgz&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;integrity&quot;</span>: <span class="string">&quot;sha1-0OhOu/GZ2lG/fsOTB/GbNXVOnLo=&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 锁定版本号</span></span><br><span class="line"><span class="comment">// resolved 下载来源</span></span><br><span class="line"><span class="comment">// integrity hash</span></span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>#! /usr/bin/env node<br>// 使用node来执行文件<br>npm pack 可以将此工具打包<blockquote>
-<p>npm link </p>
-</blockquote>
-<ul>
-<li><p>创建快捷方式指向我的文件 </p>
-</li>
-<li><p>可以将此包安装到global</p>
-</li>
-<li><p>/usr/local/bin/http-server -&gt; /usr/local/lib/node_modules/http-server/bin/http-server<br>/usr/local/bin/hs -&gt; /usr/local/lib/node_modules/http-server/bin/http-server  </p>
-</li>
-</ul>
-</li>
-<li>type等同于cat  ~/.npmrc  用户目录下<br>lesson-zf-lz命令就等同于http-server-hs</li>
-</ol>
-<h3 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h3><p>配置运行的脚本 </p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo hello&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;mime&quot;</span>: <span class="string">&quot;mime 1.jpg&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-
-
-<ol>
-<li>执行命令 ‘echo xxx’</li>
-<li>执行node_modules/.bin下的文件</li>
-</ol>
-<p>当执行npm run的时候 他会把当前目录的node_modules/.bin拷贝到当前系统的path中，所以npm run 可以执行.bin下面的文件，但是这是暂时性行为，命令停止，这个栈就清空了</p>
-<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><p>npx mime 1.jpg</p>
-<ol>
-<li>直接执行node_modules/.bin，不需要去配置script</li>
-<li>可自己安装自己销毁依赖包，<em>避免安装全局模块</em> </li>
-<li>npx create-react-app project-name</li>
-</ol>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>type|cat  ~/.npmrc</p>
-<p>发布包的时候 @vue/cli @vue/service</p>
-<p><em>先切换到npm官方上</em></p>
-<p>npm pack 命令行工具项目文件夹打包</p>
-<p>npm install –production 可以只安装dependcies </p>
-<p>nrm nvm npm 源管理/版本管理</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">npm install nrm -g </span><br><span class="line">nrm use npm</span><br><span class="line"></span><br><span class="line">https://docs.npmjs.com/creating-and-publishing-scoped-public-packages</span><br><span class="line">npm init --scope=@my-username</span><br><span class="line">npm publish --access public</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -285,6 +227,28 @@ lesson-zf和lz都是命令行工具名称<br>看到这些命令操作系统就�
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
